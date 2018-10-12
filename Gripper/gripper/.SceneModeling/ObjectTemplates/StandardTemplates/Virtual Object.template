@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ASCII"?>
+<template:Template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.kuka.com/rapi2/geometry/core" xmlns:template="http://www.kuka.com/rapi2/template" author="KUKA" description="Template provided by KUKA RAPI" type="BuiltIn" name="VirtualObject" id="_9w0eUMHdEeaMnsusVgfCQx">
+  <templateObject xsi:type="core:VirtualObject" id="_9w0eUMHxEeaMnsusVgfCQx" name="VirtualObject" clazz="com.kuka.geometry.VirtualObject" defaultMotionFrame="_9w0eUMHxEeaMnsusVgfCQy" defaultParentAttachmentFrame="_9w0eUMHxEeaMnsusVgfCQy" defaultChildAttachmentFrame="_9w0eUMHxEeaMnsusVgfCQy" comment="Template provided by KUKA RAPI">
+    <rootFrame id="_9w0eUMHxEeaMnsusVgfCQy" name="ROOT" />
+  </templateObject>
+</template:Template>

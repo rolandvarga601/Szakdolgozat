@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--
+ This file contains examples for process data elements.
+ Please copy the content into the RoboticsAPI.ProcessData.xml and modify the processData as needed.
+
+ To use this process data elements in your application you can use @Inject.
+ Please see JavaDoc of IProcessData for further information.
+-->
+
+<processDataContainer version="4">
+    <processData displayName="Example Integer" dataType="java.lang.Integer" defaultValue="0" id="counter" min="0"
+        max="100" value="82">
+        <channel id="SmartHMI" isWriteable="true"/>
+    </processData>
+
+    <processData displayName="Example Double" dataType="java.lang.Double" defaultValue="13.37" id="itemCount"
+        min="0.01" max="200.7" value="12" unit="Objects" comment="already produced">
+        <channel id="SmartHMI" isWriteable="true"/>
+    </processData>
+
+    <processData displayName="Example String" dataType="java.lang.String" defaultValue="0" id="someName" value="Hello World">
+        <channel id="SmartHMI" isWriteable="true"/>
+    </processData>
+
+    <processData displayName="Example Boolean" dataType="java.lang.Boolean" defaultValue="false" id="isTrue"
+        value="true">
+        <channel id="SmartHMI" isWriteable="true"/>
+    </processData>
+
+    <processData displayName="Example NotEditableOnHmi" dataType="java.lang.Boolean" defaultValue="false"
+        id="notEditableOnHmi" value="true">
+        <channel id="SmartHMI" isWriteable="false"/>
+    </processData>
+
+    <processData displayName="Example Invisible on SmartPAD / HMI" dataType="java.lang.Boolean" defaultValue="false"
+        id="invisibleOnHmi" value="true">
+    </processData>
+</processDataContainer>

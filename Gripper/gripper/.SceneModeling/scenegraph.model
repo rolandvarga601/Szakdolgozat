@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ASCII"?>
+<core:World xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.kuka.com/rapi2/geometry/core" xmlns:safety="http://www.kuka.com/rapi2/safety" id="_ZJ_dgbzTEeiLKIgKmGEauQ" name="World" lastModificationTime="2018-09-20T14:47:54.712+0200" defaultChildAttachmentFrame="_ZJ_dgLzTEeiLKIgKmGEauQ" defaultParentAttachmentFrame="_ZJ_dgLzTEeiLKIgKmGEauQ">
+  <rootFrame id="_ZJ_dgLzTEeiLKIgKmGEauQ" name="ROOT" lastModificationTime="2018-09-20T14:47:54.712+0200">
+    <childFrames id="_6PNT8MfhEeiFN5eOBXd9fA" name="p1" lastModificationTime="2018-10-04T17:45:31.750+0200">
+      <extensions key="com.kuka.safety.model.extension">
+        <value xsi:type="safety:ObjectFrameSafety" radius="25"/>
+      </extensions>
+      <redundancyInformation xsi:type="core:LbrE1Redundancy" device="_bw8QIMfgEeiFN5eOBXd9fA" status="2" turn="24" e1="0.078661396302688"/>
+      <parentFrameConnection xsi:type="core:StaticFrameConnection">
+        <transformation x="508.0242645869508" y="378.10021314120985" z="120.52204402627555" alphaRad="-2.743737760967966" betaRad="0.0018174624246633882" gammaRad="3.1267574662000914"/>
+        <teachInfo deviceName="LBR_iiwa_14_R820_1" toolName="/LBR_iiwa_14_R820_1" tcpName="/ROOT/Flange">
+          <tcpTransformation/>
+        </teachInfo>
+      </parentFrameConnection>
+    </childFrames>
+    <childFrames id="_7GwnAMfhEeiFN5eOBXd9fA" name="p2" lastModificationTime="2018-10-04T17:45:52.246+0200">
+      <extensions key="com.kuka.safety.model.extension">
+        <value xsi:type="safety:ObjectFrameSafety" radius="25"/>
+      </extensions>
+      <redundancyInformation xsi:type="core:LbrE1Redundancy" device="_bw8QIMfgEeiFN5eOBXd9fA" status="2" turn="25" e1="0.0786646320340381"/>
+      <parentFrameConnection xsi:type="core:StaticFrameConnection">
+        <transformation x="462.03934162600507" y="-433.0996020402308" z="120.53380810843399" alphaRad="2.1465536242882415" betaRad="0.0018372550984508485" gammaRad="3.1267505693562687"/>
+        <teachInfo deviceName="LBR_iiwa_14_R820_1" toolName="/LBR_iiwa_14_R820_1" tcpName="/ROOT/Flange">
+          <tcpTransformation/>
+        </teachInfo>
+      </parentFrameConnection>
+    </childFrames>
+  </rootFrame>
+  <childObjectConnections childObjectFrame="_bw8QIcfgEeiFN5eOBXd9fA" parentObjectFrame="_ZJ_dgLzTEeiLKIgKmGEauQ">
+    <frameConnection xsi:type="core:StaticFrameConnection">
+      <transformation/>
+    </frameConnection>
+    <childObject xsi:type="core:SerialKinematics" id="_bw8QIMfgEeiFN5eOBXd9fA" name="LBR_iiwa_14_R820_1" lastModificationTime="2018-10-04T16:18:58.468+0200" comment="Template provided by KUKA RAPI" clazz="com.kuka.roboticsAPI.deviceModel.LBR" icon="jar:file:/C:/Program%20Files%20(x86)/KUKA/Sunrise%20Workbench/plugins/com.kuka.configuration.catalog_1.0.0.buildDev_1312/resources/com.kuka.LBR5.cae!/lbr5.png" resourceName="LBR_iiwa_14_R820_1" defaultChildAttachmentFrame="_bw8QIsfgEeiFN5eOBXd9fA" defaultParentAttachmentFrame="_bw8QIcfgEeiFN5eOBXd9fA" topologyItemId="b71350ed-28e8-42a7-9aed-8a89b823e1f2" flangeFrame="_bw8QIsfgEeiFN5eOBXd9fA">
+      <rootFrame id="_bw8QIcfgEeiFN5eOBXd9fA" name="ROOT" lastModificationTime="2018-10-04T16:18:58.466+0200">
+        <childFrames id="_bw8QIsfgEeiFN5eOBXd9fA" name="Flange" lastModificationTime="2018-10-04T16:18:58.466+0200">
+          <parentFrameConnection xsi:type="core:DynamicFrameConnection"/>
+        </childFrames>
+      </rootFrame>
+    </childObject>
+  </childObjectConnections>
+</core:World>

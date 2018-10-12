@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<template:Template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.kuka.com/rapi2/geometry/core" xmlns:template="http://www.kuka.com/rapi2/template" author="KUKA" description="Template provided by KUKA RAPI" type="BuiltIn" name="PhysicalObject" id="_9w1FYMHdEeaMnsusVgfCQx">
+  <templateObject xsi:type="core:PhysicalObject" id="_9w1FYMHxEeaMnsusVgfCQx" name="PhysicalObject" clazz="com.kuka.geometry.PhysicalObject" defaultMotionFrame="_9w1FYMHxEeaMnsusVgfCQy" defaultParentAttachmentFrame="_9w1FYMHxEeaMnsusVgfCQy" defaultChildAttachmentFrame="_9w1FYMHxEeaMnsusVgfCQy"  comment="Template provided by KUKA RAPI">
+    <rootFrame id="_9w1FYMHxEeaMnsusVgfCQy" name="ROOT" />
+    <loadData>
+      <centerOfMass/>
+      <inertia/>
+    </loadData>
+  </templateObject>
+</template:Template>

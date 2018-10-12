@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ASCII"?>
+<template:Template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.kuka.com/rapi2/geometry/core" xmlns:safety="http://www.kuka.com/rapi2/safety" xmlns:template="http://www.kuka.com/rapi2/template" author="KUKA" description="Template provided by KUKA RAPI" type="BuiltIn" name="Tool" id="_9w1FYsHdEeaMnsusVgfCQx">
+  <templateObject xsi:type="core:Tool" id="_9w1FYsHxEeaMnsusVgfCQx" name="Tool" clazz="com.kuka.geometry.Tool" defaultMotionFrame="_9w1FYsHxEeaMnsusVgfCQy"     defaultParentAttachmentFrame="_9w1FYsHxEeaMnsusVgfCQy" defaultChildAttachmentFrame="_9w1FYcHxEeaMnsusVgfCQw" comment="Template provided by KUKA RAPI">
+    <rootFrame id="_9w1FYsHxEeaMnsusVgfCQy" name="ROOT" comment="The root frame of the tool">
+      <childFrames id="_9w1FYcHxEeaMnsusVgfCQw" name="TCP" comment="Tool Center Point">
+         <parentFrameConnection xsi:type="core:StaticFrameConnection">
+            <transformation />
+         </parentFrameConnection>
+      </childFrames>
+    </rootFrame>
+    <loadData>
+      <centerOfMass/>
+      <inertia/>
+    </loadData>
+  </templateObject>
+</template:Template>
