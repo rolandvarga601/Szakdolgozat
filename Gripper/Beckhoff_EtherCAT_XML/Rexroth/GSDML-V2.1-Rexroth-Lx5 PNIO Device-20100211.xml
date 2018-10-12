@@ -1,0 +1,1546 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- edited with XML Spy 2006 sp2  by Bernhard Schoenig (Bosch Rexroth GmbH) -->
+<!-- changed: 2009-Jan-26 pdev -->
+<!-- changed: 2010-Feb-11 no pdev; Icon, Version, in/out texte wg CQ 103381 -->
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\XSD\GSDML-DeviceProfile-v2.1.xsd">
+	<ProfileHeader>
+		<ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+		<ProfileRevision>1.00</ProfileRevision>
+		<ProfileName>Device Profile for PROFINET Devices</ProfileName>
+		<ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+		<ProfileClassID>Device</ProfileClassID>
+		<ISO15745Reference>
+			<ISO15745Part>4</ISO15745Part>
+			<ISO15745Edition>1</ISO15745Edition>
+			<ProfileTechnology>GSDML</ProfileTechnology>
+		</ISO15745Reference>
+	</ProfileHeader>
+	<ProfileBody>
+		<DeviceIdentity VendorID="0x011f" DeviceID="0x2402">
+			<InfoText TextId="IDT_FamilyDescription"/>
+			<VendorName Value="Rexroth"/>
+		</DeviceIdentity>
+		<DeviceFunction>
+			<Family MainFamily="PLCs" ProductFamily="Rexroth CML"/>
+		</DeviceFunction>
+		<ApplicationProcess>
+			<DeviceAccessPointList>
+				<!-- DNS_CompatibleName="Lx5-PNIO-DEVICE" -->
+				<DeviceAccessPointItem ID="IDD1" PhysicalSlots="0..16" ModuleIdentNumber="0x00000105" MinDeviceInterval="32" FixedInSlots="0" DNS_CompatibleName="Lx5-PNIO-DEVICE" ObjectUUID_LocalIndex="1" ImplementationType="netX">
+					<ModuleInfo>
+						<Name TextId="IDT_MODULE_NAME_DAP1"/>
+						<InfoText TextId="IDT_INFO_DAP1"/>
+						<VendorName Value="Rexroth"/>
+						<OrderNumber Value="R911170899"/>
+						<HardwareRelease Value="V1.0"/>
+						<SoftwareRelease Value="V10.7.0.0"/>
+					</ModuleInfo>
+					<!-- <SubslotList>
+						<SubslotItem SubslotNumber="32768" TextId="T_ID_ITF"/>
+						<SubslotItem SubslotNumber="32769" TextId="T_ID_ITFP1"/>
+						<SubslotItem SubslotNumber="32770" TextId="T_ID_ITFP2"/>
+					</SubslotList> -->
+					<IOConfigData MaxInputLength="1024" MaxOutputLength="1024"/>
+					<UseableModules>
+						<ModuleItemRef ModuleItemTarget="Input    8 Byte" AllowedInSlots="1..16"/>
+						<ModuleItemRef ModuleItemTarget="Input  16 Byte" AllowedInSlots="1..16"/>
+						<ModuleItemRef ModuleItemTarget="Input  24 Byte" AllowedInSlots="1..16"/>
+						<ModuleItemRef ModuleItemTarget="Input  32 Byte" AllowedInSlots="1..16"/>
+						<ModuleItemRef ModuleItemTarget="Input  40 Byte" AllowedInSlots="1..16"/>
+						<ModuleItemRef ModuleItemTarget="Input  48 Byte" AllowedInSlots="1..16"/>
+						<ModuleItemRef ModuleItemTarget="Input  56 Byte" AllowedInSlots="1..16"/>
+						<ModuleItemRef ModuleItemTarget="Input  64 Byte" AllowedInSlots="1..16"/>
+						<ModuleItemRef ModuleItemTarget="Input 128 Byte" AllowedInSlots="1..16"/>
+						<ModuleItemRef ModuleItemTarget="Output    8 Byte" AllowedInSlots="1..16"/>
+						<ModuleItemRef ModuleItemTarget="Output  16 Byte" AllowedInSlots="1..16"/>
+						<ModuleItemRef ModuleItemTarget="Output  24 Byte" AllowedInSlots="1..16"/>
+						<ModuleItemRef ModuleItemTarget="Output  32 Byte" AllowedInSlots="1..16"/>
+						<ModuleItemRef ModuleItemTarget="Output  40 Byte" AllowedInSlots="1..16"/>
+						<ModuleItemRef ModuleItemTarget="Output  48 Byte" AllowedInSlots="1..16"/>
+						<ModuleItemRef ModuleItemTarget="Output  56 Byte" AllowedInSlots="1..16"/>
+						<ModuleItemRef ModuleItemTarget="Output  64 Byte" AllowedInSlots="1..16"/>
+						<ModuleItemRef ModuleItemTarget="Output 128 Byte" AllowedInSlots="1..16"/>
+					</UseableModules>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="IDD1" SubmoduleIdentNumber="0x00000001">
+							<IOData IOPS_Length="1" IOCS_Length="1"/>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+					<!-- <SystemDefinedSubmoduleList>
+						<InterfaceSubmoduleItem SubslotNumber="32768" SubmoduleIdentNumber="0x0002" SupportedRT_Class="Class1" TextId="T_ID_DAP_INTERFACE_MODULE" IsochroneModeSupported="false" SupportedProtocols="SNMP;LLDP" SupportedMibs="MIB2">
+							<ApplicationRelations AlarmCR_BlockVersion="1" AR_BlockVersion="1" IOCR_BlockVersion="1" SubmoduleDataBlockVersion="1" NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0">
+								<TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16"/>
+							</ApplicationRelations>
+						</InterfaceSubmoduleItem>
+						<PortSubmoduleItem SubslotNumber="32769" SubmoduleIdentNumber="0x0003" MAUType="100BASETXFD" TextId="T_ID_PORT"/>
+						<PortSubmoduleItem SubslotNumber="32770" SubmoduleIdentNumber="0x0003" MAUType="100BASETXFD" TextId="T_ID_PORT"/>
+					</SystemDefinedSubmoduleList>-->
+					<Graphics>
+						<GraphicItemRef Type="DeviceIcon" GraphicItemTarget="1"/>
+					</Graphics>
+				</DeviceAccessPointItem>
+			</DeviceAccessPointList>
+			<ModuleList>
+				<ModuleItem ID="Input    8 Byte" ModuleIdentNumber="0x00000010">
+					<!--ModuleInfo CategoryRef="T_IN Module"-->
+					<ModuleInfo>
+						<Name TextId="IDT_MODULE_NAME_8ByIn"/>
+						<InfoText TextId="IDT_MODULE_INFO_8ByIn"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="8 Byte In" SubmoduleIdentNumber="0x00000001">
+							<!--IOData IOPS_Length="1" IOCS_Length="1"-->
+							<IOData>
+								<Input Consistency="Item consistency">
+									<!--DataItem DataType="OctetString" Length="8" UseAsBits="true"  TextId="Byte1" /-->
+									<DataItem TextId="Byte_1" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_2" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_3" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_4" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_5" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_6" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_7" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_8" DataType="Unsigned8" UseAsBits="true"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="Input  16 Byte" ModuleIdentNumber="0x00000011">
+					<!--ModuleInfo CategoryRef="T_IN Module"-->
+					<ModuleInfo>
+						<Name TextId="IDT_MODULE_NAME_16ByIn"/>
+						<InfoText TextId="IDT_MODULE_INFO_16ByIn"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="16 Byte In" SubmoduleIdentNumber="0x00000001">
+							<IOData>
+								<Input Consistency="Item consistency">
+									<DataItem TextId="Byte_1" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_2" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_3" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_4" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_5" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_6" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_7" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_8" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_9" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_10" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_11" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_12" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_13" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_14" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_15" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_16" DataType="Unsigned8" UseAsBits="true"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="Input  24 Byte" ModuleIdentNumber="0x00000012">
+					<!--ModuleInfo CategoryRef="T_IN Module"-->
+					<ModuleInfo>
+						<Name TextId="IDT_MODULE_NAME_24ByIn"/>
+						<InfoText TextId="IDT_MODULE_INFO_24ByIn"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="24 Byte In" SubmoduleIdentNumber="0x00000001">
+							<IOData>
+								<Input Consistency="Item consistency">
+									<DataItem TextId="Byte_1" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_2" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_3" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_4" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_5" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_6" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_7" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_8" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_9" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_10" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_11" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_12" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_13" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_14" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_15" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_16" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_17" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_18" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_19" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_20" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_21" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_22" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_23" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_24" DataType="Unsigned8" UseAsBits="true"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="Input  32 Byte" ModuleIdentNumber="0x00000013">
+					<!--ModuleInfo CategoryRef="T_IN Module"-->
+					<ModuleInfo>
+						<Name TextId="IDT_MODULE_NAME_32ByIn"/>
+						<InfoText TextId="IDT_MODULE_INFO_32ByIn"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="32 Byte In" SubmoduleIdentNumber="0x00000001">
+							<IOData>
+								<Input Consistency="Item consistency">
+									<DataItem TextId="Byte_1" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_2" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_3" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_4" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_5" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_6" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_7" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_8" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_9" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_10" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_11" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_12" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_13" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_14" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_15" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_16" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_17" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_18" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_19" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_20" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_21" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_22" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_23" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_24" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_25" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_26" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_27" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_28" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_29" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_30" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_31" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_32" DataType="Unsigned8" UseAsBits="true"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="Input  40 Byte" ModuleIdentNumber="0x00000014">
+					<!--ModuleInfo CategoryRef="T_IN Module"-->
+					<ModuleInfo>
+						<Name TextId="IDT_MODULE_NAME_40ByIn"/>
+						<InfoText TextId="IDT_MODULE_INFO_40ByIn"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="40 Byte In" SubmoduleIdentNumber="0x00000001">
+							<IOData>
+								<Input Consistency="Item consistency">
+									<DataItem TextId="Byte_1" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_2" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_3" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_4" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_5" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_6" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_7" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_8" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_9" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_10" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_11" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_12" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_13" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_14" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_15" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_16" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_17" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_18" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_19" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_20" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_21" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_22" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_23" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_24" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_25" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_26" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_27" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_28" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_29" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_30" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_31" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_32" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_33" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_34" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_35" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_36" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_37" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_38" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_39" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_40" DataType="Unsigned8" UseAsBits="true"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="Input  48 Byte" ModuleIdentNumber="0x00000015">
+					<!--ModuleInfo CategoryRef="T_IN Module"-->
+					<ModuleInfo>
+						<Name TextId="IDT_MODULE_NAME_48ByIn"/>
+						<InfoText TextId="IDT_MODULE_INFO_48ByIn"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="48 Byte In" SubmoduleIdentNumber="0x00000001">
+							<IOData>
+								<Input Consistency="Item consistency">
+									<DataItem TextId="Byte_1" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_2" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_3" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_4" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_5" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_6" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_7" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_8" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_9" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_10" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_11" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_12" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_13" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_14" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_15" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_16" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_17" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_18" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_19" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_20" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_21" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_22" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_23" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_24" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_25" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_26" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_27" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_28" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_29" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_30" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_31" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_32" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_33" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_34" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_35" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_36" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_37" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_38" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_39" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_40" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_41" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_42" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_43" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_44" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_45" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_46" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_47" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_48" DataType="Unsigned8" UseAsBits="true"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="Input  56 Byte" ModuleIdentNumber="0x00000016">
+					<!--ModuleInfo CategoryRef="T_IN Module"-->
+					<ModuleInfo>
+						<Name TextId="IDT_MODULE_NAME_56ByIn"/>
+						<InfoText TextId="IDT_MODULE_INFO_56ByIn"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="56 Byte In" SubmoduleIdentNumber="0x00000001">
+							<IOData>
+								<Input Consistency="Item consistency">
+									<DataItem TextId="Byte_1" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_2" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_3" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_4" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_5" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_6" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_7" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_8" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_9" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_10" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_11" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_12" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_13" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_14" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_15" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_16" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_17" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_18" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_19" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_20" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_21" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_22" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_23" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_24" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_25" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_26" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_27" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_28" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_29" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_30" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_31" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_32" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_33" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_34" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_35" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_36" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_37" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_38" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_39" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_40" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_41" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_42" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_43" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_44" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_45" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_46" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_47" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_48" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_49" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_50" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_51" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_52" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_53" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_54" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_55" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_56" DataType="Unsigned8" UseAsBits="true"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="Input  64 Byte" ModuleIdentNumber="0x00000017">
+					<!--ModuleInfo CategoryRef="T_IN Module"-->
+					<ModuleInfo>
+						<Name TextId="IDT_MODULE_NAME_64ByIn"/>
+						<InfoText TextId="IDT_MODULE_INFO_64ByIn"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="64 Byte In" SubmoduleIdentNumber="0x00000001">
+							<IOData>
+								<Input Consistency="Item consistency">
+									<DataItem TextId="Byte_1" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_2" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_3" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_4" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_5" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_6" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_7" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_8" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_9" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_10" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_11" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_12" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_13" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_14" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_15" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_16" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_17" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_18" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_19" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_20" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_21" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_22" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_23" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_24" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_25" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_26" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_27" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_28" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_29" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_30" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_31" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_32" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_33" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_34" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_35" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_36" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_37" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_38" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_39" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_40" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_41" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_42" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_43" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_44" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_45" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_46" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_47" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_48" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_49" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_50" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_51" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_52" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_53" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_54" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_55" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_56" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_57" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_58" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_59" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_60" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_61" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_62" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_63" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_64" DataType="Unsigned8" UseAsBits="true"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="Input 128 Byte" ModuleIdentNumber="0x00000018">
+					<!--ModuleInfo CategoryRef="T_IN Module"-->
+					<ModuleInfo>
+						<Name TextId="IDT_MODULE_NAME_128ByIn"/>
+						<InfoText TextId="IDT_MODULE_INFO_128ByIn"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="128 Byte In" SubmoduleIdentNumber="0x00000001">
+							<IOData>
+								<Input Consistency="Item consistency">
+									<DataItem TextId="Byte_1" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_2" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_3" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_4" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_5" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_6" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_7" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_8" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_9" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_10" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_11" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_12" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_13" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_14" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_15" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_16" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_17" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_18" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_19" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_20" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_21" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_22" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_23" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_24" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_25" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_26" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_27" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_28" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_29" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_30" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_31" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_32" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_33" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_34" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_35" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_36" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_37" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_38" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_39" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_40" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_41" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_42" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_43" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_44" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_45" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_46" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_47" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_48" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_49" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_50" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_51" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_52" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_53" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_54" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_55" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_56" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_57" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_58" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_59" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_60" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_61" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_62" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_63" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_64" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_65" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_66" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_67" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_68" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_69" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_70" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_71" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_72" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_73" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_74" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_75" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_76" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_77" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_78" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_79" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_80" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_81" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_82" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_83" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_84" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_85" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_86" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_87" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_88" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_89" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_90" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_91" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_92" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_93" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_94" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_95" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_96" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_97" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_98" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_99" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_100" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_101" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_102" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_103" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_104" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_105" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_106" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_107" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_108" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_109" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_110" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_111" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_112" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_113" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_114" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_115" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_116" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_117" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_118" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_119" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_120" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_121" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_122" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_123" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_124" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_125" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_126" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_127" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_128" DataType="Unsigned8" UseAsBits="true"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="Output    8 Byte" ModuleIdentNumber="0x00000020">
+					<ModuleInfo>
+						<Name TextId="IDT_MODULE_NAME_8ByOu"/>
+						<InfoText TextId="IDT_MODULE_INFO_8ByOu"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="08 Byte Out" SubmoduleIdentNumber="0x00000001">
+							<!--IOData IOPS_Length="1" IOCS_Length="1"-->
+							<IOData>
+								<Output Consistency="Item consistency">
+									<DataItem TextId="Byte_1" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_2" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_3" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_4" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_5" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_6" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_7" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_8" DataType="Unsigned8" UseAsBits="true"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="Output  16 Byte" ModuleIdentNumber="0x00000021">
+					<ModuleInfo>
+						<Name TextId="IDT_MODULE_NAME_16ByOu"/>
+						<InfoText TextId="IDT_MODULE_INFO_16ByOu"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="16 Byte Out" SubmoduleIdentNumber="0x00000001">
+							<IOData>
+								<Output Consistency="Item consistency">
+									<DataItem TextId="Byte_1" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_2" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_3" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_4" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_5" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_6" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_7" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_8" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_9" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_10" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_11" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_12" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_13" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_14" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_15" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_16" DataType="Unsigned8" UseAsBits="true"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="Output  24 Byte" ModuleIdentNumber="0x00000022">
+					<!--ModuleInfo CategoryRef="T_IN Module"-->
+					<ModuleInfo>
+						<Name TextId="IDT_MODULE_NAME_24ByOu"/>
+						<InfoText TextId="IDT_MODULE_INFO_24ByOu"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="24 Byte Out" SubmoduleIdentNumber="0x00000001">
+							<IOData>
+								<Output Consistency="Item consistency">
+									<DataItem TextId="Byte_1" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_2" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_3" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_4" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_5" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_6" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_7" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_8" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_9" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_10" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_11" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_12" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_13" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_14" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_15" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_16" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_17" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_18" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_19" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_20" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_21" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_22" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_23" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_24" DataType="Unsigned8" UseAsBits="true"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="Output  32 Byte" ModuleIdentNumber="0x00000023">
+					<!--ModuleInfo CategoryRef="T_IN Module"-->
+					<ModuleInfo>
+						<Name TextId="IDT_MODULE_NAME_32ByOu"/>
+						<InfoText TextId="IDT_MODULE_INFO_32ByOu"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="32 Byte Out" SubmoduleIdentNumber="0x00000001">
+							<IOData>
+								<Output Consistency="Item consistency">
+									<DataItem TextId="Byte_1" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_2" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_3" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_4" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_5" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_6" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_7" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_8" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_9" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_10" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_11" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_12" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_13" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_14" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_15" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_16" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_17" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_18" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_19" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_20" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_21" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_22" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_23" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_24" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_25" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_26" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_27" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_28" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_29" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_30" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_31" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_32" DataType="Unsigned8" UseAsBits="true"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="Output  40 Byte" ModuleIdentNumber="0x00000024">
+					<ModuleInfo>
+						<Name TextId="IDT_MODULE_NAME_40ByOu"/>
+						<InfoText TextId="IDT_MODULE_INFO_40ByOu"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="40 Byte Out" SubmoduleIdentNumber="0x00000001">
+							<IOData>
+								<Output Consistency="Item consistency">
+									<DataItem TextId="Byte_1" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_2" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_3" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_4" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_5" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_6" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_7" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_8" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_9" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_10" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_11" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_12" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_13" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_14" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_15" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_16" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_17" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_18" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_19" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_20" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_21" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_22" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_23" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_24" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_25" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_26" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_27" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_28" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_29" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_30" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_31" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_32" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_33" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_34" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_35" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_36" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_37" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_38" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_39" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_40" DataType="Unsigned8" UseAsBits="true"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="Output  48 Byte" ModuleIdentNumber="0x00000025">
+					<ModuleInfo>
+						<Name TextId="IDT_MODULE_NAME_48ByOu"/>
+						<InfoText TextId="IDT_MODULE_INFO_48ByOu"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="48 Byte Out" SubmoduleIdentNumber="0x00000001">
+							<IOData>
+								<Output Consistency="Item consistency">
+									<DataItem TextId="Byte_1" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_2" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_3" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_4" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_5" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_6" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_7" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_8" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_9" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_10" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_11" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_12" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_13" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_14" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_15" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_16" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_17" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_18" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_19" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_20" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_21" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_22" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_23" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_24" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_25" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_26" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_27" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_28" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_29" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_30" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_31" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_32" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_33" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_34" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_35" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_36" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_37" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_38" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_39" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_40" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_41" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_42" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_43" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_44" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_45" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_46" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_47" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_48" DataType="Unsigned8" UseAsBits="true"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="Output  56 Byte" ModuleIdentNumber="0x00000026">
+					<ModuleInfo>
+						<Name TextId="IDT_MODULE_NAME_56ByOu"/>
+						<InfoText TextId="IDT_MODULE_INFO_56ByOu"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="56 Byte Out" SubmoduleIdentNumber="0x00000001">
+							<IOData>
+								<Output Consistency="Item consistency">
+									<DataItem TextId="Byte_1" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_2" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_3" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_4" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_5" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_6" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_7" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_8" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_9" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_10" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_11" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_12" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_13" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_14" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_15" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_16" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_17" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_18" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_19" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_20" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_21" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_22" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_23" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_24" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_25" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_26" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_27" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_28" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_29" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_30" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_31" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_32" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_33" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_34" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_35" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_36" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_37" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_38" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_39" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_40" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_41" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_42" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_43" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_44" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_45" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_46" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_47" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_48" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_49" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_50" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_51" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_52" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_53" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_54" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_55" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_56" DataType="Unsigned8" UseAsBits="true"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="Output  64 Byte" ModuleIdentNumber="0x00000027">
+					<ModuleInfo>
+						<Name TextId="IDT_MODULE_NAME_64ByOu"/>
+						<InfoText TextId="IDT_MODULE_INFO_64ByOu"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="64 Byte Out" SubmoduleIdentNumber="0x00000001">
+							<IOData>
+								<Output Consistency="Item consistency">
+									<DataItem TextId="Byte_1" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_2" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_3" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_4" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_5" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_6" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_7" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_8" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_9" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_10" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_11" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_12" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_13" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_14" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_15" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_16" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_17" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_18" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_19" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_20" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_21" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_22" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_23" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_24" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_25" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_26" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_27" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_28" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_29" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_30" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_31" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_32" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_33" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_34" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_35" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_36" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_37" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_38" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_39" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_40" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_41" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_42" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_43" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_44" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_45" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_46" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_47" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_48" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_49" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_50" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_51" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_52" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_53" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_54" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_55" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_56" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_57" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_58" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_59" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_60" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_61" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_62" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_63" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_64" DataType="Unsigned8" UseAsBits="true"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="Output 128 Byte" ModuleIdentNumber="0x00000028">
+					<ModuleInfo>
+						<Name TextId="IDT_MODULE_NAME_128ByOu"/>
+						<InfoText TextId="IDT_MODULE_INFO_128ByOu"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="128 Byte Out" SubmoduleIdentNumber="0x00000001">
+							<IOData>
+								<Output Consistency="Item consistency">
+									<DataItem TextId="Byte_1" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_2" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_3" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_4" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_5" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_6" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_7" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_8" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_9" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_10" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_11" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_12" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_13" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_14" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_15" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_16" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_17" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_18" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_19" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_20" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_21" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_22" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_23" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_24" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_25" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_26" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_27" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_28" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_29" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_30" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_31" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_32" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_33" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_34" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_35" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_36" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_37" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_38" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_39" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_40" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_41" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_42" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_43" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_44" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_45" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_46" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_47" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_48" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_49" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_50" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_51" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_52" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_53" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_54" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_55" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_56" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_57" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_58" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_59" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_60" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_61" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_62" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_63" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_64" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_65" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_66" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_67" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_68" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_69" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_70" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_71" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_72" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_73" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_74" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_75" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_76" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_77" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_78" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_79" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_80" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_81" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_82" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_83" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_84" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_85" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_86" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_87" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_88" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_89" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_90" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_91" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_92" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_93" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_94" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_95" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_96" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_97" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_98" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_99" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_100" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_101" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_102" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_103" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_104" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_105" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_106" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_107" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_108" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_109" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_110" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_111" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_112" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_113" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_114" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_115" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_116" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_117" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_118" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_119" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_120" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_121" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_122" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_123" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_124" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_125" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_126" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_127" DataType="Unsigned8" UseAsBits="true"/>
+									<DataItem TextId="Byte_128" DataType="Unsigned8" UseAsBits="true"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+			</ModuleList>
+			<GraphicsList>
+				<GraphicItem ID="1" GraphicFile="CML_PNIODevice"/>
+			</GraphicsList>
+			<ExternalTextList>
+				<PrimaryLanguage>
+					<Text TextId="IDT_FamilyDescription" Value="Lx5 PNIO Device"/>
+					<Text TextId="IDT_MODULE_NAME_DAP1" Value="Lx5 PNIO Device L65"/>
+					<Text TextId="IDT_MODULE_NAME_DAP2" Value="Lx5 PNIO Device L45"/>
+					<Text TextId="IDT_MODULE_NAME_DAP3" Value="Lx5 PNIO Device FM"/>
+					<Text TextId="IDT_INFO_DAP1" Value="PNIO Device based on NetX"/>
+					<Text TextId="IDT_MODULE_NAME_8ByIn" Value="008 Byte Input"/>
+					<Text TextId="IDT_MODULE_INFO_8ByIn" Value="8 Byte digital Inputs"/>
+					<Text TextId="IDT_MODULE_NAME_16ByIn" Value="016 Byte Input"/>
+					<Text TextId="IDT_MODULE_INFO_16ByIn" Value="16 Byte digital Inputs"/>
+					<Text TextId="IDT_MODULE_NAME_24ByIn" Value="024 Byte Input"/>
+					<Text TextId="IDT_MODULE_INFO_24ByIn" Value="24 Byte digital Inputs"/>
+					<Text TextId="IDT_MODULE_NAME_32ByIn" Value="032  Byte Input"/>
+					<Text TextId="IDT_MODULE_INFO_32ByIn" Value="32 Byte digital Inputs"/>
+					<Text TextId="IDT_MODULE_NAME_40ByIn" Value="040 Byte Input"/>
+					<Text TextId="IDT_MODULE_INFO_40ByIn" Value="40 Byte digital Inputs"/>
+					<Text TextId="IDT_MODULE_NAME_48ByIn" Value="048 Byte Input"/>
+					<Text TextId="IDT_MODULE_INFO_48ByIn" Value="48 Byte digital Inputs"/>
+					<Text TextId="IDT_MODULE_NAME_56ByIn" Value="056 Byte Input"/>
+					<Text TextId="IDT_MODULE_INFO_56ByIn" Value="56 Byte digital Inputs"/>
+					<Text TextId="IDT_MODULE_NAME_64ByIn" Value="064 Byte Input"/>
+					<Text TextId="IDT_MODULE_INFO_64ByIn" Value="64 Byte digital Inputs"/>
+					<Text TextId="IDT_MODULE_NAME_128ByIn" Value="128 Byte Input"/>
+					<Text TextId="IDT_MODULE_INFO_128ByIn" Value="128 Byte digital Inputs"/>
+					<Text TextId="IDT_MODULE_NAME_8ByOu" Value="008 Byte Output"/>
+					<Text TextId="IDT_MODULE_INFO_8ByOu" Value="8 Byte digital Outputs"/>
+					<Text TextId="IDT_MODULE_NAME_16ByOu" Value="016 Byte Output"/>
+					<Text TextId="IDT_MODULE_INFO_16ByOu" Value="16 Byte digital Outputs"/>
+					<Text TextId="IDT_MODULE_NAME_24ByOu" Value="024 Byte Output"/>
+					<Text TextId="IDT_MODULE_INFO_24ByOu" Value="24 Byte digital Outputs"/>
+					<Text TextId="IDT_MODULE_NAME_32ByOu" Value="032 Byte Output"/>
+					<Text TextId="IDT_MODULE_INFO_32ByOu" Value="32 Byte digital Outputs"/>
+					<Text TextId="IDT_MODULE_NAME_40ByOu" Value="040 Byte Output"/>
+					<Text TextId="IDT_MODULE_INFO_40ByOu" Value="40 Byte digital Outputs"/>
+					<Text TextId="IDT_MODULE_NAME_48ByOu" Value="048 Byte Output"/>
+					<Text TextId="IDT_MODULE_INFO_48ByOu" Value="48 Byte digital Outputs"/>
+					<Text TextId="IDT_MODULE_NAME_56ByOu" Value="056 Byte Output"/>
+					<Text TextId="IDT_MODULE_INFO_56ByOu" Value="56 Byte digital Outputs"/>
+					<Text TextId="IDT_MODULE_NAME_64ByOu" Value="064 Byte Output"/>
+					<Text TextId="IDT_MODULE_INFO_64ByOu" Value="64 Byte digital Outputs"/>
+					<Text TextId="IDT_MODULE_NAME_128ByOu" Value="128 Byte Output"/>
+					<Text TextId="IDT_MODULE_INFO_128ByOu" Value="128 Byte digital Outputs"/>
+					<Text TextId="IDT_DATAITEM_DigitalInputs" Value="Digital Inputs"/>
+					<Text TextId="IDT_DATAITEM_DigitalOutputs" Value="Digital Outputs"/>
+					<Text TextId="Byte_1" Value="Byte0"/>
+					<Text TextId="Byte_2" Value="Byte1"/>
+					<Text TextId="Byte_3" Value="Byte2"/>
+					<Text TextId="Byte_4" Value="Byte3"/>
+					<Text TextId="Byte_5" Value="Byte4"/>
+					<Text TextId="Byte_6" Value="Byte5"/>
+					<Text TextId="Byte_7" Value="Byte6"/>
+					<Text TextId="Byte_8" Value="Byte7"/>
+					<Text TextId="Byte_9" Value="Byte8"/>
+					<Text TextId="Byte_10" Value="Byte9"/>
+					<Text TextId="Byte_11" Value="Byte10"/>
+					<Text TextId="Byte_12" Value="Byte11"/>
+					<Text TextId="Byte_13" Value="Byte12"/>
+					<Text TextId="Byte_14" Value="Byte13"/>
+					<Text TextId="Byte_15" Value="Byte14"/>
+					<Text TextId="Byte_16" Value="Byte15"/>
+					<Text TextId="Byte_17" Value="Byte16"/>
+					<Text TextId="Byte_18" Value="Byte17"/>
+					<Text TextId="Byte_19" Value="Byte18"/>
+					<Text TextId="Byte_20" Value="Byte19"/>
+					<Text TextId="Byte_21" Value="Byte20"/>
+					<Text TextId="Byte_22" Value="Byte21"/>
+					<Text TextId="Byte_23" Value="Byte22"/>
+					<Text TextId="Byte_24" Value="Byte23"/>
+					<Text TextId="Byte_25" Value="Byte24"/>
+					<Text TextId="Byte_26" Value="Byte25"/>
+					<Text TextId="Byte_27" Value="Byte26"/>
+					<Text TextId="Byte_28" Value="Byte27"/>
+					<Text TextId="Byte_29" Value="Byte28"/>
+					<Text TextId="Byte_30" Value="Byte29"/>
+					<Text TextId="Byte_31" Value="Byte30"/>
+					<Text TextId="Byte_32" Value="Byte31"/>
+					<Text TextId="Byte_33" Value="Byte32"/>
+					<Text TextId="Byte_34" Value="Byte33"/>
+					<Text TextId="Byte_35" Value="Byte34"/>
+					<Text TextId="Byte_36" Value="Byte35"/>
+					<Text TextId="Byte_37" Value="Byte36"/>
+					<Text TextId="Byte_38" Value="Byte37"/>
+					<Text TextId="Byte_39" Value="Byte38"/>
+					<Text TextId="Byte_40" Value="Byte39"/>
+					<Text TextId="Byte_41" Value="Byte40"/>
+					<Text TextId="Byte_42" Value="Byte41"/>
+					<Text TextId="Byte_43" Value="Byte42"/>
+					<Text TextId="Byte_44" Value="Byte43"/>
+					<Text TextId="Byte_45" Value="Byte44"/>
+					<Text TextId="Byte_46" Value="Byte45"/>
+					<Text TextId="Byte_47" Value="Byte46"/>
+					<Text TextId="Byte_48" Value="Byte47"/>
+					<Text TextId="Byte_49" Value="Byte48"/>
+					<Text TextId="Byte_50" Value="Byte49"/>
+					<Text TextId="Byte_51" Value="Byte50"/>
+					<Text TextId="Byte_52" Value="Byte51"/>
+					<Text TextId="Byte_53" Value="Byte52"/>
+					<Text TextId="Byte_54" Value="Byte53"/>
+					<Text TextId="Byte_55" Value="Byte54"/>
+					<Text TextId="Byte_56" Value="Byte55"/>
+					<Text TextId="Byte_57" Value="Byte56"/>
+					<Text TextId="Byte_58" Value="Byte57"/>
+					<Text TextId="Byte_59" Value="Byte58"/>
+					<Text TextId="Byte_60" Value="Byte59"/>
+					<Text TextId="Byte_61" Value="Byte60"/>
+					<Text TextId="Byte_62" Value="Byte61"/>
+					<Text TextId="Byte_63" Value="Byte62"/>
+					<Text TextId="Byte_64" Value="Byte63"/>
+					<Text TextId="Byte_65" Value="Byte64"/>
+					<Text TextId="Byte_66" Value="Byte65"/>
+					<Text TextId="Byte_67" Value="Byte66"/>
+					<Text TextId="Byte_68" Value="Byte67"/>
+					<Text TextId="Byte_69" Value="Byte68"/>
+					<Text TextId="Byte_70" Value="Byte69"/>
+					<Text TextId="Byte_71" Value="Byte70"/>
+					<Text TextId="Byte_72" Value="Byte71"/>
+					<Text TextId="Byte_73" Value="Byte72"/>
+					<Text TextId="Byte_74" Value="Byte73"/>
+					<Text TextId="Byte_75" Value="Byte74"/>
+					<Text TextId="Byte_76" Value="Byte75"/>
+					<Text TextId="Byte_77" Value="Byte76"/>
+					<Text TextId="Byte_78" Value="Byte77"/>
+					<Text TextId="Byte_79" Value="Byte78"/>
+					<Text TextId="Byte_80" Value="Byte79"/>
+					<Text TextId="Byte_81" Value="Byte80"/>
+					<Text TextId="Byte_82" Value="Byte81"/>
+					<Text TextId="Byte_83" Value="Byte82"/>
+					<Text TextId="Byte_84" Value="Byte83"/>
+					<Text TextId="Byte_85" Value="Byte84"/>
+					<Text TextId="Byte_86" Value="Byte85"/>
+					<Text TextId="Byte_87" Value="Byte86"/>
+					<Text TextId="Byte_88" Value="Byte87"/>
+					<Text TextId="Byte_89" Value="Byte88"/>
+					<Text TextId="Byte_90" Value="Byte89"/>
+					<Text TextId="Byte_91" Value="Byte90"/>
+					<Text TextId="Byte_92" Value="Byte91"/>
+					<Text TextId="Byte_93" Value="Byte92"/>
+					<Text TextId="Byte_94" Value="Byte93"/>
+					<Text TextId="Byte_95" Value="Byte94"/>
+					<Text TextId="Byte_96" Value="Byte95"/>
+					<Text TextId="Byte_97" Value="Byte96"/>
+					<Text TextId="Byte_98" Value="Byte97"/>
+					<Text TextId="Byte_99" Value="Byte98"/>
+					<Text TextId="Byte_100" Value="Byte99"/>
+					<Text TextId="Byte_101" Value="Byte100"/>
+					<Text TextId="Byte_102" Value="Byte101"/>
+					<Text TextId="Byte_103" Value="Byte102"/>
+					<Text TextId="Byte_104" Value="Byte103"/>
+					<Text TextId="Byte_105" Value="Byte104"/>
+					<Text TextId="Byte_106" Value="Byte105"/>
+					<Text TextId="Byte_107" Value="Byte106"/>
+					<Text TextId="Byte_108" Value="Byte107"/>
+					<Text TextId="Byte_109" Value="Byte108"/>
+					<Text TextId="Byte_110" Value="Byte109"/>
+					<Text TextId="Byte_111" Value="Byte110"/>
+					<Text TextId="Byte_112" Value="Byte111"/>
+					<Text TextId="Byte_113" Value="Byte112"/>
+					<Text TextId="Byte_114" Value="Byte113"/>
+					<Text TextId="Byte_115" Value="Byte114"/>
+					<Text TextId="Byte_116" Value="Byte115"/>
+					<Text TextId="Byte_117" Value="Byte116"/>
+					<Text TextId="Byte_118" Value="Byte117"/>
+					<Text TextId="Byte_119" Value="Byte118"/>
+					<Text TextId="Byte_120" Value="Byte119"/>
+					<Text TextId="Byte_121" Value="Byte120"/>
+					<Text TextId="Byte_122" Value="Byte121"/>
+					<Text TextId="Byte_123" Value="Byte122"/>
+					<Text TextId="Byte_124" Value="Byte123"/>
+					<Text TextId="Byte_125" Value="Byte124"/>
+					<Text TextId="Byte_126" Value="Byte125"/>
+					<Text TextId="Byte_127" Value="Byte126"/>
+					<Text TextId="Byte_128" Value="Byte127"/>
+					<Text TextId="T_ID_PORT" Value="RJ45 10/100 MBit/s"/>
+					<Text TextId="T_ID_DAP_INTERFACE_MODULE" Value="Interface"/>
+					<Text TextId="T_ID_ITF" Value="Interface"/>
+					<Text TextId="T_ID_ITFP1" Value="Interface Port1"/>
+					<Text TextId="T_ID_ITFP2" Value="Interface Port2"/>
+				</PrimaryLanguage>
+				<Language xml:lang="de">
+					<Text TextId="IDT_FamilyDescription" Value="Lx5 PNIO Device"/>
+					<Text TextId="IDT_MODULE_NAME_DAP1" Value="Lx5 PNIO Device L65"/>
+					<Text TextId="IDT_MODULE_NAME_DAP2" Value="Lx5 PNIO Device L45"/>
+					<Text TextId="IDT_MODULE_NAME_DAP3" Value="Lx5 PNIO Device FM"/>
+					<Text TextId="IDT_INFO_DAP1" Value="PNIO Device basierend auf NetX"/>
+					<Text TextId="IDT_MODULE_NAME_8ByIn" Value="008 Byte Eingang"/>
+					<Text TextId="IDT_MODULE_INFO_8ByIn" Value="8 Byte digitale Eingänge"/>
+					<Text TextId="IDT_MODULE_NAME_16ByIn" Value="016 Byte Eingang"/>
+					<Text TextId="IDT_MODULE_INFO_16ByIn" Value="16 Byte digitale Eingänge"/>
+					<Text TextId="IDT_MODULE_NAME_24ByIn" Value="024 Byte Eingang"/>
+					<Text TextId="IDT_MODULE_INFO_24ByIn" Value="24 Byte digitale Eingänge"/>
+					<Text TextId="IDT_MODULE_NAME_32ByIn" Value="032 Byte Eingang"/>
+					<Text TextId="IDT_MODULE_INFO_32ByIn" Value="32 Byte digitale Eingänge"/>
+					<Text TextId="IDT_MODULE_NAME_40ByIn" Value="040 Byte Eingang"/>
+					<Text TextId="IDT_MODULE_INFO_40ByIn" Value="40 Byte digitale Eingänge"/>
+					<Text TextId="IDT_MODULE_NAME_48ByIn" Value="048 Byte Eingang"/>
+					<Text TextId="IDT_MODULE_INFO_48ByIn" Value="48 Byte digitale Eingänge"/>
+					<Text TextId="IDT_MODULE_NAME_56ByIn" Value="056 Byte Eingang"/>
+					<Text TextId="IDT_MODULE_INFO_56ByIn" Value="56 Byte digitale Eingänge"/>
+					<Text TextId="IDT_MODULE_NAME_64ByIn" Value="064 Byte Eingang"/>
+					<Text TextId="IDT_MODULE_INFO_64ByIn" Value="64 Byte digitale Eingänge"/>
+					<Text TextId="IDT_MODULE_NAME_128ByIn" Value="128 Byte Eingang"/>
+					<Text TextId="IDT_MODULE_INFO_128ByIn" Value="128 Byte digitale Eingänge"/>
+					<Text TextId="IDT_MODULE_NAME_8ByOu" Value="008 Byte Ausgang"/>
+					<Text TextId="IDT_MODULE_INFO_8ByOu" Value="8 Byte digital Ausgänge"/>
+					<Text TextId="IDT_MODULE_NAME_16ByOu" Value="016 Byte Ausgang"/>
+					<Text TextId="IDT_MODULE_INFO_16ByOu" Value="16 Byte digital Ausgänge"/>
+					<Text TextId="IDT_MODULE_NAME_24ByOu" Value="024 Byte Ausgang"/>
+					<Text TextId="IDT_MODULE_INFO_24ByOu" Value="24 Byte digital Ausgänge"/>
+					<Text TextId="IDT_MODULE_NAME_32ByOu" Value="032 Byte Ausgang"/>
+					<Text TextId="IDT_MODULE_INFO_32ByOu" Value="32 Byte digital Ausgänge"/>
+					<Text TextId="IDT_MODULE_NAME_40ByOu" Value="040 Byte Ausgang"/>
+					<Text TextId="IDT_MODULE_INFO_40ByOu" Value="40 Byte digital Ausgänge"/>
+					<Text TextId="IDT_MODULE_NAME_48ByOu" Value="048 Byte Ausgang"/>
+					<Text TextId="IDT_MODULE_INFO_48ByOu" Value="48 Byte digital Ausgänge"/>
+					<Text TextId="IDT_MODULE_NAME_56ByOu" Value="056 Byte Ausgang"/>
+					<Text TextId="IDT_MODULE_INFO_56ByOu" Value="56 Byte digital Ausgänge"/>
+					<Text TextId="IDT_MODULE_NAME_64ByOu" Value="064 Byte Ausgang"/>
+					<Text TextId="IDT_MODULE_INFO_64ByOu" Value="64 Byte digital Ausgänge"/>
+					<Text TextId="IDT_MODULE_NAME_128ByOu" Value="128 Byte Ausgang"/>
+					<Text TextId="IDT_MODULE_INFO_128ByOu" Value="128 Byte digital Ausgänge"/>
+					<Text TextId="IDT_DATAITEM_DigitalInputs" Value="digitale Eingänge"/>
+					<Text TextId="IDT_DATAITEM_DigitalOutputs" Value="digitale Ausgänge"/>
+					<Text TextId="Byte_1" Value="Byte0"/>
+					<Text TextId="Byte_2" Value="Byte1"/>
+					<Text TextId="Byte_3" Value="Byte2"/>
+					<Text TextId="Byte_4" Value="Byte3"/>
+					<Text TextId="Byte_5" Value="Byte4"/>
+					<Text TextId="Byte_6" Value="Byte5"/>
+					<Text TextId="Byte_7" Value="Byte6"/>
+					<Text TextId="Byte_8" Value="Byte7"/>
+					<Text TextId="Byte_9" Value="Byte8"/>
+					<Text TextId="Byte_10" Value="Byte9"/>
+					<Text TextId="Byte_11" Value="Byte10"/>
+					<Text TextId="Byte_12" Value="Byte11"/>
+					<Text TextId="Byte_13" Value="Byte12"/>
+					<Text TextId="Byte_14" Value="Byte13"/>
+					<Text TextId="Byte_15" Value="Byte14"/>
+					<Text TextId="Byte_16" Value="Byte15"/>
+					<Text TextId="Byte_17" Value="Byte16"/>
+					<Text TextId="Byte_18" Value="Byte17"/>
+					<Text TextId="Byte_19" Value="Byte18"/>
+					<Text TextId="Byte_20" Value="Byte19"/>
+					<Text TextId="Byte_21" Value="Byte20"/>
+					<Text TextId="Byte_22" Value="Byte21"/>
+					<Text TextId="Byte_23" Value="Byte22"/>
+					<Text TextId="Byte_24" Value="Byte23"/>
+					<Text TextId="Byte_25" Value="Byte24"/>
+					<Text TextId="Byte_26" Value="Byte25"/>
+					<Text TextId="Byte_27" Value="Byte26"/>
+					<Text TextId="Byte_28" Value="Byte27"/>
+					<Text TextId="Byte_29" Value="Byte28"/>
+					<Text TextId="Byte_30" Value="Byte29"/>
+					<Text TextId="Byte_31" Value="Byte30"/>
+					<Text TextId="Byte_32" Value="Byte31"/>
+					<Text TextId="Byte_33" Value="Byte32"/>
+					<Text TextId="Byte_34" Value="Byte33"/>
+					<Text TextId="Byte_35" Value="Byte34"/>
+					<Text TextId="Byte_36" Value="Byte35"/>
+					<Text TextId="Byte_37" Value="Byte36"/>
+					<Text TextId="Byte_38" Value="Byte37"/>
+					<Text TextId="Byte_39" Value="Byte38"/>
+					<Text TextId="Byte_40" Value="Byte39"/>
+					<Text TextId="Byte_41" Value="Byte40"/>
+					<Text TextId="Byte_42" Value="Byte41"/>
+					<Text TextId="Byte_43" Value="Byte42"/>
+					<Text TextId="Byte_44" Value="Byte43"/>
+					<Text TextId="Byte_45" Value="Byte44"/>
+					<Text TextId="Byte_46" Value="Byte45"/>
+					<Text TextId="Byte_47" Value="Byte46"/>
+					<Text TextId="Byte_48" Value="Byte47"/>
+					<Text TextId="Byte_49" Value="Byte48"/>
+					<Text TextId="Byte_50" Value="Byte49"/>
+					<Text TextId="Byte_51" Value="Byte50"/>
+					<Text TextId="Byte_52" Value="Byte51"/>
+					<Text TextId="Byte_53" Value="Byte52"/>
+					<Text TextId="Byte_54" Value="Byte53"/>
+					<Text TextId="Byte_55" Value="Byte54"/>
+					<Text TextId="Byte_56" Value="Byte55"/>
+					<Text TextId="Byte_57" Value="Byte56"/>
+					<Text TextId="Byte_58" Value="Byte57"/>
+					<Text TextId="Byte_59" Value="Byte58"/>
+					<Text TextId="Byte_60" Value="Byte59"/>
+					<Text TextId="Byte_61" Value="Byte60"/>
+					<Text TextId="Byte_62" Value="Byte61"/>
+					<Text TextId="Byte_63" Value="Byte62"/>
+					<Text TextId="Byte_64" Value="Byte63"/>
+					<Text TextId="Byte_65" Value="Byte64"/>
+					<Text TextId="Byte_66" Value="Byte65"/>
+					<Text TextId="Byte_67" Value="Byte66"/>
+					<Text TextId="Byte_68" Value="Byte67"/>
+					<Text TextId="Byte_69" Value="Byte68"/>
+					<Text TextId="Byte_70" Value="Byte69"/>
+					<Text TextId="Byte_71" Value="Byte70"/>
+					<Text TextId="Byte_72" Value="Byte71"/>
+					<Text TextId="Byte_73" Value="Byte72"/>
+					<Text TextId="Byte_74" Value="Byte73"/>
+					<Text TextId="Byte_75" Value="Byte74"/>
+					<Text TextId="Byte_76" Value="Byte75"/>
+					<Text TextId="Byte_77" Value="Byte76"/>
+					<Text TextId="Byte_78" Value="Byte77"/>
+					<Text TextId="Byte_79" Value="Byte78"/>
+					<Text TextId="Byte_80" Value="Byte79"/>
+					<Text TextId="Byte_81" Value="Byte80"/>
+					<Text TextId="Byte_82" Value="Byte81"/>
+					<Text TextId="Byte_83" Value="Byte82"/>
+					<Text TextId="Byte_84" Value="Byte83"/>
+					<Text TextId="Byte_85" Value="Byte84"/>
+					<Text TextId="Byte_86" Value="Byte85"/>
+					<Text TextId="Byte_87" Value="Byte86"/>
+					<Text TextId="Byte_88" Value="Byte87"/>
+					<Text TextId="Byte_89" Value="Byte88"/>
+					<Text TextId="Byte_90" Value="Byte89"/>
+					<Text TextId="Byte_91" Value="Byte90"/>
+					<Text TextId="Byte_92" Value="Byte91"/>
+					<Text TextId="Byte_93" Value="Byte92"/>
+					<Text TextId="Byte_94" Value="Byte93"/>
+					<Text TextId="Byte_95" Value="Byte94"/>
+					<Text TextId="Byte_96" Value="Byte95"/>
+					<Text TextId="Byte_97" Value="Byte96"/>
+					<Text TextId="Byte_98" Value="Byte97"/>
+					<Text TextId="Byte_99" Value="Byte98"/>
+					<Text TextId="Byte_100" Value="Byte99"/>
+					<Text TextId="Byte_101" Value="Byte100"/>
+					<Text TextId="Byte_102" Value="Byte101"/>
+					<Text TextId="Byte_103" Value="Byte102"/>
+					<Text TextId="Byte_104" Value="Byte103"/>
+					<Text TextId="Byte_105" Value="Byte104"/>
+					<Text TextId="Byte_106" Value="Byte105"/>
+					<Text TextId="Byte_107" Value="Byte106"/>
+					<Text TextId="Byte_108" Value="Byte107"/>
+					<Text TextId="Byte_109" Value="Byte108"/>
+					<Text TextId="Byte_110" Value="Byte109"/>
+					<Text TextId="Byte_111" Value="Byte110"/>
+					<Text TextId="Byte_112" Value="Byte111"/>
+					<Text TextId="Byte_113" Value="Byte112"/>
+					<Text TextId="Byte_114" Value="Byte113"/>
+					<Text TextId="Byte_115" Value="Byte114"/>
+					<Text TextId="Byte_116" Value="Byte115"/>
+					<Text TextId="Byte_117" Value="Byte116"/>
+					<Text TextId="Byte_118" Value="Byte117"/>
+					<Text TextId="Byte_119" Value="Byte118"/>
+					<Text TextId="Byte_120" Value="Byte119"/>
+					<Text TextId="Byte_121" Value="Byte120"/>
+					<Text TextId="Byte_122" Value="Byte121"/>
+					<Text TextId="Byte_123" Value="Byte122"/>
+					<Text TextId="Byte_124" Value="Byte123"/>
+					<Text TextId="Byte_125" Value="Byte124"/>
+					<Text TextId="Byte_126" Value="Byte125"/>
+					<Text TextId="Byte_127" Value="Byte126"/>
+					<Text TextId="Byte_128" Value="Byte127"/>
+					<Text TextId="T_ID_PORT" Value="RJ45 10/100 MBit/s"/>
+					<Text TextId="T_ID_DAP_INTERFACE_MODULE" Value="Interface"/>
+					<Text TextId="T_ID_ITF" Value="Interface"/>
+					<Text TextId="T_ID_ITFP1" Value="Interface Port1"/>
+					<Text TextId="T_ID_ITFP2" Value="Interface Port2"/>
+				</Language>
+			</ExternalTextList>
+		</ApplicationProcess>
+	</ProfileBody>
+</ISO15745Profile>
