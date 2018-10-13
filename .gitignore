@@ -4,3 +4,7 @@ Gripper/WorkVisual_V5\.0\.5_Build0600\.zip
 Gripper/WorkVisual_V5\.0\.5_Build0600/
 
 Image_processing/\.recommenders/
+
+Image_processing/FindQRCodeTest/qr_codes/test_output/
+
+Image_processing/GenerateAndReadQRCode/qr_codes/test_output/

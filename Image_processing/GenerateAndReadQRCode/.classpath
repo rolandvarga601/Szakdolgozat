@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-10">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="F:/BME/7felev/Szakdolgozat/Image_processing/zxing-master/core/target/core-3.3.4-SNAPSHOT.jar" sourcepath="F:/BME/7felev/Szakdolgozat/Image_processing/zxing-master/core/target/core-3.3.4-SNAPSHOT-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/F:/BME/7felev/Szakdolgozat/Image_processing/zxing-master/core/target/core-3.3.4-SNAPSHOT-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="F:/BME/7felev/Szakdolgozat/Image_processing/zxing-master/javase/target/javase-3.3.4-SNAPSHOT.jar" sourcepath="F:/BME/7felev/Szakdolgozat/Image_processing/zxing-master/javase/target/javase-3.3.4-SNAPSHOT-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/F:/BME/7felev/Szakdolgozat/Image_processing/zxing-master/javase/target/javase-3.3.4-SNAPSHOT-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
