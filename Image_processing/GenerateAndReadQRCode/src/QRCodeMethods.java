@@ -17,6 +17,7 @@ import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.HybridBinarizer;
+import com.google.zxing.multi.qrcode.QRCodeMultiReader;
 
 
 public class QRCodeMethods {
@@ -55,6 +56,23 @@ public class QRCodeMethods {
 		BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(bils));
 		Result qrCodeResult = new MultiFormatReader().decode(bitmap);
 	    return qrCodeResult.getText();
+	}
+	
+	/**
+	 * @param FileName
+	 * 
+	 * @return QR Code value 
+	 * 
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 * @throws NotFoundException
+	 */
+	public static Result[] readMultiQRCode(String FileName) throws FileNotFoundException, IOException, NotFoundException {
+		BufferedImage image = getImage(FileName);
+		BufferedImageLuminanceSource bils = new BufferedImageLuminanceSource(image);
+		BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(bils));
+		Result[] qrCodeResults = new QRCodeMultiReader().decodeMultiple(bitmap);
+	    return qrCodeResults;
 	}
 	
 	private static BufferedImage getImage(String FileName) {
