@@ -8,3 +8,19 @@ Image_processing/\.recommenders/
 Image_processing/FindQRCodeTest/qr_codes/test_output/
 
 Image_processing/GenerateAndReadQRCode/qr_codes/test_output/
+
+*.aux
+
+*.bbl
+
+*.blg
+
+*.log
+
+*.out
+
+*.gz
+
+*.toc
+
+*.synctex(busy)

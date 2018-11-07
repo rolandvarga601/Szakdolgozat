@@ -1,6 +1,0 @@
-\contentsline {section}{\numberline {1}Kooperat\IeC {\'\i }v robotkarok alkalmaz\IeC {\'a}sa}{1}{section.1}
-\contentsline {section}{\numberline {2}Alkalmaz\IeC {\'a}shoz sz\IeC {\"u}ks\IeC {\'e}ges m\IeC {\H u}szaki felt\IeC {\'e}telek elemz\IeC {\'e}se}{2}{section.2}
-\contentsline {section}{\numberline {3}Robotkar kalibr\IeC {\'a}ci\IeC {\'o}, referencia felv\IeC {\'e}tel kidolgoz\IeC {\'a}sa}{3}{section.3}
-\contentsline {section}{\numberline {4}Robotkar mozg\IeC {\'a}s\IeC {\'a}nak defini\IeC {\'a}l\IeC {\'a}sa \IeC {\'e}s programoz\IeC {\'a}sa}{4}{section.4}
-\contentsline {section}{\numberline {5}Sakkalgoritmus be\IeC {\'a}gyaz\IeC {\'a}sa}{5}{section.5}
-\contentsline {section}{\numberline {6}Eredm\IeC {\'e}nyek \IeC {\'e}rt\IeC {\'e}kel\IeC {\'e}se}{6}{section.6}
