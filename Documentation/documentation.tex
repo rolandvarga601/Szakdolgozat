@@ -12,7 +12,7 @@
 % \renewcommand{\familydefault}{ptm}
 
 \begin{document}
-\frontmatter
+\pagenumbering{roman}
 \author{Varga Roland}
 \title{Ember és robot interakciójának demonstrációja\\
 		Sakkozó iiwa robotkar}
@@ -63,7 +63,7 @@ Konzulens: & Témavezető: \\
 \end{titlepage}
 
 %--Záradék és nyilatkozatok-------------------------------
-%\include{acknowledgement}
+\include{acknowledgement}
 
 %--Tartalomjegyzék----------------------------------------
 \newpage\null\thispagestyle{empty}
@@ -83,13 +83,14 @@ A táblázatban a többször előforduló jelölések magyar és angol nyelvű e
 \newpage\thispagestyle{fancy}
 %\include{boschfoot}
 
-\mainmatter
+\pagenumbering{arabic}
 
 %--Bevezetés----------------------------------------------
-\include{sections/preamble}
+\subfile{sections/preamble}
 
 %--Irodalomkutatás----------------------------------------
-%\include{sections/literature}
+\newpage
+\subfile{sections/literature}
 %---------------------------------------------------------
 
 %--Tartalmi rész------------------------------------------
@@ -115,10 +116,10 @@ A táblázatban a többször előforduló jelölések magyar és angol nyelvű e
 %---------------------------------------------------------
 
 %--Források-----------------------------------------------
-%\addcontentsline{toc}{section}{Források}
-% \bibliographystyle{unsrt}
+\addcontentsline{toc}{section}{Hivatkozások}
+\bibliographystyle{unsrt}
 %\bibliographystyle{acm}
-%\bibliography{bibdata}
+\bibliography{references}
 %---------------------------------------------------------
 
 %--Angol összefoglalás------------------------------------

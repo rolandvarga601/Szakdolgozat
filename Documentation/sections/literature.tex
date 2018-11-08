@@ -1,0 +1,105 @@
+\documentclass[../documentation.tex]{subfiles}
+ 
+\begin{document}
+
+\section{Irodalomkutatás}
+\subsection{Ipar 4.0 eredete}
+Az Ipar 4.0 koncepcióját Németországban dolgozták ki, ahol világszinten kiemelkedő a termelési iparág, illetve világvezető a gyártó eszközök területén. Az Ipar 4.0 a német kormány stratégiai kezdeményezése volt, mely nagy mértékben támogatta az ipari szektor fejlesztését. Ilyen értélemben az Ipar 4.0-ra tekinthetünk egy olyan mozgalomként, amelynek célja megőrizni Németország befolyását a gépiparban és az autógyártás területén.\cite{industry40}
+
+Az alap koncepciót először a Hanover Fair-en\footnote{A hannoveri a világy egyik legnagyobb kereskedelmi bemutatója. Körülbelül 6500 kiállító és 250.000 látogató vesz részt ezen a rendezvényen.} prezentálták 2011-ben. A bemutató óta az Ipar 4.0 Németország vezető témája a kutatások területén, egyetemi és ipari környezetekben különféle eseményeken. A fő irányvonal az új technológiákban és koncepciókban rejlő potenciál kihasználása felé mutat, ilyen területek:
+\begin{itemize}
+	\item az IoT (\foreignlanguage{british}{Internet of Things}\footnote{A Dolgok internete fizikai eszközökből, járművekből, otthoni felszerelésekből és további elektronikát, szoftvert, szenzorokat, aktuátorokat tartalmazó tételekből álló hálózat, amelyek képesek egymással kapcsolatba lépni, adatot fogadni és küldeni.}) elérhetősége és kihasználása,
+	\item a technológiai és gazdasági folyamatok integrációja cégen belül,
+	\item a valóság virtuális leképezése,
+	\item `okos' gyárak beleértve az `okos' gyártást és termékeket.
+\end{itemize}
+
+\subsection{Előnyei}
+Amellett hogy a digitalizáció és az új technológiák természetes következménye, az Ipar 4.0 megjelenése szintén kapcsolatban áll azzal a ténnyel, hogy a gyártásban a profit nővelésére irányuló kezdeményezések, lehetőségek nagy része kiaknázásra került, új megoldásokat kellett keresni. A gyártási költségek csökkentek a Just-In-Time (röviden JIT) termelés bevezetésével, a lean elveinek alkalmazásával és a gyárak olyan helyre telepítésével, ahol a munkaerő lényegesen olcsóbb. Ha az előállítási költségek minimalizálása a célunk, az Ipar 4.0 egy ígéretes megoldásnak tűnik. Számos forrás alapján az Ipar 4.0 alkalmazása csökkentheti\cite{industryresults}:
+\begin{itemize}
+	\item a gyártás költségét 10-30\%-kal,
+	\item a logisztikával kapcsolatos kiadásokat 10-30\%-kal,
+	\item a minőségmenedzsmenthez köthető költségeket 10-20\%-kal.
+\end{itemize}
+
+Ezeken kívűl a koncepció alkalmazásának számos egyéb előnyéről szólhatunk: (1) új termékek piacra kerülési ideje csökken, (2) érzékenyebb reagálás a megváltozott vásárlói igényekre, (3) lehetővé teszi a személyreszabott tömeggyártást az össz gyártási költség jelentős növelése nélkül, (4) rugalmasabb és barátságosabb munkakörnyezetet teremt, (5) a természetes erőforrásokat hatékonyabban hasznosítja.
+
+%============================================================
+\subsection{Kialakítási alapelvek}
+A számos szövegelemzés és átfogó irodalmi áttekintés négy fő dizájn elvet emelt ki, hogy irányvonalat mutasson a szakértőknek és tudósoknak az Ipar 4.0 környezet kialakításához: összekötés, információs átláthatóság, decentralizált döntéshozatal és technikai asszisztens (\ref{fig:designprinciples}. ábra). Ezek az alapelvek a következő alfejezetekben kerülnek részletes tárgyalásra az egyetemi és ipari publikációkban használt kifejezések (és következésképpen a kialakítási alapelvek) rövid elemzése után.
+
+Összességében a két különböző típusú publikáció szövegelemzése nem mutat lényeges eltérést, mindkettő típus külön-külön elemzése ugyanazokat a kialakítási alapelveket eredményezi. Azonban szembe tűnő, hogy egyes dizájn elemeket gyakrabban tárgyalnak a gyakorlati publikációkban. Az ember-robot kollaboráció, adat- és információbiztonság és a decentralizált döntéshozatal gyakrabban fordul elő ipari kiadványokban. Az első kettővel kapcsolatos értekezések magas száma rávilágít az Ipar 4.0 eredményes implemetálásának legnagyobb kihívásaira amivel az iparban dolgozók szembesülnek. Mindeközben a decentralizált döntéshozatalt tekintik az Ipar 4.0 legproblémásabb elemének, és ezért ez rendkívül részletes és átfogó tárgyalásra kerül.
+
+\begin{figure}
+\centering
+\begin{tikzpicture}
+[node distance = 1cm, auto,font=\footnotesize,
+% STYLES
+every node/.style={node distance=3cm},
+% The comment style is used to describe the characteristics of each force
+comment/.style={rectangle, inner sep= 5pt, text width=4cm, node distance=0.25cm, font=\scriptsize\sffamily},
+% The force style is used to draw the forces' name
+force/.style={rectangle, draw, fill=black!10, inner sep=5pt, text width=4cm, text badly centered, minimum height=1.2cm, font=\bfseries\footnotesize\sffamily}] 
+
+% Draw forces
+\node [force] (design) {Ipar 4.0\\ Tervezési alapelvek};
+\node [force, above of=design] (interconnection) {Összekapcsolás};
+\node [force, left=1cm of design] (assistant) {Technikai asszisztens};
+\node [force, right=1cm of design] (decentralized) {Decentralizált döntéshozatal};
+\node [force, below of=design] (transparency) {Információs átláthatóság};
+
+% ASSISTANT
+\node [comment, below=0.25cm of assistant] {Virtuális asszisztens\\
+Fizikai asszisztens};
+
+% INTERCONNECTION
+\node [comment, right=0.25 of interconnection] {Együttműködés\\ Szabvány\\ Biztonság};
+
+% TRANSPARENCY
+\node [comment, below=0.25 of transparency] {Adatelemzés\\ Információszolgáltatás};
+
+%%%%%%%%%%%%%%%%
+
+% Draw the links between forces
+\path[-,thick] 
+(design) edge (interconnection)
+(design) edge (assistant)
+(design) edge (decentralized)
+(design) edge (transparency);
+
+\end{tikzpicture} 
+\caption{Ipar 4.0 tervezési szempontok}
+\label{fig:designprinciples}
+\end{figure}
+
+\subsubsection{Összekapcsolás}
+Gépek, eszközök, szenzorok és emberek kapcsolatba lépnek IoT-n (\foreignlanguage{british}{Internet of Things} - Dolgok internete) és IoP-n (\foreignlanguage{british}{Internet of People} - Emberek internete\cite{iop}) keresztül és így formálnak egy IoE-t (\foreignlanguage{british}{Internet of Everything} - Minden internete\cite{ioe}). A vezetéknélküli technológiák kiemelkedő szerepet játszanak az interakciók során, mivel lehetővé teszik az internetes hozzáférést mindenfelé. Az IoE-n keresztül összekötött emberek és eszközök képesek egymással információt megosztani, ami a kollaboráció alapját jelenti a közös célok elérése érdekében. 3 különböző típust különböztethetünk meg az IoE kapcsán: ember-ember együttműködés, \textbf{ember-robot kollaboráció} és robot-robot kollaboráció.\cite{collabtypes}
+
+A különböző gépek, eszközök, érzékelők és emberek egymás közti interakciója során elengedhetetlen szerepe van a széles körben elfogadott kommunikációs szabványoknak. Ezek teszik lehetővé a különböző gyártóktól érkező moduláris eszközök rugalmas kombinálását. Ez a modularizáció az alapfeltétel, hogy az Ipar 4.0 `okos' gyárai alkalmazkodni tudjanak a folyamatosan változó piaci igényekhez vagy a személyreszabott rendelésekhez.
+
+Ahogy nő az IoE-ben részt vevők száma, a monetáris\footnote{pénzhez vagy valutához kötődő} és politikai érdekek meg fogják növelni az ilyen létesítmények elleni káros támadások számát, így az igény is nőni fog a magasabb fokú informatikai biztonság iránt.
+
+\subsubsection{Információs átláthatóság}
+Az összekapcsolt objektumok és emberek növekvő számának köszönhetően, a fizikai és a virtuális világ egybeolvadása lehetővé tesz egy újfajta információs modellt\cite{newinformation}. Az érzékelők összekapcsolása révén képezhetünk egy digitális, virtuális leképezést a világunkról.
+
+Az összefüggés-tudatos információ az IoE résztvevői számára elengedhetetlenek a megfelelő döntések meghozatalához. Az ilyen összefüggés-tudatos rendszerek a feladataikat virtuális és a fizikai világból érkező iformációk alapján látják el. A virtuális világból érkező információkra példák az elektronikus dokumentumok, rajzok, szimulációs modellek. A fizikai világ információi például a pozíció vagy a szerszám állapota. A fizikai világ elemzéséhez az érzékelők felől érkező nyers adatokat magasabb szintű értelmezési és egyéb információval kell kiegészíteni. Ahhoz, hogy az átláthatóságot fenntartsuk, az adatelemzés eredményeit egy olyan kisegítő rendszerbe kell bevinni, ami minden IoE résztvevő számára elérhető. A folyamatkritikus információk esetén a valós idejű adatszolgáltatás elengedhetetlen.
+
+\subsubsection{Decentralizált döntéshozatal}
+A decentralizált döntések meghozatalának két alappilére az ojektumok és emberek összekapcsolása, illetve a termelő létesítményen belülről és kívülről érkező információk átláthatósága. Az összekapcsolt és decentralizált döntéshozó egységek lehetővé teszik a lokális információk globálissal együtti felhasználását egyazon időben, így elősegítve az átgondoltabb döntéshozatalt és így növelve összességében a termelékenységet. Az egyes IoE elemek a feladataikat annyira önállóan látják el, amennyire csak lehet. A feladatok csak kivételek, zavarok vagy ellentmondásos célok esetén kerülnek továbbításra magasabb szintre.
+
+Gyakorlati szempontból a decentralizált döntéshozatalt a kiber-fizikai rendszerek teszik lehetővé. Ezek beágyazott számítóegységeinek, szenzorainak és aktuátorainak felhasználásával történik fizikai világ autonóm nyomon követése és az irányítása.  
+
+\subsubsection{Technikai asszisztens}
+Az Ipar 4.0 `okos' gyáraiban az ember szerepe alapvetően megváltozik, gépkezelő helyett inkább stratégiai döntéshozóvá és rugalmas problémamegoldóvá válik. A termelési folyamatok növekvő komplexitása miatt, ahol a kiber-fizikai rendszerek összetett hálózatot alkotnak és decentralizált döntéseket hoznak, az embereknek támogató rendszerekre van szükségük. Ezeknek a rendszereknek a szerepe az információk összegyűjtése és megjelenítése egyértelműen és érthetően annak érdekében, hogy az emberek jól megalapozott döntéseket tudjanak hozni, és magas prioritású problémákat tudjanak megoldani rövid időn belül. Jelenleg az embereket főként az okostelefonjaik és táblagépeik kötik össze az IoT-vel\cite{fromiot2ioe}. A hordozhatóság kiemelkedően fontossá fog válni a jövőben amint a jelenlegi kihívásokon (mint például az energiaellátás) sikerül felülkerekedni.
+
+Az emberek robotok általi fizikai kisegítése (a robotika területen elért fejlesztésekkel) szintén a technikai asszisztens szerep részét képezi. A robotok számos feladatot képesek elvégezni, amelyek az ember számára kellemetlenek, túl fárasztóak vagy veszélyesek más munkásokra nézve\cite{hri}. Az emberek fizikai feladatokban hatékony, sikeres és biztonságos segítésének érdekében szükséges, hogy a robotok az ember társaikkal zökkenőmentesen és intuitívan működjenek együtt\cite{hri}. Ezen felül elengedhetetlen, hogy az emberek megfelelő képzésben részesüljenek az adott ember-robot kollaborációhoz\cite{m-learning}.
+
+\subsection{Ember-robot kollaboráció}
+Az ember és a robot közösen végzett feladataikat különböző interakciós szinteken valósíthatják meg, ezeket érdemes egymástól elhatárolni:
+
+\begin{enumerate}
+	\item Egyidejű jelenlét (Coexistence): 
+\end{enumerate}
+Ember és robot együttműködése (HRC - \foreignlanguage{british}{Human-Robot Collaboration}) egy olyan munkakörülmény, amely esetében az ember és a robot osztozik egyazon munkaterületen, egyazon időben. 
+
+\end{document}

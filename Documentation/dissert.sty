@@ -1,0 +1,182 @@
+%------------------------------------------------------------------------------%
+% This file contains the style commands and configuration data for all the     %
+% included LaTeX files of my thesis.                                           %
+%                                                                              %
+% file name:     dissert.sty                                                   %
+% created by:    Juhasz Zoltan                                                 %
+% last modified: 23/09/2017                                                    % 
+%                                                                              %
+%------------------------------------------------------------------------------%
+
+%packages for using the special central europian fonts
+\usepackage[british,magyar]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{t1enc}
+\usepackage{geometry}
+\usepackage{makecell}
+
+\frenchspacing
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{fancyhdr}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\usepackage{ucs}
+
+\usepackage{bm}
+\usepackage{hhline}
+
+
+%packages for using special math symbols (The package "amsmath" makes possible
+%to use unified commands for horizontal spacing both in math and text mode).
+\usepackage{amsmath}
+\allowdisplaybreaks
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{latexsym}
+
+\usepackage{breqn}
+
+%packages for handling graphics
+%\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{psfrag}
+\usepackage{overpic,pst-plot,pst-coil}
+
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage[labelfont=bf,labelsep=colon]{caption}
+\usepackage{subcaption}
+\usepackage{listings}
+\usepackage{float}
+
+\usepackage{multicol}
+\usepackage{multirow}
+
+\usepackage{siunitx}
+%\sisetup{inter-unit-product ={}}
+
+
+
+
+%define new colors
+%%\definecolor{grey}{rgb}{0.8745,0.8745,0.8745}
+
+%package that supports the array environment
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{tabularx}
+\usepackage{listliketab}
+\usepackage{lipsum}
+
+%this package enables to define cites as ranges in the format [1,2-5]
+%\usepackage{rangecite}
+
+%this package provides a new table (tabular) environment that can break between pages
+\usepackage{longtable}
+
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,fit,positioning,shapes.symbols,chains}
+
+\usepackage[hidelinks]{hyperref}
+\usepackage[capitalise]{cleveref}
+
+\usepackage{xcolor}
+\usepackage{framed}
+\definecolor{shadecolor}{rgb}{0.8,0.8,0.8}
+
+%this command sets the line scpacing (the space between consecutive lines)
+%to 1.5 lines, but only when the font size is 12pt.
+\renewcommand{\baselinestretch}{1.24}
+
+%the commands below define the geometry of the page and the appearance of the
+%headers, footers and page numbering on each page
+\usepackage{subfiles}
+\pagestyle{headings}
+\renewcommand{\sectionmark}[1]{\markleft{\MakeUppercase{#1}}}
+\pagenumbering{arabic}
+\textwidth 155mm
+\hoffset -1in 
+\oddsidemargin 35mm
+\evensidemargin 25mm
+\voffset -1in
+\topmargin 15mm
+\headheight 5mm
+\headsep 10mm
+\textheight 240mm
+\footskip 15mm
+
+% \fancyhead[RO,LE]{\thepage}
+% \fancyhead[LO]{\leftmark}
+% \fancyhead[RE]{\rightmark}
+%\cfoot{\thepage}
+
+
+%the commands below are formatting directives for the LaTeX
+%compiler which defines how should be the floating of text,
+%formulas and other objects handled
+\renewcommand{\topfraction}{1}
+\renewcommand{\bottomfraction}{1}
+\renewcommand{\textfraction}{0}
+\renewcommand{\floatpagefraction}{0.7}
+
+\usepackage{lscape}
+\newcolumntype{b}{>{\hsize=2.3\hsize}X}
+\newcolumntype{s}{>{\hsize=.45\hsize}X}
+\newcolumntype{m}{>{\hsize=.9\hsize}X}
+
+
+%These new and renewed commands in the first curly brackets
+%substitute the ones which are in the second curly brackets.  
+\renewcommand{\Re}{\mathrm{Re \:}}
+\renewcommand{\Im}{\mathrm{Im \:}}
+\newcommand{\ci}{\mathrm{i \,}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\col}{\mathrm{col}}
+\newcommand{\Tr}{\mathrm{Tr \:}}
+\newcommand{\sgn}{\mathrm{sgn}}
+\newcommand{\atan}{\mathrm{atan}}
+\newcommand{\round}{\mathrm{round}}
+\newcommand{\Z}{\mathrm{Z}}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+    \node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
+
+\newcommand*{\doverline}[1]{\overline{\overline{#1}}}
+
+%The commands below define theorem-like environments and their nameing.
+\newtheorem{theorem}{Theorem}
+\newtheorem{thesis}{Thesis}
+
+%------------------------------------------------------------ addition by kng2bp
+%\usepackage[hidelinks,pdftex, 
+%                      pdfauthor={Varga Roland},
+%                      pdftitle={Ember és robot interakciójának demonstrációja\\
+%		Sakkozó iiwa robotkar}]{hyperref}
+% new font type
+\usepackage{palatino}
+\usepackage{titlesec}
+\usepackage{lastpage}
+\usepackage{setspace}
+\usepackage{pdfpages}
+
+\pagestyle{plain}
+\titleformat{\section}{\Large}{\thesection}{1em}{\MakeUppercase}
+
+
+\pagestyle{fancy}
+\titleformat{\section}{\Large}{\thesection.}{1em}{\MakeUppercase}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+
+\fancyhead[RO,LE]{\rightmark}
+\fancyhead[RE,LO]{}
+\fancyfoot[RO, LE]{\thepage/\pageref{LastPage}}
+\fancyfoot[C]{}
+%\renewcommand{\headrulewidth}{1 pt}
+\renewcommand{\footrulewidth}{1 pt}
+
+%------------------------------------------------------------------- end of file
+
