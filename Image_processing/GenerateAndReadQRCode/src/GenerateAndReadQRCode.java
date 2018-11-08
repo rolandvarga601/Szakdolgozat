@@ -13,8 +13,8 @@ import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 public class GenerateAndReadQRCode {
 
 	public static void main(String[] args) throws NotFoundException, FileNotFoundException, IOException, WriterException {
-//		String qrCodeData = "b_pawn";
-//	    String filePath = "qr_codes\\test_output\\proba1.png";
+//		String qrCodeData = "1";
+//	    String filePath = "qr_codes\\test_output\\probax.png";
 //	    String charset = "UTF-8"; // or "ISO-8859-1"
 //	    Map<EncodeHintType, ErrorCorrectionLevel> hintMap = new HashMap<EncodeHintType, ErrorCorrectionLevel>();
 //	    hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
@@ -23,8 +23,9 @@ public class GenerateAndReadQRCode {
 	    
 //		System.out.println("Result text: " + QRCodeMethods.readQRCode("qr_codes\\test_input\\qr_code.png"));
 		
-		String filePath = "qr_codes\\test_input\\camera1.png";
+		String filePath = "qr_codes\\test_input\\camera47.jpg";
 		Result[] QRCodeResults = QRCodeMethods.readMultiQRCode(filePath);
+		System.out.println(QRCodeResults.length);
 		for (int i=0; i<QRCodeResults.length; i++) {
 		    String item = QRCodeResults[i].getText();
 		    System.out.println(i + ". item: " + item);

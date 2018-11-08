@@ -1,0 +1,129 @@
+%------------------------------------------
+% Szakdolgozat
+% 
+% 
+% Varga Roland
+%
+% Konzulens: Magyar László
+%------------------------------------------
+
+\documentclass[12pt,a4paper,twoside]{article}
+\usepackage{dissert}
+% \renewcommand{\familydefault}{ptm}
+
+\begin{document}
+\pagenumbering{roman}
+\author{Varga Roland}
+\title{Ember és robot interakciójának demonstrációja\\
+		Sakkozó iiwa robotkar}
+%--Szennycímoldal-----------------------------------------
+\newpage\thispagestyle{empty}
+\begin{center}
+     VARGA ROLAND\\
+     SZAKDOLGOZAT
+\end{center}
+%--Sorozatcímoldal----------------------------------------
+%\newpage\null\thispagestyle{empty}
+\newpage\thispagestyle{empty}
+\begin{center}
+     BUDAPESTI MŰSZAKI ÉS GAZDASÁGTUDOMÁNYI EGYETEM\\
+     GÉPÉSZMÉRNÖKI KAR\\
+     MECHATRONIKA, OPTIKA ÉS GÉPÉSZETI INFORMATIKA TANSZÉK\\[1ex]
+     \resizebox{2.5cm}{!}{
+          \includegraphics{figures/mogi.png}
+     }\\[1ex]
+     SZAKDOLGOZATOK
+\end{center}
+%--Címoldal-----------------------------------------------
+%\newpage\null\thispagestyle{empty}
+\newpage\thispagestyle{empty}
+\begin{titlepage} %environment for unique titlepage design
+\centering
+\resizebox{4.5cm}{!}{
+  \includegraphics{figures/bme}
+}\\[1ex]
+{\bf BUDAPESTI MŰSZAKI ÉS GAZDASÁGTUDOMÁNYI EGYETEM}\\
+{\bf GÉPÉSZMÉRNÖKI KAR}\\
+{\bf MECHATRONIKA, OPTIKA ÉS GÉPÉSZETI INFORMATIKA TANSZÉK}\\[3cm]
+
+{\LARGE \scshape Varga Roland}\\[2ex]
+{\Large SZAKDOLGOZAT}\\[2ex]
+{\Large \bf Ember és robot kooperációjának demonstrálása\\
+		Sakkozó iiwa robotkar segítségével}\\[2ex]
+{\itshape Demonstrating human-robot collaboration\\
+				With chess-playing iiwa robotic arm}\\[5cm]
+
+\begin{tabularx}{\textwidth}{XXXX}
+Konzulens: & Témavezető: \\
+\hspace{0.75cm} \itshape Magyar László & \hspace{0.75cm} \itshape Dr. Czmerk András \\
+\hspace{0.75cm} tesztmérnök & \hspace{0.75cm} egyetemi adjunktus \\
+\end{tabularx}\\[4cm]
+
+{\Large Budapest, 2018}
+\end{titlepage}
+
+%--Záradék és nyilatkozatok-------------------------------
+\include{acknowledgement}
+
+%--Tartalomjegyzék----------------------------------------
+\newpage\null\thispagestyle{empty}
+\newpage\thispagestyle{plain}
+\tableofcontents
+
+%--Előszó-------------------------------------------------
+%\include{sections/prolog}
+%--Jelölések jegyzéke-------------------------------------
+\newpage\null\thispagestyle{empty}
+\newpage\thispagestyle{plain}
+\section*{Jelölések jegyzéke}
+
+A táblázatban a többször előforduló jelölések magyar és angol nyelvű elnevezése, valamint a fizikai mennyiségek esetén annak mértékegysége található. Az egyes mennyiségek jelölése – ahol lehetséges – megegyezik hazai és a nemzetközi szak-irodalomban elfogadott jelölésekkel. A ritkán alkalmazott jelölések magyarázata első előfordulási helyüknél található.
+%--Footer-------------------------------------------------
+\newpage\null\thispagestyle{empty}
+\newpage\thispagestyle{fancy}
+%\include{boschfoot}
+
+\pagenumbering{arabic}
+
+%--Bevezetés----------------------------------------------
+\subfile{sections/preamble}
+
+%--Irodalomkutatás----------------------------------------
+\newpage
+\subfile{sections/literature}
+%---------------------------------------------------------
+
+%--Tartalmi rész------------------------------------------
+	%--Alkalmazáshoz szükséges műszaki feltételek elemzése
+	\newpage
+	\include{sections/technical-conditions}
+	%--Robotkar kalibráció, referenciafelvétel kidolgozása
+	\newpage
+	\include{sections/calibration}
+	%--Robotkar mozgásának definiálása és programozása
+	\newpage
+	\include{sections/motions}
+	%--Sakkalgoritmus beágyazása
+	\newpage
+	\include{sections/chess-algorithm}
+	%--Eredmények értékelése
+	\newpage
+	\include{sections/results}
+%---------------------------------------------------------
+
+%--Összefoglalás------------------------------------------
+%\include{sections/summary}
+%---------------------------------------------------------
+
+%--Források-----------------------------------------------
+\addcontentsline{toc}{section}{Hivatkozások}
+\bibliographystyle{unsrt}
+%\bibliographystyle{acm}
+\bibliography{references}
+%---------------------------------------------------------
+
+%--Angol összefoglalás------------------------------------
+%\include{sections/summary_en}
+%---------------------------------------------------------
+
+\end{document}
