@@ -95,11 +95,44 @@ Az Ipar 4.0 `okos' gyáraiban az ember szerepe alapvetően megváltozik, gépkez
 Az emberek robotok általi fizikai kisegítése (a robotika területen elért fejlesztésekkel) szintén a technikai asszisztens szerep részét képezi. A robotok számos feladatot képesek elvégezni, amelyek az ember számára kellemetlenek, túl fárasztóak vagy veszélyesek más munkásokra nézve\cite{hri}. Az emberek fizikai feladatokban hatékony, sikeres és biztonságos segítésének érdekében szükséges, hogy a robotok az ember társaikkal zökkenőmentesen és intuitívan működjenek együtt\cite{hri}. Ezen felül elengedhetetlen, hogy az emberek megfelelő képzésben részesüljenek az adott ember-robot kollaborációhoz\cite{m-learning}.
 
 \subsection{Ember-robot kollaboráció}
-Az ember és a robot közösen végzett feladataikat különböző interakciós szinteken valósíthatják meg, ezeket érdemes egymástól elhatárolni:
-
+\subsubsection{Fogalmak tisztázása}
+Az ember és a robot közösen végzett feladataikat különböző interakciós szinteken valósíthatják meg, ezeket érdemes egymástól elhatárolni (\ref{fig:coex-coop-collab}. ábra):
 \begin{enumerate}
-	\item Egyidejű jelenlét (Coexistence): 
+	\item Robot cella (\angol{Robotic cell}): a robot önállóan végzi a feladatát az embertől kerítéssel elválasztva. Ez esetben nem beszélhetünk ember-robot együttműködésről.
+	\item Együttes jelenlét (\angol{Coexistence}): a robot és az ember közel helyezkedik el egymáshoz védőkerítés nélkül, de nincs közös munkaterük. A robotnak van saját meghatározott tere.
+	\item Szinkronizált munkavégzés (\angol{Synchronized work}): olyan elrendezés, melyben az ember és a robot osztozik egy közös munkateren, de egyszerre csak egyikük aktív. A munkamenet az ember és a robot jól definiált `koreográfiája'.
+	\item Kooperáció (\angol{Cooperation}): a két ``partner'' mindegyike a saját feladatával foglalkozik. A munkaterük lehet közös, de nem dolgozhatnak sem ugyanazon a terméken, sem ugyanazon a munkadarabon.
+	\item Kollaboráció (\angol{Collaboration}): olyan elrendezés, amely esetén az ember és a robot közösen és szimultán dolgozik egyazon terméken vagy munkadarabon. Tipikusan a robot megfogja, átnyújtja és tartja a munkadarabot amíg a munkás dolgozik rajta.
 \end{enumerate}
-Ember és robot együttműködése (HRC - \foreignlanguage{british}{Human-Robot Collaboration}) egy olyan munkakörülmény, amely esetében az ember és a robot osztozik egyazon munkaterületen, egyazon időben. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=1.4]{coexistence}
+	\includegraphics[scale=1.4]{cooperation}
+	\includegraphics[scale=1.4]{collaboration}
+	\caption[Caption for LOF]{Balról jobbra: együttes jelenlét, kooperáció, kollaboráció\footnotemark}
+	\label{fig:coex-coop-collab}
+\end{figure}
+
+\footnotetext{Képek forrása: https://www.safetysolutions.net.au/content/machine/article/safety-solutions-for-intelligent-human-robot-collaboration-990038334}
+
+\subsubsection{Biztonsági szempontok ember-robot kollaboráció esetén}
+A biztonságos ember-robot együttműködés érdekében az elmúlt években különböző stratégiák lettek kifejlesztve. Ezek a módszerek különböző biztonságtípusra építenek, többek közt:
+\begin{itemize}
+	\item az ütközésbiztonság érdekében csak `biztonságos'/kontrollált ütközésre kerülhet sor robotok, emberek és akadályok között. Az emberekre gyakorolt erő/nyomaték határolása a fő szempont.
+	\item aktiv biztonsági rendszer az ember és a berendezés közötti közelgő ütközések időben történő észlelése és a műveletek megállítása ekkenőrzött módon.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+Ember és robot együttműködése (HRC - \angol{Human-Robot Collaboration}) egy olyan munkakörülmény, amely esetében az ember és a robot osztozik egyazon munkaterületen, egyazon időben. 
 
 \end{document}

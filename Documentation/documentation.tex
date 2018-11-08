@@ -40,7 +40,7 @@
 \begin{titlepage} %environment for unique titlepage design
 \centering
 \resizebox{4.5cm}{!}{
-  \includegraphics{figures/bme}
+  \includegraphics{bme}
 }\\[1ex]
 {\bf BUDAPESTI MŰSZAKI ÉS GAZDASÁGTUDOMÁNYI EGYETEM}\\
 {\bf GÉPÉSZMÉRNÖKI KAR}\\
@@ -79,7 +79,7 @@ Konzulens: & Témavezető: \\
 
 A táblázatban a többször előforduló jelölések magyar és angol nyelvű elnevezése, valamint a fizikai mennyiségek esetén annak mértékegysége található. Az egyes mennyiségek jelölése – ahol lehetséges – megegyezik hazai és a nemzetközi szak-irodalomban elfogadott jelölésekkel. A ritkán alkalmazott jelölések magyarázata első előfordulási helyüknél található.
 %--Footer-------------------------------------------------
-\newpage\null\thispagestyle{empty}
+%\newpage\null\thispagestyle{empty}
 \newpage\thispagestyle{fancy}
 %\include{boschfoot}
 
@@ -116,7 +116,7 @@ A táblázatban a többször előforduló jelölések magyar és angol nyelvű e
 %---------------------------------------------------------
 
 %--Források-----------------------------------------------
-\addcontentsline{toc}{section}{Hivatkozások}
+%\addcontentsline{toc}{section}{Hivatkozások}
 \bibliographystyle{unsrt}
 %\bibliographystyle{acm}
 \bibliography{references}
@@ -125,5 +125,15 @@ A táblázatban a többször előforduló jelölések magyar és angol nyelvű e
 %--Angol összefoglalás------------------------------------
 %\include{sections/summary_en}
 %---------------------------------------------------------
+
+%--Rövidítések jegyzéke----------------------------
+\newpage
+%\addcontentsline{toc}{section}{Rövidítések jegyzéke}
+\begin{abbreviations}
+	\item[HRC]	\foreignlanguage{british}{Human Robot Collaboration}
+	\item[IoT]	\foreignlanguage{british}{Internet of Things}
+	\item[IoE]	\foreignlanguage{british}{Internet of Everything}
+\end{abbreviations}
+%-------------------------------------------------------
 
 \end{document}

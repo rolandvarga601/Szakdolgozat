@@ -27,6 +27,8 @@
 \usepackage{bm}
 \usepackage{hhline}
 
+\newcommand{\angol}[1]{\foreignlanguage{british}{#1}}
+
 
 %packages for using special math symbols (The package "amsmath" makes possible
 %to use unified commands for horizontal spacing both in math and text mode).
@@ -44,6 +46,8 @@
 \usepackage{color}
 \usepackage{psfrag}
 \usepackage{overpic,pst-plot,pst-coil}
+
+\graphicspath{{figures/}}
 
 \usepackage{url}
 \usepackage{graphicx}
@@ -177,6 +181,10 @@
 \fancyfoot[C]{}
 %\renewcommand{\headrulewidth}{1 pt}
 \renewcommand{\footrulewidth}{1 pt}
+
+%The commands below defines an abbrevation environment
+\newcommand{\abbrlabel}[1]{\makebox[3cm][l]{\textbf{#1}\ \dotfill}}
+\newenvironment{abbreviations}{\begin{list}{}{\renewcommand{\makelabel}{\abbrlabel}}}{\end{list}}
 
 %------------------------------------------------------------------- end of file
 
