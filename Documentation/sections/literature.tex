@@ -96,7 +96,7 @@ Az emberek robotok általi fizikai kisegítése (a robotika területen elért fe
 
 \subsection{Ember-robot kollaboráció}
 \subsubsection{Fogalmak tisztázása}
-Az ember és a robot közösen végzett feladataikat különböző interakciós szinteken valósíthatják meg, ezeket érdemes egymástól elhatárolni (\ref{fig:coex-coop-collab}. ábra):
+Az ember és a robot közösen végzett feladataikat különböző interakciós szinteken valósíthatják meg, ezeket érdemes egymástól elhatárolni\footnote{Forrás: https://hohmannchris.wordpress.com/2017/02/08/cobots-more-cooperation-than-collaboration/} (\ref{fig:coex-coop-collab}. ábra):
 \begin{enumerate}
 	\item Robot cella (\angol{Robotic cell}): a robot önállóan végzi a feladatát az embertől kerítéssel elválasztva. Ez esetben nem beszélhetünk ember-robot együttműködésről.
 	\item Együttes jelenlét (\angol{Coexistence}): a robot és az ember közel helyezkedik el egymáshoz védőkerítés nélkül, de nincs közös munkaterük. A robotnak van saját meghatározott tere.
@@ -117,10 +117,72 @@ Az ember és a robot közösen végzett feladataikat különböző interakciós 
 \footnotetext{Képek forrása: https://www.safetysolutions.net.au/content/machine/article/safety-solutions-for-intelligent-human-robot-collaboration-990038334}
 
 \subsubsection{Biztonsági szempontok ember-robot kollaboráció esetén}
-A biztonságos ember-robot együttműködés érdekében az elmúlt években különböző stratégiák lettek kifejlesztve. Ezek a módszerek különböző biztonságtípusra építenek, többek közt:
+A biztonságos ember-robot együttműködés érdekében az elmúlt években különböző stratégiák lettek kifejlesztve. Ezek a módszerek különböző biztonságtípusra építenek, többek közt\cite{safehrc}:
 \begin{itemize}
 	\item az ütközésbiztonság érdekében csak `biztonságos'/kontrollált ütközésre kerülhet sor robotok, emberek és akadályok között. Az emberekre gyakorolt erő/nyomaték határolása a fő szempont.
-	\item aktiv biztonsági rendszer az ember és a berendezés közötti közelgő ütközések időben történő észlelése és a műveletek megállítása ekkenőrzött módon.
+	\item aktív biztonsági rendszer az ember és a berendezés közötti közelgő ütközések időben történő észlelésére és a műveletek megszakítására ellenőrzött módon. Távolságérzékelők, látórendszerek és erő/érintkező érzékelők használhatóak erre a célra.
+	\item a hardver elemek működtetése során adaptív biztonsági stratégia a beavatkozáshoz, illetve korrekciós eljárások implementálása, amelyek az ütközéseket a munkafolyamat megszakítása nélkül kerülik el.
+\end{itemize}
+Ilyen irányban nemzeti és nemzetközi szabványokat, irányelveket és törvényeket vezettek be annak érdekében, hogy a rendszerintegrátorok könnyen be tudják építeni a biztonsági methódusokat a saját rendszerükbe. Tekintettel arra, hogy egy kollaborációs munkatéren nem csak az ember és a robot tartózkodik, hanem egyéb segédberendezések is megjelennek (például: elektromos csavarbehajtók, elektromos szorítóberendezések stb.) minden egyes cella egyedülálló kockázatot jelent biztonságtechnikai szempontból. Ebből kifolyólag minden berendezés és folyamat esetén be kell tartani az ezekre vonatkozó hatályos törvényeket és szabványokat. \Aref{table:eudirectives}., \ref{table:generalstandards}. és \ref{table:robotstandards}. táblázatok indikatív példákat tartalmaznak az EU legismertebb tövényei és általános normából válogatva.
+
+\begin{table}[h!]
+  \centering
+  \resizebox{0.7\textwidth}{!}{\begin{minipage}{\textwidth}
+        \caption{EU Directives}
+        \label{table:eudirectives}
+        \renewcommand{\arraystretch}{1.5}
+\begin{tabular}{ l l }
+	\hline
+	Title & Description \\
+	\hline
+	2006/42/EC & Machinery Directive (MD) \\
+	2009/104/EC & Use of Work equipment Directive \\
+	89/654/EC & Workplace Directive \\
+	2001/95/EC & Product Safety Directive \\
+	2006/95/EC & Low Voltage Directive \\
+	2004/108/EC & Electromagnetic Compability Directive (EMC) \\
+\end{tabular}
+\end{minipage}}
+\end{table}
+\begin{table}[h!]
+  \centering
+  \resizebox{0.7\textwidth}{!}{\begin{minipage}{\textwidth}
+        \caption{Indicative general standards}
+        \label{table:generalstandards}
+\renewcommand{\arraystretch}{1.8}
+\begin{tabular}{ l l }
+	\hline
+	Title & Description \\
+	\hline
+	EN ISO 12100 & \parbox[t]{10cm}{Safety of machinery - General principles for desig - Risk assessment and risk reduction} \\
+	EN ISO 13849-1/2 & \parbox[t]{10cm}{Safety of machinery - Safety-related parts of control systems - Part 1: General principles for design, Part 2: Validation} \\
+	EN 60204-1 & \parbox[t]{10cm}{Safety of machinery - Electrical equipment of machines - Part 1: General requirements} \\
+	IEC 62061 & \parbox[t]{10cm}{Safety of machinery - Functional safety of safety related electrical, electronic and programmable electronic control systems} \\
+\end{tabular}
+\end{minipage}}
+\end{table}
+\begin{table}[h!]
+  \centering
+  \resizebox{0.7\textwidth}{!}{\begin{minipage}{\textwidth}
+        \caption{Robot standards}
+        \label{table:robotstandards}
+        \renewcommand{\arraystretch}{1.8}
+\begin{tabular}{ l l }
+	\hline
+	Title & Description \\
+	\hline
+	EN ISO 10218-1 & \parbox[t]{10cm}{Robots and robotic devices - Safety requirements for industrial robots - Part 1: Robots} \\
+	EN ISO 10218-2 & \parbox[t]{10cm}{Robots and robotic devices - Safety requirements for industrial robots - Part 2: Robot systems and integration} \\
+	ISO/PDTS 15066 & \parbox[t]{10cm}{Robots and robotic Devices - Collaborative Robots} \\
+\end{tabular}
+\end{minipage}}
+\end{table}
+
+Jelenleg közel 30 aktív uniós irányelv és körülbelül 600 szabvány létezik a biztonságtechnikával kapcsolatosan. Különösen robot cellákkal kapcsolatban \ref{table:robotstandards}. táblázat előrevetít számos különböző stratégiát a megfelelő biztonság kialakítására. Pár a legfontosabbak közül\cite{safehrc}:
+\begin{itemize}
+	\item \textbf{Biztonsággal kapcsolatos vezérlőrendszerek teljesítménye}: biztonságkritikus vezérlőrendszer-egységeknek biztosítaniuk kell, hogy az egyes hibákra van oly mértékű tolerancia, hogy a biztonságot nem veszélyezteti.
+	\item \textbf{Robotmegállító funkciók}: minden robotnak rendelkeznie kell védőleállító funkcióval, továbbá független vészleállító funkcióval. Külső biztonsági berendezésekkel való kapcsolatot is biztosítani kell.
+	\item \textbf{Sebességkorlátozás}: a robot végén található beavatkozó és a szerszámközéppont (TCP - \angol{Tool Center Point}) sebessége kontrollálható kell legyen. Kollaboratív munkaállomások esetén a TCP sebessége nem haladhatja meg a 250 mm/s-ot.
 \end{itemize}
 
 
@@ -132,7 +194,5 @@ A biztonságos ember-robot együttműködés érdekében az elmúlt években kü
 
 
 
-
-Ember és robot együttműködése (HRC - \angol{Human-Robot Collaboration}) egy olyan munkakörülmény, amely esetében az ember és a robot osztozik egyazon munkaterületen, egyazon időben. 
 
 \end{document}
