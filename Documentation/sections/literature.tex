@@ -183,6 +183,15 @@ Jelenleg közel 30 aktív uniós irányelv és körülbelül 600 szabvány léte
 	\item \textbf{Biztonsággal kapcsolatos vezérlőrendszerek teljesítménye}: biztonságkritikus vezérlőrendszer-egységeknek biztosítaniuk kell, hogy az egyes hibákra van oly mértékű tolerancia, hogy a biztonságot nem veszélyezteti.
 	\item \textbf{Robotmegállító funkciók}: minden robotnak rendelkeznie kell védőleállító funkcióval, továbbá független vészleállító funkcióval. Külső biztonsági berendezésekkel való kapcsolatot is biztosítani kell.
 	\item \textbf{Sebességkorlátozás}: a robot végén található beavatkozó és a szerszámközéppont (TCP - \angol{Tool Center Point}) sebessége kontrollálható kell legyen. Kollaboratív munkaállomások esetén a TCP sebessége nem haladhatja meg a 250 mm/s-ot.
+	\item \textbf{Kollaboratív műveletekre vonatkozó követelmények}: együttműködésre képes robotok kell hogy működtessenek valamilyen látható indikátort amikor a robot kollaboratív műveletet hajt végre. A következő követelmények érvényesek:
+	\begin{itemize}
+		\item \textbf{Biztonsági rendszer által kezdeményezett felügyelt megállás}: a robotnak kötelező megállnia, amikor az ember a kollaboratív munkaterületen tartózkodik. Amint az ember elhagyja ezt a területet, a robot folytathatja az automatikus munkavégzési folyamatot.
+		\item \textbf{Kézi vezetés} (\angol{Hand guiding}): a kézi vezetéshez alkalmazott berendezésnek tartalmaznia kell egy vészleállítót és egy engedélyező szerkezetet. E művelet során biztonságkritikai szempontból tanusított módon nyomon kell követni a robot sebességét. Számos technológia felhasználható az ember által kézzel történő irányitáshoz, mint például az impedancia vagy a merevség szabályozása.
+		\item \textbf{Sebesség és pozíció monitorozása\footnote{folyamatos megfigyelés}}: a robot fent kell tartson egy adott távolságot az üzemeltetőtől. Ezt integrált jellemzők vagy külső inputok kombinációjának figyelésével tudja megvalósítani.
+		\item \textbf{Teljesítmény- és erőhatárolás belső dizájnnal}: a teljesítmény-/erőhatároló funkcióknak be kell tartatniuk a szabvány által meghatározott határértékeket. Ha ezt túllépik, megállást kell eszközölniük.
+		\item \textbf{Vezérlőrendszer által határolt erő és teljesítmény}: egy vezérlőfunkció biztosítja, hogy a maximális erő és teljesítmény értékeket ne lehessen túllépni.
+	\end{itemize}
+	\item \textbf{Robot mozgásterének korlátozása}: feleslegesen nagy tér elhatárolása szükséges, ha a robotnak engedélyezett a teljes mozgástartomány kihasználása. A mozgástér leszűkítése lehetséges a robotba integrált rendszerek kihasználásával vagy külső korlátozó eszközök telepítésével, illetve e kettő kombinációjával. Dinamikus korlátozás érhető el vezérlőeszközök (kapcsolók, fényfüggönyök stb.) alkalmazásával, ha további limitációkra van szükség a robotprogram végrehajtása során.
 \end{itemize}
 
 
