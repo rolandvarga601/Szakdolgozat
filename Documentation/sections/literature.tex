@@ -116,7 +116,7 @@ Az ember és a robot közösen végzett feladataikat különböző interakciós 
 
 \footnotetext{Képek forrása: https://www.safetysolutions.net.au/content/machine/article/safety-solutions-for-intelligent-human-robot-collaboration-990038334}
 
-\subsubsection{Biztonsági szempontok ember-robot kollaboráció esetén}
+\subsubsection{Biztonsági szempontok ember-robot kollaboráció esetén} \label{safetypoints}
 A biztonságos ember-robot együttműködés érdekében az elmúlt években különböző stratégiák lettek kifejlesztve. Ezek a módszerek különböző biztonságtípusra építenek, többek közt\cite{safehrc}:
 \begin{itemize}
 	\item az ütközésbiztonság érdekében csak `biztonságos'/kontrollált ütközésre kerülhet sor robotok, emberek és akadályok között. Az emberekre gyakorolt erő/nyomaték határolása a fő szempont.
@@ -192,13 +192,21 @@ Jelenleg közel 30 aktív uniós irányelv és körülbelül 600 szabvány léte
 		\item \textbf{Vezérlőrendszer által határolt erő és teljesítmény}: egy vezérlőfunkció biztosítja, hogy a maximális erő és teljesítmény értékeket ne lehessen túllépni.
 	\end{itemize}
 	\item \textbf{Robot mozgásterének korlátozása}: feleslegesen nagy tér elhatárolása szükséges, ha a robotnak engedélyezett a teljes mozgástartomány kihasználása. A mozgástér leszűkítése lehetséges a robotba integrált rendszerek kihasználásával vagy külső korlátozó eszközök telepítésével, illetve e kettő kombinációjával. Dinamikus korlátozás érhető el vezérlőeszközök (kapcsolók, fényfüggönyök stb.) alkalmazásával, ha további limitációkra van szükség a robotprogram végrehajtása során.
+	\item \textbf{Minimális távolság meghatározása}: feladattól függően kockázatelemzés utján kerül meghatározásra az ember és a robot közötti minimális távolság. Az elemzés során érdemes figyelembe venni a) a végeffektorokhoz és az esetlegesen ezek által tartott munkadarabokhoz kapcsolódó kockázatokat, b) a munkaterület elrendezését, c) a munkás feladatát és d) a rendszer felhasználhatóságát.
+	\item \textbf{Ütközésérzékelés}: a biztonsági funkcióknak meg kell tudniuk határozni mind az ember, mind pedig a robot pillanatnyi pozíciója és sebessége alapján, hogy a minimális távolság alá csökkenhet-e az ember és a robot távolsága (ütközés).
+	\item \textbf{Esetleges ütközések elkerülése}: ez a funkció lehetővé teszi a robot számára, hogy megelőzze az ütközéseket a) lassítás vagy megállás, b) az meghatározott útja során eszközölt irányváltás és c) egy másik biztonságos útvonalon haladás által.
+	\item \textbf{Technológiai és ergonómiai követelmények}: az ember és robot közötti esetleges ütközés esetén megfelelő óvintézkedéseknek kell biztosítaniuk, hogy éles, hegyes vagy durva felületek nem találhatóak az érintkezési zónában. Továbbá a környező munkaterületet (ahol az ember a kollaboratív robottal ütközhet) úgy kell kialakítani, hogy a felhasználó számára elegendő tér biztosítva legyen ahhoz, hogy kockázatos helyzeteket elkerülje.
 \end{itemize}
 
+Ezeket a funkciókat szabványosítással foglalkozó szervek dolgozták ki a különböző biztonsági szempontok átfedés nélküli ellenőrzésének érdekében. Átfedések előfordulhatnak az egyes projektek kivitelezésekor; a biztonsági követelményeknek teljes mértékben való megfelelést minden esetben felül kell vizsgálni.
 
+\subsubsection{Érzelmi megfontolások}
+Az ember-robot együttműködésnek és a kollaboratív celláknak a kialakítása, valamint az ember és a robot között hatékony feladatmegosztás szorosan kapcsolódik társadalom-fiziológiai kérdésekhez. A mélyebb megértés és az ember viselkedésének megjósolása, valamint a HRI (\angol{Human-Robot Interaction} - Ember-Robot Interakció) fejlődése részben a kognitív mérnökséghez, pszichológiához és szociológiához kötődik. A bizalom, a terheltség és a kockázatosság a legfontosabb emberi tényezők, amik befolyásolják az automatizálási technológiák alkalmazását. Az emberközpontú robotcella kialakítása során az emberi tényezők, mint a terheltség, éberség, helyzetfelismerés, hibák stb. figyelembe vétele ugyanúgy fontos, mint a kognitív mérnöki szempontok és az ergonómia\cite{humanfactors}.
 
+\subsection{KUKA-specifikus biztonsági funkciók}
+A következő részben a KUKA Sunrise OS 1.16 biztonsági funkciói kerülnek taglalásra. Az alábbi fogalmak és szempontok egy része már \aref{safetypoints} fejezetben előkerültek általánosságban, viszont gyakorlati szempontok miatt ezek specifikus tárgyalására is szükség van. Az itt leírtak tájékoztató jellegűek, céljuk a szakdolgozat értelmezhetőségének javítása, nem foghatóak fel általános iránymutatásként. Adott OS (\angol{Operating System}) és egyéb kiegészítő berendezések esetén mindig található ezekhez mellékelt biztonsági utasítás, ezek betartása elengedhetetlen a hatékony és biztonságos működtetéshez.
 
-
-
+A következő biztonsági funkciók
 
 
 
