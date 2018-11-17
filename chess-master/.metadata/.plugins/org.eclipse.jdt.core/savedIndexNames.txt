@@ -1,8 +1,2 @@
 INDEX VERSION 1.131+F:\BME\7felev\Szakdolgozat\chess-master\.metadata\.plugins\org.eclipse.jdt.core
-3045715953.index
-729096329.index
-3592525939.index
-172382900.index
-3943278058.index
-3423253026.index
-3141714332.index
+1770829862.index
