@@ -1,1 +1,35 @@
+\documentclass[../documentation.tex]{subfiles}
+ 
+\begin{document}
 \section{Alkalmazáshoz szükséges műszaki feltételek elemzése}
+\subsection{Projekt részletes leírása}
+A projekt célja egy olyan robot demo hardveres és szoftveres kidolgozása, amely képes egy emberrel (továbbfejlesztés után akár egy másik robottal) lejátszani egy sakkjátszmát. A demo az ember-robot kollaboráció bemutatására szolgál, fontos szempont az interakció biztonságos megvalósítása mind az emberre, mind a környező tárgyakra tekintettel.\\
+
+A megvalósításhoz a következő problémák megoldására van szükség:
+\begin{enumerate}
+	\item szükséges biztonsági funkciók beüzemelése,
+	\item a bábuk helyzetének felismerése az egyes lépések előtt és után,
+	\item a bábuk megfogása és mozgatása (ide tartozik a kalibráció és a referenciafelvétel),
+	\item sakkalgoritmus beágyazása a programba,
+	\item a sakkbábúk és a tábla megtervezése és megvalósítása,
+	\item jelzés a robotkar számára, ha lépés történt.
+\end{enumerate}
+A felsorolt pontok a projekt során következőképpen kerültek kidolgozásra:
+\begin{itemize}
+	\item A bábuk helyzetének detektálása a projekt során QR-kód kereső és olvasó képfeldogozó eljárásokon alapul. A kamera a roboton kerül rögzítésre.
+	\item A bábuk mozgatása egy elektromosan vezérelt, párhuzamos megfogó (\angol{gripper}) segítségével történik.
+	\item Ahhoz hogy a bábuk megfogása egyszerű legyen, azonos magasságú és azonos módszerrel megfogható bábuk készülnek.
+	\item A biztonsági funkciók főként az tengelyekben ébredő plusz nyomatékok monitorozására és biztonsági zónák definiálására épül.
+	\item A tábla és a robotkar, illetve a megfogó (egy jól definiált pontja) és a robotkar relatív helyzetének kalibrálására a robotvezérlő szoftverben elérhető alapfunkciók kerültek felhasználásra.
+	\item A sakklépés megtörténtétét a robotvezérlőhöz kötött külső gombbal tudja a felhasználó jelezni.
+	\item A képek fogadása, feldolgozása és a sakkalgoritmus futtatása mind a robotvezérlőn történik.
+	\item Mivel a robotvezérlőn Java alapú környezet fut magas szinten, így a képfeldolgozó és a sakkozó programok is ebben lettek implementálva.
+\end{itemize}
+
+\subsection{A megfogó kialakításának és vezérlésének bemutatása}
+
+\subsection{QR-kód generálás és képfeldolgozás}
+
+
+
+\end{document}

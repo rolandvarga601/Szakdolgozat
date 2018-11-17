@@ -158,6 +158,7 @@ Ilyen irányban nemzeti és nemzetközi szabványokat, irányelveket és törvé
 	EN ISO 13849-1/2 & \parbox[t]{10cm}{Safety of machinery - Safety-related parts of control systems - Part 1: General principles for design, Part 2: Validation} \\
 	EN 60204-1 & \parbox[t]{10cm}{Safety of machinery - Electrical equipment of machines - Part 1: General requirements} \\
 	IEC 62061 & \parbox[t]{10cm}{Safety of machinery - Functional safety of safety related electrical, electronic and programmable electronic control systems} \\
+\label{tab:eniso13849}
 \end{tabular}
 \end{minipage}}
 \end{table}
@@ -204,12 +205,115 @@ Ezeket a funkciókat szabványosítással foglalkozó szervek dolgozták ki a k�
 Az ember-robot együttműködésnek és a kollaboratív celláknak a kialakítása, valamint az ember és a robot között hatékony feladatmegosztás szorosan kapcsolódik társadalom-fiziológiai kérdésekhez. A mélyebb megértés és az ember viselkedésének megjósolása, valamint a HRI (\angol{Human-Robot Interaction} - Ember-Robot Interakció) fejlődése részben a kognitív mérnökséghez, pszichológiához és szociológiához kötődik. A bizalom, a terheltség és a kockázatosság a legfontosabb emberi tényezők, amik befolyásolják az automatizálási technológiák alkalmazását. Az emberközpontú robotcella kialakítása során az emberi tényezők, mint a terheltség, éberség, helyzetfelismerés, hibák stb. figyelembe vétele ugyanúgy fontos, mint a kognitív mérnöki szempontok és az ergonómia\cite{humanfactors}.
 
 \subsection{KUKA-specifikus biztonsági funkciók}
-A következő részben a KUKA Sunrise OS 1.16 biztonsági funkciói kerülnek taglalásra. Az alábbi fogalmak és szempontok egy része már \aref{safetypoints} fejezetben előkerültek általánosságban, viszont gyakorlati szempontok miatt ezek specifikus tárgyalására is szükség van. Az itt leírtak tájékoztató jellegűek, céljuk a szakdolgozat értelmezhetőségének javítása, nem foghatóak fel általános iránymutatásként. Adott OS (\angol{Operating System}) és egyéb kiegészítő berendezések esetén mindig található ezekhez mellékelt biztonsági utasítás, ezek betartása elengedhetetlen a hatékony és biztonságos működtetéshez.
+A következő részben a KUKA Sunrise OS 1.16\cite{sunrisemanual} biztonsági funkciói kerülnek taglalásra. Az alábbi fogalmak és szempontok egy része már \aref{safetypoints} fejezetben előkerült általánosságban, viszont gyakorlati szempontok miatt ezek specifikus tárgyalására is szükség van. Az itt leírtak tájékoztató jellegűek, céljuk a szakdolgozat értelmezhetőségének javítása, nem foghatóak fel általános iránymutatásként. Adott OS (\angol{Operating System}) és egyéb kiegészítő berendezések esetén mindig található ezekhez mellékelt biztonsági utasítás, ezek betartása elengedhetetlen a hatékony és biztonságos működtetéshez.
 
-A következő biztonsági funkciók
+A biztonsági funkciókat két csoportra lehet osztani:
+\begin{itemize}
+	\item Biztonságkritikus funkciók az emberi biztonság fenntartása érdekében\\
+	Az ipari robot biztonságkritikus funkciói megfelelnek a felsorolt biztonsági követelményeknek:
+	\begin{itemize}
+		\item EN ISO 13849-1 (\ref{tab:eniso13849}. táblázat) szabvány 3-as kategóriája (\angol{Category 3}), illetve a d teljesítményszint besorolás (\angol{Performance Level d})
+		\item EN 62061 (\ref{tab:eniso13849}. táblázat) SIL 2 követelménye
+		Ezek a követelmények azonban csak a következő feltételek fennállásakor teljesülnek:
+		\item Az ipari robot minden biztonsági szempontból releváns mechanikus, illetve elektromechanikus komponense a biztonságos működés szempontjából le lett tesztelve a beüzemeléskor és legalább egyszer mindin évben, hacsak nem a kockázatelemzők másképp határoztak. Ilyen eszközök:
+		\begin{itemize}
+			\item Vészstop eszköz (\angol{Emergency stop device}) a smartPAD-en
+			\item Engedélyező kapcsoló a smartPAD-en
+			\item Kulcsos kapcsoló a smartPAD-en
+		\end{itemize}
+	\end{itemize}
+	\item Nem biztonságkritikus funkciók a gépek védelme érdekében\\
+	Az ipari robot nem biztonságkritikus funkciói nem tartoznak kitüntetett biztonsági követelményekhez.
+\end{itemize}
 
+\subsubsection{Használt szakkifejezések}
+{
+\setlength\arrayrulewidth{1pt}
+\begin{longtabu} to \linewidth {| X[ 0.9 , l ] | X[ 2 , l ] |}
+\caption{A használt szakkifejezések} \label{tab:terms} \\
+\hline \multicolumn{1}{|c|}{\textbf{Kifejezés}} & \multicolumn{1}{c|}{\textbf{Leírás}} \\ \hline
+\endfirsthead
 
+\multicolumn{2}{c}%
+{{\bfseries \thetable{}. \tablename\ -- a \pageref{tab:terms}. oldalon kezdődik}} \\
+\hline \multicolumn{1}{|c|}{\textbf{Kifejezés}} & \multicolumn{1}{c|}{\textbf{Leírás}} \\ \hline
+\endhead
 
+\hline \multicolumn{2}{|r|}{{A következő oldalon folytatódik}} \\ \hline
+\endfoot
+
+\hline
+\endlastfoot
+
+Tengely mozgástartománya (\angol{Axis range}) & Az a tartomány, amelyben a tengely mozoghat. Ezt a tartományt minden tengelyre külön meg kell határozni. \\ \hline
+Megállási út (\angol{Stopping distance}) & Megállási út = reakcióidő alatt megtett út + fékút. A megállási út része a veszélyzónának.\\ \hline
+Munkatér (\angol{Workspace}) & A beavatkozó (\angol{manipulator}) ezen tartományon belül mozoghat. A munkatér az egyes tengelyek mozgástartományából származtatott.\\ \hline
+Automatikus (AUT) (\angol{Automatic}) & A programvégrehajtáshoz tartozó üzemmód. A beavatkozó a programozott sebeséggel mozog.\\ \hline
+Gépkezelő/Felhasználó (\angol{Operator/User}) & Az ipari robot üzemeltetője lehet a menedzsment, alkalmazott vagy megbízott ember, aki felelős a robot működtetéséért.\\ \hline
+Veszélyzóna (\angol{Dangerzone}) & A veszélyzóna a munkaterületből és a megállási útból áll.\\ \hline
+Élettartam (\angol{Service life}) & A biztonságkritikus komponensek élettartama az ügyfélnek kiszállítástól számítandó. \\
+& Az élettartam nem függ attól, hogy a komponens a robotvezérlőbe került beépítésre vagy máshova, vagy akár egyáltalán nem is volt használva, mivel a biztonságkritikus alkatrészek is ki vannak téve elöregedésnek a tárolás alatt.\\ \hline
+CRR & Irányított Robot Visszatérés (\angol{Controlled Robot Retraction}) \\
+& A CRR egy olyan üzemmód, amelybe akkor lehet lépni, ha az ipari robotot megállította a biztonsági vezérlő a következő okok valamelyike miatt:
+\begin{itemize}
+	\setlength\itemsep{0mm}
+	\item A robot megsértett egy tengelyspecifikus vagy egy descartesi koordinátára vonatkozó szabályt.
+	\item A biztonság-orientált szerszám elhelyezkedése a megfigyelt tartományon kivülre esik.
+	\item A robot megsérti az erőre vagy a nyomatékra vonatkozó korlátozásokat.
+	\item A pozíciószenzor nem `mastered' vagy `referenced'.\footnote{A két kifejezést nem célszerű lefordítani magyarra.}
+	\item A csuklóban lévő nyomásszenzor nem `referenced'.
+\end{itemize}
+CRR üzemmódba lépés után a robotot újra lehet mozgatni.\\ \hline
+KUKA smartPAD & Lásd ``smartPAD'' \\ \hline
+Beavatkozó (\angol{Manipulator}) & A robotkar és a hozzá telepített elektronika.\\ \hline
+Biztonsági sáv (\angol{Safety zone}) & A beavatkozó nem léphet a biztonsági sávba. Ez a tartomány kívűl esik a veszélyzónán.\\ \hline
+Biztonsági megállás & A biztonsági megállást a biztonsági vezérlő idézheti elő, így megszakítva a munkamenetet és megállítva a robot mozgását. Biztonsági megállás esetén a programadatok nem vesznek el, így a program folytatódhat a megszakítás pontjától kezdve.\\
+& A biztonsági megállás lehet `\angol{Stop category 0}', `\angol{Stop category 1}' vagy `\angol{Stop category 1 (path-maintening)}' (útvonal követés).\\ \hline
+smartPAD & A smartPAD egy kézbevehető irányító panel a robotcellához (-állomáshoz). A robotállomás működtetéséhez szükséges összes üzemeltetői és megjelenítési funkciót tartalmazza. \\ \hline
+Stop category 0 & A motorok kikapcsolnak és a fékek összezárnak.\\ \hline
+Stop category 1 & A robotkar lefékeződik és közben nem marad a programozott útvonalon. A beavatkozó a motorok segítségével jut álló pozícióba. Amint megállnak a csuklók a motorok kikapcsolnak és a fékek behúzódnak.\\ \hline
+\angol{Stop category 1 (path-maintaining)} & A beavatkozó lefékeződik és közben a programozott útvonalon marad. Amint megállnak a csuklók a motorok kikapcsolnak és a fékek behúzódnak.\\ 
+& Ha `\angol{Safety category 1 (path-maintaining)}'-et idéz elő a biztonsági vezérlő, akkor ez felügyeli is a megállítás folyamatát. A fékek behúzódnak és a motorok legkésőbb 1 másodperc elteltével kikapcsolnak.\\
+& Hiba esetén `\angol{Stop category 1}' kerül végrehajtásra.\\ \hline
+Rendszerintegrátor (\angol{System integrator / plant integrator}) & A rendszerintegrátorok feladata az ipari robot integrálása egy rendszerbe és ennek hitelesítése.\\ \hline
+T1 & Teszt üzemmód, manuálisan csökkentett sebesség (\angol{Manual Reduces Velocity}) ($\leq$ 250 mm/s) \\ 
+& \textbf{Megjegyzés:} kézi vezetés T1-ben esetén a sebesség nem kimondottan csökkentett, inkább limitált biztonságszempontú sebességmonitorozás által.\\
+& \textbf{Megjegyzés:} a 250 mm/s maximális sebesség a mobil platformokra nem vonatkozik.\\ \hline
+T2 & Teszt mode, manuálisan állított nagy sebesség (> 250 mm/s megengedett)\\
+\end{longtabu}
+}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.8]{axisrange}
+\caption{Példa a mozgástartományokra: 1. munkaterület, 2. beavatkozó, 3. megállási út, 4. biztonsági sáv}
+\label{fig:axisrange}
+\end{figure}
+
+\subsubsection{Biztonságszempontú funkciók}
+Az alábbi funkciók permanensen jelen vannak az ipari robot esetén:
+\begin{itemize}
+	\item Vészleállító eszköz (\angol{EMERGENCY STOP device})
+	\item Engedélyező eszköz (\angol{Enabling device})
+	\item Az üzemmód lezárása (a kulcsos kapcsoló által)
+\end{itemize}
+A következő biztonságszempontú funkciók előre konfiguráltak és a robotvezérlő biztonsági interfészén keresztül bármikor a rendszerbe integrálhatóak:
+\begin{itemize}
+	\item Üzemeltető biztonsága (= a fizikaileg jelen lévő biztonsági kerítések megfigyelésére alkalmas csatlakozó)
+	\item Külső vészleállító eszköz
+	\item Külső, útvonalkövető megállást előídéző eszköz (\angol{Stop category 1 (path- maintaining)}) (\ref{tab:terms}. táblázat)
+\end{itemize}
+Egyéb biztonsági funkciók konfigurálása esetleges, pl.\footnote{A vastag betűvel szedett pontok a szakdolgozat fontos elemei}:
+\begin{itemize}
+	\item Külső engedélyező eszköz
+	\item Tengelyspecifikus munkatér monitorozás
+	\item Descartes-i munkatér megfigyelés
+	\item \textbf{Descartes-i védett tér monitorozás}
+	\item Sebesség nyomonkövetés
+	\item \textbf{Tengelyekben ébredő nyomatékok megfigyelése}
+	\item \textbf{Üktözés detektálása}
+\end{itemize}
+Az egyes pontokról további információ a technikai specifikációban található\cite{sunrisemanual}.
 
 
 \end{document}
