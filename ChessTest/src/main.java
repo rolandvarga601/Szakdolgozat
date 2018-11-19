@@ -1,3 +1,4 @@
+
 import chess.core.ChessGame;
 import chess.core.Move;
 
@@ -8,15 +9,19 @@ public class main {
 		System.out.println("alma");
 		ChessGame cg = new ChessGame();
 		System.out.println(cg.getMoveCount());
-		Move move = new Move(1, 1, 1, 3);
+		Move move = new Move(6, 1, 6, 3);
 		cg.movePiece(move);
 		var algorithm = cg.algorithm.reply(false);
-		System.out.println(algorithm.x1);
-		System.out.println(algorithm.y1);
-		System.out.println(algorithm.x2);
-		System.out.println(algorithm.y2);
+		System.out.println(algorithm.toString());
 		cg.movePiece(algorithm);
-		System.out.println(cg.getTurn());
+		System.out.println();
+		move = new Move(5, 1, 5, 2);
+		if (cg.checkIfLegalMove(move))
+			cg.movePiece(move);
+
+//		algorithm = cg.algorithm.reply(false);
+//		System.out.println(algorithm.toString());
+//		cg.movePiece(algorithm);
 	}
 
 }

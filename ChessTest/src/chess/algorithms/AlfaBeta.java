@@ -116,7 +116,7 @@ public class AlfaBeta extends MoveAlgorithm implements Serializable {
         if(depth == dd) {
           super.board.think.setText((mm==null?"":mm+" - ")+v.toString()); 
           super.board.progress.setValue(siz-v.size());
-          System.out.println(super.board.think.getText());
+//          System.out.println(super.board.think.getText());
         }
       }
     }

@@ -177,6 +177,23 @@ public class ChessGame implements Constants, Serializable {
   }
   
   /**
+   * Checks if the move is allowed
+   * @param current move
+   */
+  public boolean checkIfLegalMove(Move move) {
+	  var legalMoves = algorithm.getRealAll(new Coord(5, 1));
+	  boolean legal = false;
+	  for (int i = 0; i < legalMoves.size(); i++) {
+		  if (legalMoves.elementAt(i).toString().equals(move.toString())) {
+			  legal = true;
+			  break;
+		  }
+	  }
+	  System.out.println("legal: \t\t\t\t\t\t" + (legal? "na azért!":"a faszt!"));
+	  return legal;
+  }
+  
+  /**
    * Set the legal moves the player is allowed
    * @param a list of legal moves
    */
@@ -239,7 +256,7 @@ public class ChessGame implements Constants, Serializable {
    */
   private void swTurn(){
     board.turn = board.turn ? false : true;
-    
+
     board.pieceCounts.refreshPieceCount();
     try {
 //      ChessComponent.getInstance().chessSideBar.piecesPanel.refreshPieceCount(board.pieceCounts);
@@ -272,7 +289,7 @@ public class ChessGame implements Constants, Serializable {
     
 //    ChessComponent.getInstance().whiteBoardLabel.setActive(board.turn);
 //    ChessComponent.getInstance().blackBoardLabel.setActive(!board.turn);
-    
+
     checkGameStatus();
   }
   

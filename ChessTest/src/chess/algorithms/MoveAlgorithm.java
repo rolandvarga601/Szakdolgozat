@@ -758,8 +758,8 @@ public class MoveAlgorithm implements Constants,Serializable{
       
       // Output the move and the time for it
       System.out.println("reply => " + mm.toString());
-      System.out.println("time  =  seconds: " + seconds +
-                                 " milliseconds: " + millisec);
+//      System.out.println("time  =  seconds: " + seconds +
+//                                 " milliseconds: " + millisec);
       
       // Draw a table with the obtained information
       String col1 = "depth";
@@ -776,18 +776,18 @@ public class MoveAlgorithm implements Constants,Serializable{
       String empty = "                                                       ";
       
       // Table header (right justified)
-      System.out.println(
-          empty.substring(0,col1Width-col1.length())+col1+
-          empty.substring(0,col2Width-col2.length())+col2+
-          empty.substring(0,col3Width-col3.length())+col3
-          );
+//      System.out.println(
+//          empty.substring(0,col1Width-col1.length())+col1+
+//          empty.substring(0,col2Width-col2.length())+col2+
+//         empty.substring(0,col3Width-col3.length())+col3
+//          );
       
       // Table values (right justified)
-      System.out.println(
-          empty.substring(0,col1Width-(dd+"").length())         +dd+
-          empty.substring(0,col2Width-(stepcounter+"").length())+stepcounter+
-          empty.substring(0,col3Width-(val+"").length())        +val
-          );
+//      System.out.println(
+//          empty.substring(0,col1Width-(dd+"").length())         +dd+
+//          empty.substring(0,col2Width-(stepcounter+"").length())+stepcounter+
+//          empty.substring(0,col3Width-(val+"").length())        +val
+//          );
     }
   }
 }
