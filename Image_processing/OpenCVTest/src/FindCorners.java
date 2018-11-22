@@ -38,6 +38,7 @@ public class FindCorners {
 	}
 	
 	public MatOfPoint2f findPoints() {
+
 		// init
 		Mat grayImage = new Mat();
 		
@@ -50,6 +51,10 @@ public class FindCorners {
 		// look for the inner chessboard corners
 		boolean found = Calib3d.findChessboardCorners(grayImage, boardSize, imageCorners,
 				Calib3d.CALIB_CB_ADAPTIVE_THRESH + Calib3d.CALIB_CB_NORMALIZE_IMAGE + Calib3d.CALIB_CB_FAST_CHECK);
+		return imageCorners;
+	}
+	
+	public MatOfPoint2f GetImageCornerPoints() {
 		return imageCorners;
 	}
 
