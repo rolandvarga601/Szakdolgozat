@@ -63,13 +63,13 @@ public class ScanPiecesPosition {
 	}*/
 	
 	public boolean[][] ScanPositions(BufferedImage img) {
-		return FindGreen(CropImages(img, 5, 8));
+		return FindGreen(CropImages(img, this.VerticalCorners - 1, this.HorizontalCorners - 1));
 	}
 	
-	public boolean[][] FindGreen(BufferedImage[][] images) {
-		boolean[][] greenMap = new boolean[this.VerticalCorners][this.HorizontalCorners];
-		for (int i = 0; i < VerticalCorners; i++) {
-			for (int j = 0; j < HorizontalCorners; j++) {
+	private boolean[][] FindGreen(BufferedImage[][] images) {
+		boolean[][] greenMap = new boolean[this.VerticalCorners - 1][this.HorizontalCorners - 1];
+		for (int i = 0; i < VerticalCorners - 1; i++) {
+			for (int j = 0; j < HorizontalCorners - 1; j++) {
 				BufferedImage img = images[i][j];
 				int black = 0;
 				int white = 0;
@@ -95,7 +95,7 @@ public class ScanPiecesPosition {
 				} else {
 					greenMap[i][j] = false;
 				}
-//				HelloCV.writeFile(img, i, j);
+				writeFile(img, i, j);
 			}
 		}
 		return greenMap;
@@ -139,7 +139,7 @@ public class ScanPiecesPosition {
 	
 	private void writeFile(BufferedImage bufferedImage, int i, int j){
 	    // String PATH = "/images-out/";
-	    String directoryName = "./images-out/";
+	    String directoryName = "./images/images-out/";
 	    String fileName = "image" + i + "_" + j + ".jpg";
 
 	    File directory = new File(directoryName);
