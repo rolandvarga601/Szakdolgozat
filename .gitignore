@@ -26,3 +26,5 @@ Image_processing/GenerateAndReadQRCode/qr_codes/test_output/
 *.synctex(busy)
 /.metadata/
 /.recommenders/
+
+Image_processing/OpenCVTest/images-out/
