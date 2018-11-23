@@ -10,6 +10,7 @@ public class main {
 		ChessGame cg = new ChessGame();
 		System.out.println(cg.getMoveCount());
 		Move move = new Move(6, 1, 6, 3);
+		//Move foundMove = move.FindMove(move.WhitePiecesAt(cg.board.b), move.WhitePiecesAt(cg.board.b));
 		cg.movePiece(move);
 		var algorithm = cg.algorithm.reply(false);
 		System.out.println(algorithm.toString());

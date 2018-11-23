@@ -62,6 +62,42 @@ public class Move implements Constants, Serializable{
     rook = null;
   }
   
+  /* Added thesis specific functions */
+  public boolean[][] WhitePiecesAt(Piece[][] stateBefore) {
+	  boolean[][] WhitePiecesBefore = new boolean[8][8];
+	  for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 8; j++) {
+			WhitePiecesBefore[i][j] = stateBefore[i][j].white;
+		}
+	  }
+	  return WhitePiecesBefore;
+  }
+  
+  public Move FindMove(boolean[][] WhitePiecesBefore, boolean[][] WhitePiecesAfter) {
+	  byte before_x = 9;
+	  byte before_y = 9;
+	  byte after_x = 9;
+	  byte after_y = 9;
+	  for (byte i = 0; i < 8; i++) {
+		  for (byte j = 0; j < 8; j++) {
+			  if (WhitePiecesAfter[i][j] != WhitePiecesBefore[i][j]) {
+				  if (WhitePiecesBefore[i][j]) {
+					  before_x = i;
+					  before_y = j;
+				  } else {
+					  after_x = i;
+					  after_y = j;
+				  }
+			  }
+		  }
+	  }
+	  if (before_x != 9) {
+		  return new Move(before_x, before_y, after_x, after_y);
+	  } else {
+		  return new Move(0, 0, 0, 0);
+	  }
+  }
+  
   public void perform(Piece[][] board, ChessGame game) {
     board[x2][y2] = board[x1][y1];
     board[x1][y1] = null;
