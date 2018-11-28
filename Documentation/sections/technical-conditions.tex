@@ -93,7 +93,39 @@ Az egyes változókat a kívánt bemenetekkel és kimenetekkel \angol{Drag and d
 \label{fig:signalsmatching}
 \end{figure}
 
-\subsection{QR-kód alapú képfeldolgozás - továbbfejlesztés}
+\subsection{Sakkbábúk kialakítása, felismerése a képeken}
+A sakkprogram működtetéséhez elegendő a bábúk új pozíciójának felismerése azután, miután az ember lépett. Elég csak az ember bábuit figyelni (a robot vezeti magának a bábuk pillanatnyi helyzetét). A sakkbábúk felismerére többfajta módszer is megfelelő lehet. A képfeldolgozást lehet saját vagy szabványos mintára alapozni (pl.: QR-kód alapú felismerés - \ref{qrsection} fejezet), illetve színes kamerakép esetén adott színek keresésére. A szakdolozat során a második módszer került beágyazásra, viszont a sakkbábuk formai kialakításakor a QR-kód alapú felismerhetőség is fontos szempont volt, így biztosítva az ilyen irányú továbbfejlesztés lehetőségét.
+
+\subsubsection{A sakkbábuk formatervezése}
+Ahhoz hogy a megfogó fel tudja emelni a bábukat könnyebség, ha a bábuk egyforma magasak, vagy ha a megfogó mindegyik bábut egy kitültetett, egy magasságban lévő részénél fogja meg (akár a talprészénél vagy alá is nyúlhatna). A talprésznél megfogás jó megoldás lehet, ha maguk a bábuk színesek, és így biztosított a képeken való felismerhetőségük. A QR-kódos továbbfejlesztéshez viszont elkerülhetetlen, hogy a QR-kód a bábuk tetején legyen elhelyezve. Ezen megfontolások alapján a bábuk végleges konstrukciója:
+\begin{itemize}
+	\item Mindegyik bábu tetején található egy négyzet alapú, szélességéhez viszonyítva alacsony hasáb, amire az adott színt/színeket/QR-kódot rá lehet ragasztani.
+	\item Ennél a hasábnál fogva emeli meg a megfogó a bűbut, így kevésbé kell lenyúlnia a robotkarnak, kisebb az esély arra, hogy egy másik bábut felborít.
+	\item A hasáb 6 mm vastag, hogy a megfogó viszonylag nagy terhelését (min. 50 N) elviselje.
+	\item Mindegyik bábu egyforma magas (40 mm), így a robotkarral felemelés programja és a képfeldolgozás is nagy mértékben leegyszerűsödik.
+	\item A bábuk viszonylag alacsonyak és a talprészük vastagított, tömör, hogy kevésbé legyenek borulékonyak.
+\end{itemize}
+
+\begin{figure}
+\centering
+
+\includegraphics[height=5cm]{chess-images/pawn}
+\includegraphics[height=5cm]{chess-images/king}
+\includegraphics[height=5cm]{chess-images/bishop}
+\includegraphics[height=5cm]{chess-images/queen}
+\includegraphics[height=5cm]{chess-images/knight}
+\includegraphics[height=5cm]{chess-images/rook}
+\includegraphics[height=4.8cm]{chess-images/pawnassembly}
+\includegraphics[height=4.8cm]{chess-images/toppart}
+\includegraphics[height=4.8cm]{chess-images/knightassembly}
+\caption{A sakkbábúk 3D-s terve}
+\label{fig:chesspieces}
+\end{figure}
+
+\subsubsection{Bábuk pozíciójának azonosítása}
+
+
+\subsection{QR-kód alapú képfeldolgozás - továbbfejlesztés} \label{qrsection}
 Ahhoz, hogy sakkjátékot tetszőleges állapotból lehessen kezdeni, illetve folytatni szükség van a bábuk helyének felismerésén túl azok típusának egyértelmű felismerésére. Erre alkamas megoldás lehet a bábuk tetejére helyzett QR-kód, amelyben kódolva van a bábu típusa. A QR-kódok kezelésére jó választás a nyílt forráskódú ZXing (``\angol{Zebra Crossing}'') program\footnote{További információk és forráskód: https://github.com/zxing/zxing}. Ez a Java könyvtár (\angol{library}) alkamas különböző formátumú, egy- és kétdimenziós vonalkódokkal kapcsolatos képfeldolgozásra, amelynek csak egyik eleme a QR-kód olvasás és generálás.
 
 \subsubsection{A forráskód build-je}
