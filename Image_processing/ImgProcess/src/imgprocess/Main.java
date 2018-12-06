@@ -14,36 +14,42 @@ public class Main {
 	public static void main(String[] args) {
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 		BufferedImage img = null;
+		String libraryPath = "C:\\Users\\vargaro\\Documents\\general\\szakdolgozat\\Szakdolgozat\\TestImages\\";
+		String fileName = "";
 		try {
-		    img = ImageIO.read(new File("./images/calibration.jpg"));
+			fileName = "calibration21.jpg";
+		    img = ImageIO.read(new File(libraryPath + fileName));
 		} catch (IOException e) {
 		}
-		int verticalCorners = 4;
-		int horizontalCorners = 6;
+		int verticalCorners = 9;
+		int horizontalCorners = 10;
 		FindCorners cornerFinder = new FindCorners(img, horizontalCorners, verticalCorners);
 		double[][] pointCoordinates = cornerFinder.GetPointCoordinates();
+		System.out.println(pointCoordinates.length);
 		BufferedImage imgbefore = null;
 		try {
-		    imgbefore = ImageIO.read(new File("./images/beforemove.jpg"));
+			fileName = "beginning.jpg";
+		    imgbefore = ImageIO.read(new File(libraryPath + fileName));
 		} catch (IOException e) {
 		}
 		BufferedImage imgafter = null;
 		try {
-			imgafter = ImageIO.read(new File("./images/aftermove.jpg"));
+			fileName = "white1.jpg";
+			imgafter = ImageIO.read(new File(libraryPath + fileName));
 		} catch (IOException e) {
 		}
-		ScanPiecesPosition pp = new ScanPiecesPosition(img, horizontalCorners, verticalCorners);
+		ScanPiecesPosition pp = new ScanPiecesPosition(pointCoordinates, horizontalCorners, verticalCorners);
 		boolean[][] PiecesAtBefore = pp.ScanPositions(imgbefore);
 		boolean[][] PiecesAtAfter = pp.ScanPositions(imgafter);
-		for (int i = 0; i < verticalCorners - 1; i++) {
-			for (int j = 0; j < horizontalCorners - 1; j++) {
+		for (int i = 0; i < 8; i++) {
+			for (int j = 0; j < 8; j++) {
 				System.out.print(PiecesAtBefore[i][j] + "\t");
 			}
 			System.out.println();
 		}
 		System.out.println();
-		for (int i = 0; i < verticalCorners - 1; i++) {
-			for (int j = 0; j < horizontalCorners - 1; j++) {
+		for (int i = 0; i < 8; i++) {
+			for (int j = 0; j < 8; j++) {
 				System.out.print(PiecesAtAfter[i][j] + "\t");
 			}
 			System.out.println();

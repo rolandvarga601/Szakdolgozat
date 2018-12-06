@@ -8,9 +8,13 @@ import javax.imageio.ImageIO;
 
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfByte;
-import org.opencv.highgui.Highgui;
+// import org.opencv.highgui.Highgui;
+import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
-import org.opencv.highgui.VideoCapture;
+import org.opencv.video.Video;
+//import org.opencv.highgui.VideoCapture;
+import org.opencv.videoio.VideoCapture;
+import org.opencv.videoio.Videoio;
 
 // import javafx.scene.image.Image;
 
@@ -21,14 +25,14 @@ public class CameraHandler {
 	
 	public CameraHandler(int CameraNumber) {
 		
-		this.capture = new VideoCapture();
+		this.capture = new org.opencv.videoio.VideoCapture();
 		
 		// start the video capture
 		this.capture.open(CameraNumber);
 		
 		// sets the resolution to HD
-		boolean wset = capture.set(Highgui.CV_CAP_PROP_FRAME_WIDTH, 1280);
-		boolean hset = capture.set(Highgui.CV_CAP_PROP_FRAME_HEIGHT, 720);
+		boolean wset = capture.set(Videoio.CV_CAP_PROP_FRAME_WIDTH, 1280);
+		boolean hset = capture.set(Videoio.CV_CAP_PROP_FRAME_HEIGHT, 720);
 	}
 	
 	/**
@@ -81,7 +85,7 @@ public class CameraHandler {
 		// create a temporary buffer
 		MatOfByte buffer = new MatOfByte();
 		// encode the frame in the buffer, according to the PNG format
-		Highgui.imencode(".png", frame, buffer);
+		Imgcodecs.imencode(".png", frame, buffer);
 		// build and return an BufferedImage created from the image encoded in the
 		// buffer
 		try {

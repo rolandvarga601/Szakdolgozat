@@ -27,12 +27,13 @@ public class ScanPiecesPosition {
 	private double[][] cornersCoords;
 	
 	
-	public ScanPiecesPosition(BufferedImage calibrationImage, int horizontalCorners, int verticalCorners) {
+	public ScanPiecesPosition(double[][] pointCoordinates, int horizontalCorners, int verticalCorners) {
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 		this.HorizontalCorners = horizontalCorners;
 		this.VerticalCorners = verticalCorners;
-		FindCorners cornerFinder = new FindCorners(calibrationImage, horizontalCorners, verticalCorners);
-		cornersCoords = cornerFinder.GetPointCoordinates();
+//		FindCorners cornerFinder = new FindCorners(calibrationImage, horizontalCorners, verticalCorners);
+//		cornersCoords = cornerFinder.GetPointCoordinates();
+		this.cornersCoords = pointCoordinates;
 	}
 	
 	private ScanPiecesPosition() {
@@ -67,9 +68,12 @@ public class ScanPiecesPosition {
 	}
 	
 	private boolean[][] FindGreen(BufferedImage[][] images) {
-		boolean[][] greenMap = new boolean[this.VerticalCorners - 1][this.HorizontalCorners - 1];
-		for (int i = 0; i < VerticalCorners - 1; i++) {
-			for (int j = 0; j < HorizontalCorners - 1; j++) {
+//		boolean[][] greenMap = new boolean[this.VerticalCorners - 1][this.HorizontalCorners - 1];
+//		for (int i = 0; i < VerticalCorners - 1; i++) {
+//			for (int j = 0; j < HorizontalCorners - 1; j++) {
+		boolean[][] greenMap = new boolean[8][8];
+		for (int i = 0; i < 8; i++) {
+			for (int j = 0; j < 8; j++) {
 				BufferedImage img = images[i][j];
 				int black = 0;
 				int white = 0;
@@ -112,16 +116,17 @@ public class ScanPiecesPosition {
 	private BufferedImage[][] CropImages(BufferedImage img2crop, int rows, int columns) {
 		
 		// Number of rows (it will be always 8, this is just for the test)
-		//int k = 5;
+		int k = 8;
 		
 		// Number of columns (it will be always 8, this is just for the test)
-		//int l = 8;
+		int l = 8;
 		
-		BufferedImage[][] returnPics = new BufferedImage[rows][columns];
+//		BufferedImage[][] returnPics = new BufferedImage[rows][columns];
+		BufferedImage[][] returnPics = new BufferedImage[k][l];
 		int x, y, w, h;
-		for (int i = 0; i < rows; i++)
+		for (int i = 0; i < k; i++)
 		{
-			for (int j = 0; j < columns; j++)
+			for (int j = 0; j < l; j++)
 			{
 				x = (int) cornersCoords[i*HorizontalCorners+j][0];
 				y = (int) cornersCoords[i*HorizontalCorners+j][1];
@@ -129,6 +134,7 @@ public class ScanPiecesPosition {
 						cornersCoords[i*HorizontalCorners+j][0]);
 				h = (int) Math.ceil(cornersCoords[(i+1)*HorizontalCorners+j+1][1] - 
 						cornersCoords[i*HorizontalCorners+j][1]);
+				System.out.println(i + "." + j + ". coordinates: " + x + "x" + y);
 				returnPics[i][j] = img2crop.getSubimage(x, y, w, h);
 				// System.out.println(returnPics[i][j].getHeight() + "\t" + returnPics[i][j].getWidth());
 				writeFile(returnPics[i][j], i, j);

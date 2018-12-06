@@ -11,7 +11,8 @@ import org.opencv.core.Mat;
 import org.opencv.core.MatOfByte;
 import org.opencv.core.MatOfPoint2f;
 import org.opencv.core.Size;
-import org.opencv.highgui.Highgui;
+//import org.opencv.highgui.Highgui;
+import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 
 // import javafx.scene.image.Image;
@@ -59,6 +60,7 @@ public class FindCorners {
 		{
 			pointCoords[i][0] = imageCorners.get(i, 0)[0];
 			pointCoords[i][1] = imageCorners.get(i, 0)[1];
+			System.out.println(i + ". coordinate: " + pointCoords[i][0] + "x" + pointCoords[i][1]);
 		}
 		return pointCoords;
 	}
@@ -82,6 +84,6 @@ public class FindCorners {
 	    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 	    ImageIO.write(image, "jpg", byteArrayOutputStream);
 	    byteArrayOutputStream.flush();
-	    return Highgui.imdecode(new MatOfByte(byteArrayOutputStream.toByteArray()), Highgui.CV_LOAD_IMAGE_UNCHANGED);
+	    return Imgcodecs.imdecode(new MatOfByte(byteArrayOutputStream.toByteArray()), Imgcodecs.CV_LOAD_IMAGE_UNCHANGED);
 	}
 }

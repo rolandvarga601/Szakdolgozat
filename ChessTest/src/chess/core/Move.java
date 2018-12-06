@@ -62,7 +62,7 @@ public class Move implements Constants, Serializable{
     rook = null;
   }
   
-  /* Added thesis specific functions */
+  /* Thesis specific functions */
   public boolean[][] WhitePiecesAt(Piece[][] stateBefore) {
 	  boolean[][] WhitePiecesBefore = new boolean[8][8];
 	  for (int i = 0; i < 8; i++) {
@@ -78,9 +78,13 @@ public class Move implements Constants, Serializable{
 	  byte before_y = 9;
 	  byte after_x = 9;
 	  byte after_y = 9;
+	  
+	  int differences = 0;
+	  
 	  for (byte i = 0; i < 8; i++) {
 		  for (byte j = 0; j < 8; j++) {
 			  if (WhitePiecesAfter[i][j] != WhitePiecesBefore[i][j]) {
+				  differences++;
 				  if (WhitePiecesBefore[i][j]) {
 					  before_x = i;
 					  before_y = j;
