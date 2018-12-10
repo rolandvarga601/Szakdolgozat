@@ -97,6 +97,16 @@ public class CameraHandler {
 		return null;
 	}
 	
+	public static BufferedImage rotateClockwise90(BufferedImage src) {
+		int w = src.getWidth();
+	    int h = src.getHeight();
+	    BufferedImage dest = new BufferedImage(h, w, src.getType());
+	    for (int y = 0; y < h; y++) 
+	        for (int x = 0; x < w; x++) 
+	            dest.setRGB(y, w - x - 1, src.getRGB(x, y));
+	    return dest;
+	}
+	
 	public void CloseCamera() {
 		// release the camera
 		this.capture.release();
