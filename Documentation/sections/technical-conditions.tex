@@ -130,6 +130,14 @@ Ahhoz hogy a megfogó fel tudja emelni a bábukat könnyebség, ha a bábuk egyf
 \end{figure}
 
 \subsubsection{Bábuk pozíciójának azonosítása}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.45]{flowchart-imgprocess}
+\caption{A képfeldolgozás helye a folyamatban}
+\label{fig:flowchart-imgprocess}
+\end{figure}
+
 A bábuk pozíciójának azonosításához szükség van valamilyen kalibrációs eljárásra, hogy a képek egyes részeihez a sakktábla mezőit tudjuk rendelni. A mezők definiálásához kötődő módszer alapjait OpenCV-s függvények jelentik. A kidolgozott eljárás lényege, hogy a kalibrációs képen egy sakktáblaminta belső sarokpontjait (azon sarokpontok, amelyek 4 mezőnek együttes sarokpontjai) határozza meg a képen. A képkoordináták alapján történik az egyes mezők felosztása az élek mentén szomszédos pontok képzeletbeli összekötésével. Mivel a perspektivikus hatások elhanyagolhatók a tábla mezőre nézve, így 2 szemközti pontra illesztett téglalap jó közelítés és az egyes képek kivágásához. Fontos elem, hogy a kalibrációs sakkminta mezőszámai vízszintes és függőleges irányban különbözzenek, mert így fogja a sarokpontkereső függvény mindig ugyanabban a sorrendben visszaadni a pontok koordinátáját. A sorszámozás a minta \underline{bal felső} részénél lévő, \underline{fekete} mező sarkától indul és soronként halad (a hosszabb élek mentén) \aref{fig:chessboardcorners} ábrán látható módon\footnote{http://stadatum.blogspot.com/2016/05/corner-identification-in-computer.html}. Az algoritmus az elmosódásokra, nagyobb szögekre (50-70°) és a papír gyűrődéseire nem érzékeny.
 
 Fontos elem ezeken túl, hogy a kalibrációs lap abban a síkban helyezkedjen el, ahol a bábukon a zöld minta, így biztos megfelelő helyen keressük a bábukat. Ha az alsó tábla szintjére helyeznénk a kalibrációs lapot, akkor az egyes mezőkre helyezett bábukon lévő minták átlóghatnának a szomszédos mezőkre. Ezt mutatja be \aref{fig:chessboardcalibration} ábra.
@@ -190,7 +198,7 @@ Ha ez a `\angol{value}' érték egy megadott határértéknél nagyobb (jelenleg
 \label{fig:colorfiltering}
 \end{figure}
 
-\subsection{QR-kód alapú képfeldolgozás - továbbfejlesztés} \label{qrsection}
+\subsection{QR-kód alapú képfeldolgozás - továbbfejlesztési irány} \label{qrsection}
 Ahhoz, hogy sakkjátékot tetszőleges állapotból lehessen kezdeni, illetve folytatni szükség van a bábuk helyének felismerésén túl azok típusának egyértelmű felismerésére. Erre alkamas megoldás lehet a bábuk tetejére helyzett QR-kód, amelyben kódolva van a bábu típusa. A QR-kódok kezelésére jó választás a nyílt forráskódú ZXing (``\angol{Zebra Crossing}'') program\footnote{További információk és forráskód: https://github.com/zxing/zxing}. Ez a Java könyvtár (\angol{library}) alkamas különböző formátumú, egy- és kétdimenziós vonalkódokkal kapcsolatos képfeldolgozásra, amelynek csak egyik eleme a QR-kód olvasás és generálás.
 
 \subsubsection{A forráskód build-je}
