@@ -1,0 +1,164 @@
+\documentclass[../documentation.tex]{subfiles}
+ 
+\begin{document}
+\section{Sakkbábuk kialakítása, felismerésük a képeken}
+A sakkjáték során a két fél (az ember és a robot) felváltva lép. A robot az ember korábbi lépéseit (a sajátjai mellett) számon tudja tartani, az ember új lépéseit viszont meg kell tudnia határozni. A sakkprogram működtetéséhez tehát elegendő a bábuk új pozíciójának felismerése azután, miután az ember lépett.
+
+Könnyebbséget jelent, hogy elég csak az ember bábuinak pozícióját megkeresni (a robot vezeti magának a bábuk pillanatnyi helyzetét). A sakkbábuk felismerésére többfajta módszer is megfelelő lehet. A képfeldolgozást lehet saját vagy szabványos mintára alapozni (pl.: QR-kód alapú felismerés - \ref{qrsection} fejezet), illetve színes kamerakép esetén adott színek keresésére. A szakdolozat során a második módszer került beágyazásra, viszont a sakkbábuk formai kialakításakor a QR-kód alapú felismerhetőség is fontos szempont volt, így biztosítva az ilyen irányú továbbfejlesztés lehetőségét.
+
+\subsection{A sakkbábuk formatervezése}
+Ahhoz hogy a megfogó fel tudja emelni a bábukat könnyebség, ha a bábuk egyforma magasak, vagy ha a megfogó mindegyik bábut egy kitültetett, egy magasságban lévő részénél fogja meg (akár a talprészénél vagy alá is nyúlhatna). A talprésznél megfogás jó megoldás lehet, ha maguk a bábuk színesek, és így biztosított a képeken való felismerhetőségük. A QR-kódos továbbfejlesztéshez viszont elkerülhetetlen, hogy a QR-kód a bábuk tetején legyen elhelyezve. Ezen megfontolások alapján a bábuk végleges konstrukciója (\ref{fig:chesspieces} ábra):
+\begin{itemize}
+	\item Mindegyik bábu tetején található egy négyzet alapú, szélességéhez viszonyítva alacsony hasáb, amire az adott színt/színeket/QR-kódot rá lehet ragasztani.
+	\item Ennél a hasábnál fogva emeli meg a megfogó a bábut, így kevésbé kell lenyúlnia a robotkarnak, kisebb az esély arra, hogy egy másik bábut felborít.
+	\item A hasáb 6 mm vastag, hogy a megfogó viszonylag nagy terhelését (min. 50 N) elviselje.
+	\item Mindegyik bábu egyforma magas (40 mm), így a robotkarral felemelés programja és a képfeldolgozás is nagy mértékben leegyszerűsödik.
+	\item A bábuk viszonylag alacsonyak és a talprészük vastagított, tömör, hogy kevésbé legyenek borulékonyak.
+	\item Annak érdekében, hogy a bábukat kevesebb támaszanyag felhasználásával lehessen nyomtatni a bábuk tetején elhelyezkedő hasábok külön lettek kinyomtatva és csak utólag lettek a bábukra felragasztva.
+\end{itemize}
+
+\begin{figure}[h]
+\centering
+\includegraphics[height=4cm]{chess-images/pawn}
+\includegraphics[height=4cm]{chess-images/king}
+\includegraphics[height=4cm]{chess-images/bishop}
+\includegraphics[height=4cm]{chess-images/queen}
+\includegraphics[height=4cm]{chess-images/knight}
+\includegraphics[height=4cm]{chess-images/rook}
+\includegraphics[height=4cm]{chess-images/toppart}
+\includegraphics[height=4cm]{chess-images/pawnassembly}
+\includegraphics[height=4cm]{chess-images/knightassembly}
+\caption{A sakkbábúk 3D-s terve}
+\label{fig:chesspieces}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.05]{chess-images/3Dprinted-min}
+\caption{A kinyomtatott sakkbábuk}
+\label{fig:3dprinted}
+\end{figure}
+
+\subsection{Bábuk pozíciójának azonosítása}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.45]{flowchart-imgprocess}
+\caption{A képfeldolgozás helye a folyamatban}
+\label{fig:flowchart-imgprocess}
+\end{figure}
+
+A bábuk pozíciójának azonosításához szükség van valamilyen kalibrációs eljárásra, hogy a képek egyes részeihez a sakktábla mezőit tudjuk rendelni. A mezők definiálásához kötődő módszer alapjait OpenCV-s függvények jelentik. A kidolgozott eljárás lényege, hogy a kalibrációs képen egy sakktáblaminta belső sarokpontjait (azon sarokpontok, amelyek 4 mezőnek együttes sarokpontjai) határozza meg a képen. A képkoordináták alapján történik az egyes mezők felosztása az élek mentén szomszédos pontok képzeletbeli összekötésével. Mivel a perspektivikus hatások elhanyagolhatók a tábla mezőre nézve, így 2 szemközti pontra illesztett téglalap jó közelítés az egyes képek kivágásához. Fontos elem, hogy a kalibrációs sakkminta mezőszámai vízszintes és függőleges irányban különbözzenek, mert így fogja a sarokpontkereső függvény mindig ugyanabban a sorrendben visszaadni a pontok koordinátáját. A sorszámozás a minta \underline{bal felső} részénél lévő, \underline{fekete} mező sarkától indul és soronként halad (a hosszabb élek mentén) \aref{fig:chessboardcorners} ábrán látható módon\footnote{http://stadatum.blogspot.com/2016/05/corner-identification-in-computer.html}. Az algoritmus az elmosódásokra, nagyobb szögekre (30-40°) és a papír gyűrődéseire nem érzékeny.
+
+Fontos elem ezeken túl, hogy a kalibrációs lap abban a síkban helyezkedjen el, ahol a bábukon a zöld minta, így biztos megfelelő helyen keressük a bábukat. Ha az alsó tábla szintjére helyeznénk a kalibrációs lapot, akkor az egyes mezőkre helyezett bábukon lévő minták átlóghatnának a szomszédos mezőkre. Ezt mutatja be \aref{fig:chessboardcalibration} ábra.
+Ezek alapján a kalibrációs eljárás lépései:
+
+\begin{enumerate}
+	\item Néhány sakkbábú táblára helyezése.
+	\item A bábuk teteje által kifeszített síkra egy sakktáblamintás papír ráhelyezése úgy, hogy az egyes mezők az alsó sakktábla mezői felett legyenek (mindegyik alsó sakktáblamező felett legyen egy belső sarokpontokkal határolt mező).
+	\item Kép készítése abból a pozícióból és szögből, ahova a robotkat a kamerával minden képkészítés előtt vissza fog térni.
+	\item A képen a sarokpontok keresése és a mezők meghatározása automatikusan történik a programban, de a sarokpontok számát vízszintes és függőleges irányban előre definiálni kell.
+\end{enumerate}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3]{finaltest-calibration}
+\includegraphics[scale=0.3]{finaltest-step}
+\caption{Kalibrációs kép felvétele (a pirossal bekeretezett rész \underline{alatt} található a jobb oldali képen látható sakktábla)}
+\label{fig:chessboardcalibration}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.35]{chessboardcorners}
+\includegraphics[scale=0.96]{chessboardcorners1}
+\includegraphics[scale=0.96]{chessboardcorners2}
+\caption{A sakktáblaminta feltérképezett pontjai}
+\label{fig:chessboardcorners}
+\end{figure}
+
+A képfeldolgozáshoz szükséges osztályokat az `imgprocess' csomag tartalmazza (az OpenCV-s és a QR-kódhoz tartozó .jar fájlokat a \angol{Build path}-hoz hozzá kell még adni). A sakkbábuk pozíciójának felismerését végző metódusok a ScanPiecesPosition osztályban vannak implementálva. Az osztályt példányosítani a BufferedImage tipusú kalibrációs képpel lehet, megadva még a horizontális és vertikális sarokpontok számát függvényparaméterként. A példányosítás hatására lefut a sarokpontkereső függvény. A ScanPosition függvényt erre a példányra meghívva visszakapjuk a fehér bábuk helyét egy boolean mátrix formájában, ahol a mátrix egyes elemei a tábla egyes mezői. A kép mezőkre darabolását a CropImages privát függvény végzi, amely a kalibráció során meghatározott sarokpontok alapján darabolja fel a képet: a kapott képek a mezők bal felső és jobb alsó pontjai által meghatározott téglalapon belüli részek.
+
+A kapott képekről a FindGreen függvény dönti el, hogy található-e rajtuk jelentősebb kiterjedésű zöld szín. A zöld színre szűrést RGB színtartományban vizsgálja a program (HSV színskálába transzformálással a szűrés még finomítható és kevésbé lesz érzékeny a különböző fényviszonyokra is). Az egyes képek minden pixele esetén kiszámol a program egy értéket a következő képlet alapján:
+\[value = greenComponent - \dfrac{redComponent}{2}  - \dfrac{blueComponent}{2}\]
+Ha ez a `\angol{value}' érték egy megadott határértéknél nagyobb (jelenleg 40 egy 0-tól 255-ig terjedő skálán), akkor a pixel színét a szűrő algoritmus fehérre állítja, ellenkező esetben feketére. Utolsó lépésként a szűrő algoritmus minden mezőre külön-külön kiszámítja a fehér és a fekete pixelek számának az arányát. Ha ez az érték 10\%-nál nagyobb egy mező esetén, akkor ott található bábu, azaz a hozzá tartozó boolean mátrix elem \angol{true} értékű lesz. A visszaadott mátrixot a sakkprogram kapja majd meg, ami ez alapján és az előző állás alapján dönti el, hogy mi volt a lépés.
+
+\begin{figure}[h]
+\centering
+	\includegraphics[height=60mm]{image2filter}
+	\includegraphics[height=60mm]{filtered-image}
+\caption{Zöld színre szűrés (bal oldalt az eredeti kép, jobbra a szűrt)}
+\label{fig:colorfiltering}
+\end{figure}
+
+
+\subsection{QR-kód alapú képfeldolgozás - továbbfejlesztési irány} \label{qrsection}
+Ahhoz, hogy sakkjátékot tetszőleges állapotból lehessen kezdeni, illetve folytatni szükség van a bábuk helyének felismerésén túl azok típusának egyértelmű felismerésére. Erre alkamas megoldás lehet a bábuk tetejére helyzett QR-kód, amelyben kódolva van a bábu típusa. A QR-kódok kezelésére jó választás a nyílt forráskódú ZXing (``\angol{Zebra Crossing}'') program\footnote{További információk és forráskód: https://github.com/zxing/zxing}. Ez a Java könyvtár (\angol{library}) alkamas különböző formátumú, egy- és kétdimenziós vonalkódokkal kapcsolatos képfeldolgozásra, amelynek csak egyik eleme a QR-kód olvasás és generálás.
+
+\subsubsection{A forráskód build-je}
+A könyvtár egyszerű használatához célszerű .jar fájlokat generálni a forráskódból. Az első lépés a Github-on elérhető forráskód letöltése vagy klónozása a saját számítógépre. A programkód számos mappába és almappába van rendszerezve az egyes moduloknak megfelelően (pl.: core/ és javase/). \textbf{Fontos:} a mapparendszert olyan helyre tegyük a számítógépen, melynek elérési útjában nem található szóköz karakter (ékezetes karakter is probléma lehet)! Minden Java alapú modul esetén található egy pom.xml fájl, amit Apache Maven\footnote{Az Apache Maven program ingyenesen letölthető: https://maven.apache.org/} segítségével lehet használni.
+
+Szükségünk van megfelelő java verzió telepítésére. A JRE (\angol{Java Runtime Environment}) helyett a JDK (\angol{Java Developement Kit}) valamelyik verzióját (a projekt jdk 10.0.2 verziót használ) érdemes telepíteni, ha fejlesztői funkciókat is igénybe szeretnénk venni (a JRE csomagot ez már tartalmazza). Az Apache Maven telepítése után szükségünk van az ehhez és a JDK-hoz tartozó környezeti változók beállítására. Ezt a Vezérlőpult->Rendszer->Speciális rendszerbeállítások->Környezeti változók...->Rendszerváltozók címszó alatt tehetjük meg. Szükségünk van egy `JAVA\_HOME' és egy `M2\_HOME' változóra (\ref{fig:envvar}. ábra).
+
+Parancssorban navigáljunk a ZXing projekt gyökeréhez és futtassuk a `mvn install' parancsot a fordításhoz, a tesztekhez és az összes modul felépítéséhez. A ``-DskipTests'' paraméter hozzáadásával a unit teszteket kihagyhatjuk. Szükség lehet a `-Drat.ignoreErrors=true' paraméterre a licensz tesztekkel kapcsolatos problémák ignorálásához. A build folyamat akkor mondható sikeresnek, ha mindegyik modul felépítése sikeres (`ANDROID\_HOME' környezeti változó beállítása nélkül az Androidhoz kapcsolódó modulokat nem build-eli) (\ref{fig:buildsuccess}. ábra).
+
+\begin{figure}[h]
+\centering
+\includegraphics{env-variable}
+\caption{Szükséges környezeti változók beállítása}
+\label{fig:envvar}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics{zxingbuild}
+\caption{Sikeres build végeredménye}
+\label{fig:buildsuccess}
+\end{figure}
+
+A lefordított .jar fájlokat ezt követően az egyes modulokon belül találjuk. Például a lefordított \textit{core/} kód helye a \textit{core/target/core-x.y.z.jar}. Ezeket lehet beimportálni a képfeldolgozást megvalósító projektbe.
+
+\subsubsection{ZXing könyvtár beimportálása és használata}
+Az iiwa robotkart programozni Sunrise Workbench használatával a legegyszerűbb, ami egy JAVA Eclipse platformú szoftver. Emiatt praktikus okokból a szakdolgozat képfeldolgozási és sakkalgoritmus beágyazási része túlnyomó részt Eclipse-ben történt (verzió: 4.9.0)\footnote{Link: https://www.eclipse.org/}.
+
+A könyvtár beimportálásához létrehoztam egy java projektet. Erre jobb egérgombbal kattintva elnavigáltam a `\angol{Configure Build Path...}' menüponthoz (\ref{fig:zxingimport}. ábra). A `\angol{Classpath}'-t kiválasztva jobb oldalt aktivizálódik az `\angol{Add External Jars...}' gomb. Kiválasztottam a \textit{core/} és a \textit{javase/} modulok .jar fájljait. Ezeken belül lehetőség van forráskód (\angol{Source attachment}) és dokumentáció (\angol{Javadoc location}) csatolására (\ref{fig:zxingimport}. ábra). `\angol{Apply and Close}' után megjelennek a csomagok a hivatkozott könyvtárak (\angol{Referenced libraries}) pont alatt.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{buildpath}
+\includegraphics[scale=0.5]{zxingimport}
+\caption{ZXing hozzáadása a hivatkozott könyvtárakhoz}
+\label{fig:zxingimport}
+\end{figure}
+
+\subsubsection{QR kód generálás és olvasás}
+A ZXing könyvtárt felhasználó, ehhez a projekthez szükséges elemek az `imgprocess' csomagban találhatóak a `QRCodeMethods.java' fájlban. A függvények leírása  \aref{tab:qrcodemethods} táblázatban találhatóak\footnote{Forráskód: https://github.com/rolandvarga601/Szakdolgozat}. 
+
+\begin{table}[h]
+\centering
+\renewcommand\tabularxcolumn[1]{m{#1}}% for vertical centering text in X column
+\begin{tabularx}{\linewidth}{|c|X|X|}
+\hline \multicolumn{1}{|c|}{\textbf{Függvény neve}} & \multicolumn{1}{c|}{\textbf{Paraméterek}} & \multicolumn{1}{c|}{\textbf{Leírás}}\tabularnewline \hline
+createQRCode & 
+\begin{itemize} \item String qrCodeData - a kódolt szöveg
+					\item String filePath - a képek mentési helye
+					\item String charset - karakterkódolás
+					\item int qrCodeheight - a kép magassága
+					\item int qrCodewidth - a kép szélessége
+\end{itemize} & Nincs visszatérési értéke, a QR-kódot tartalmazó képet a megadott elérési helyre menti. \tabularnewline \hline
+readQRCode & BufferedImage image - a kép amelyen a QR-kód található & Visszaadja a képen található QR-kódba kódolt szöveget. \tabularnewline \hline
+readMultiQRCode & String FileName - a kép elérési útja, amelyen a QR-kódok találhatóak & Képes egyazon képen különböző szögekben elhelyezkedő QR-kódok felismerésére és dekódolására (\ref{fig:multiqrcoderead} ábra). Visszatérési érték: Result[], amely tömb elemei tartalmazzák többek között az egyes QR-kódok helyét a képeken és a kódolt szöveget. \tabularnewline \hline
+\end{tabularx}
+\caption{QRCodeMethods.java függvényei}
+\label{tab:qrcodemethods}
+\end{table}
+
+\begin{figure}[h]
+\centering
+\fbox{\includegraphics[height=70mm]{multiqrcode}}
+\includegraphics[height=25mm]{multiqrcoderesult}
+\caption{Példa a több QR-kódot tartalmazó kép kiolvasására (jobb oldalt a program kimenete látható)}
+\label{fig:multiqrcoderead}
+\end{figure}
+
+\end{document}

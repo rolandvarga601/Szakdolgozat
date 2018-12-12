@@ -2,10 +2,10 @@
  
 \begin{document}
 \section{Robotkar kalibráció, referencia felvétel kidolgozása}
+Ha a robotkarhoz szerszámokat szeretnénk csatolni vagy a mozgását a térben elhelyzkedő tárgyakhoz szeretnénk igazítani, akkor kalibrációs eljárásokat kell végrehajtani.
+
 \subsection{Koordinátarendszerek}
 Ha a robotkar pozíciójáról beszélünk, akkor elsősorban a végpontjának vagy az arra szerelt szerszámnak a pozíciójára és orientációjára vagyunk kiváncsiak. Az ilyen elhelyezkedést a térben különböző koordinátarendszerekkel és a közöttük felírható transzformációkkal tudjuk jellemezni. A főbb koordinátarendszereket foglalja össze \aref{tab:coordsystems} táblázat.
-
-
 
 \begin{figure}[h]
 	\centering
@@ -45,7 +45,7 @@ Szerszám KR & A szerszám KR az a Descartes-i KR, amely a felszerelt szerszám 
 \label{tab:coordsystems}
 \end{table}
 
-\begin{figure}[h]
+\begin{figure}
 	\centering
 	\includegraphics[scale=0.35]{tcp-example1}
 	\includegraphics[scale=0.35]{tcp-example2}
@@ -54,7 +54,7 @@ Szerszám KR & A szerszám KR az a Descartes-i KR, amely a felszerelt szerszám 
 \end{figure}
 
 \newpage
-\subsection{Szerszámkalibráció - XZY 4-pont metódus}
+\subsection{Szerszámkalibráció - XYZ 4-pont metódus}
 A sakkprojekt kivitelezése során szükséges a robotkarra szerelt megfogó kalibrálása ahhoz, hogy a pozícionálás minél pontosabb legyen. A robotkar szoftverében ez egy alapfunkció, kiegészítő csomag nem szükséges hozzá. A kalibrációs eljárás alapvetően 2 lépésből áll:
 \begin{enumerate}
 	\item a TCP origójának meghatározásból,

@@ -6,13 +6,13 @@ A robotprogramhoz felhasznált sakkalgoritmusok és főbb Java osztályok alapja
 
 A szakdolgozat keretében megvalósított projektem során külön a sakk alkalmazáshoz felhasználói felületet létrehozni nem volt szükségszerű. A robotprogram továbbfejleszthető olyan formában, hogy folyamatosan kijelezze a jelenlegi sakkállást, így még inkább nyomon követhető a játék menete, így megkönnyítve a továbbfejlesztést. Ezen a felületen keresztül akár tetszőleges felállást lehetne konfigurálni a játék kezdetéhez.
 
-A sakkprogram beágyazásának első fő kihívása a GUI elhagyásával egy konzolalkalmazás létrehozása. A program forráskódja viszonylag hosszú, sok osztály lett implementálva különböző csomagokba rendezve (12 csomag és ezeken belül 93 osztály). A program működésének megértéséhez jó kiindulási pont a mellékelt README fájl és a ``\angol{program documentation}'' mappában található szotver leírás (\angol{Software Documentation.doc})\cite{chessgui}. Habár ezek főként a GUI működését taglalják, az ehhez tartozó főprogram kódjából a meghívott függvények alapján ki lehet következtetni a működés struktúráját. Ezen felül a Java oszályoknak és az egyes csomagoknak beszédes nevük van, például a következő sakklépést az \angol{algorithm} (algoritmus) csomagban található különböző algoritmusokra alapozott osztályok metódusai határozzák meg.
+A sakkprogram beágyazásának első fő kihívása a GUI elhagyásával egy konzolalkalmazás létrehozása. A program forráskódja viszonylag hosszú, sok osztály lett implementálva különböző csomagokba rendezve (12 csomag és ezeken belül 93 osztály). A program működésének megértéséhez jó kiindulási pont a mellékelt README fájl és a ``\angol{program documentation}'' mappában található szotver leírás (\angol{Software Documentation.doc})\cite{chessgui}. Habár ezek főként a GUI működését taglalják, az ehhez tartozó főprogram kódjából a meghívott függvények alapján ki lehet következtetni a működés struktúráját. Ezen felül a Java osztályoknak és az egyes csomagoknak beszédes nevük van, például a következő sakklépést az \angol{algorithm} (algoritmus) csomagban található különböző algoritmusokra alapozott osztályok metódusai határozzák meg.
 
 A szakdolgozathoz felhasznált csomagok az alábbiak (ezeken belül is bizonyos funkciók ki lettek kapcsolva, de ezek jelentik a program magját):
 \begin{itemize}
-	\item chess.algorithm: Ebben a csomagban kerültek implementálásra a különböző sakkalgoritmusokat meghívó és végrehajtó utasítások.
-	\item chess.core: Ez a csomag tartalmazza a sakkhoz szorosan kötődő osztályokat, metódusokat (pl.: bábuk szabályos lépései, sakkóra...).
-	\item chess.properties: Itt találhatóak a programozott sakkjáték szempontjából praktikus funkciók (pl.: játék jelenlegi állása, játékosok neve...).
+	\item chess.algorithm: Ebben a csomagban kerültek implementálásra a különböző sakkalgoritmusokat meghívó és végrehajtó utasítások. Ezen felül itt lettek implementálva az bábuk lehetséges lépései.
+	\item chess.core: Ez a csomag tartalmazza a sakkhoz szorosan kötődő osztályokat, metódusokat (pl.: bábuk elhelyezkedése a táblán).
+	\item chess.properties: Itt találhatóak a programozott sakkjáték szempontjából praktikus funkciók (pl.: játék jelenlegi állása, játékosok neve stb.).
 \end{itemize}
 
 \subsection{A chess.algorithm csomag - az algoritmusok működtetője}

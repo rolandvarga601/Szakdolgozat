@@ -73,11 +73,11 @@ Konzulens: & Témavezető: \\
 %--Előszó-------------------------------------------------
 %\include{sections/prolog}
 %--Jelölések jegyzéke-------------------------------------
-\newpage\null\thispagestyle{empty}
-\newpage\thispagestyle{plain}
-\section*{Jelölések jegyzéke}
+%\newpage\null\thispagestyle{empty}
+%\newpage\thispagestyle{plain}
+%\section*{Jelölések jegyzéke}
 
-A táblázatban a többször előforduló jelölések magyar és angol nyelvű elnevezése, valamint a fizikai mennyiségek esetén annak mértékegysége található. Az egyes mennyiségek jelölése – ahol lehetséges – megegyezik hazai és a nemzetközi szak-irodalomban elfogadott jelölésekkel. A ritkán alkalmazott jelölések magyarázata első előfordulási helyüknél található.
+%A táblázatban a többször előforduló jelölések magyar és angol nyelvű elnevezése, valamint a fizikai mennyiségek esetén annak mértékegysége található. Az egyes mennyiségek jelölése – ahol lehetséges – %megegyezik hazai és a nemzetközi szak-irodalomban elfogadott jelölésekkel. A ritkán alkalmazott jelölések magyarázata első előfordulási helyüknél található.
 %--Footer-------------------------------------------------
 %\newpage\null\thispagestyle{empty}
 \newpage\thispagestyle{fancy}
@@ -94,28 +94,35 @@ A táblázatban a többször előforduló jelölések magyar és angol nyelvű e
 %---------------------------------------------------------
 
 %--Tartalmi rész------------------------------------------
-	%--Alkalmazáshoz szükséges műszaki feltételek elemzése
+%--Robotkar mozgásának definiálása és programozása
 	\clearpage
-	\subfile{sections/technical-conditions}
+	\subfile{sections/projectdescription}
 	%--A kamera kezelésével kapcsolatos csomag leírása
 	\clearpage
 	\subfile{sections/camerahandling}
+	%--Alkalmazáshoz szükséges műszaki feltételek elemzése
+	\clearpage
+	\subfile{sections/imageprocessing}
+	%--Sakkalgoritmus beágyazása
+	\clearpage
+	\subfile{sections/chess-algorithm}
 	%--Robotkar kalibráció, referenciafelvétel kidolgozása
 	\clearpage
 	\subfile{sections/calibration}
 	%--Robotkar mozgásának definiálása és programozása
 	\clearpage
 	\subfile{sections/motions}
-	%--Sakkalgoritmus beágyazása
+	%--Robotkar mozgásának definiálása és programozása
 	\clearpage
-	\subfile{sections/chess-algorithm}
+	\subfile{sections/grippercontrol}
 	%--Eredmények értékelése
-	\clearpage
+%	\clearpage
 	\subfile{sections/results}
 %---------------------------------------------------------
 
 %--Összefoglalás------------------------------------------
-%\include{sections/summary}
+\clearpage
+\subfile{sections/summary-hu}
 %---------------------------------------------------------
 
 %--Források-----------------------------------------------
@@ -127,19 +134,20 @@ A táblázatban a többször előforduló jelölések magyar és angol nyelvű e
 %---------------------------------------------------------
 
 %--Angol összefoglalás------------------------------------
-%\include{sections/summary_en}
+\clearpage
+\subfile{sections/summary-en}
 %---------------------------------------------------------
 
 %--Rövidítések jegyzéke----------------------------
-\newpage
+%\newpage
 %\addcontentsline{toc}{section}{Rövidítések jegyzéke}
-\begin{abbreviations}
-	\item[HRC]	\angol{Human Robot Collaboration}
-	\item[IoT]	\angol{Internet of Things}
-	\item[IoE]	\angol{Internet of Everything}
-	\item[TCP]	\angol{Tool Center Point}
-	\item[HRI]	\angol{Human-Robot Interaction}
-\end{abbreviations}
+%\begin{abbreviations}
+%	\item[HRC]	\angol{Human Robot Collaboration}
+%	\item[IoT]	\angol{Internet of Things}
+%	\item[IoE]	\angol{Internet of Everything}
+%	\item[TCP]	\angol{Tool Center Point}
+%	\item[HRI]	\angol{Human-Robot Interaction}
+%\end{abbreviations}
 %-------------------------------------------------------
 
 %--Függelékek--------------------------------------

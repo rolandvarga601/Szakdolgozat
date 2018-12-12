@@ -11,13 +11,6 @@ A sakkbábuk pozíciójának felismerése képfeldolgozási eljáráson alapul. 
 	\item \underline{az illesztőszoftver (driver) kompatibilitása}: a projekthez valamilyen webkamera típus kiválasztása jó ötlet lehet a könnyű kezelhetőség, kedvező ár-érték arány és a viszonylag széles szoftveres támogatottság miatt. A robotvezérlőn Windows Embedded Standard 7 operációs rendszer fut, emiatt windows 7 kompatibilis webkamerát választottam.
 \end{itemize} 
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=0.35]{flowchart-takeimage}
-	\caption{Képkészítés helye a folyamatban}
-	\label{fig:camera}
-\end{figure}
-
 A sakktábla egy mezőjének mérete 40x40 mm, így az egész tábla 320x320 mm-es. A kalibráló kép ennél nagyobb, mivel az 10x9 cellából áll, ez így 400x360 mm. Egy sakkmezőt vízszintes és függőleges irányban is érdemes legalább 50 részre osztani (50x50=2500 pixelre), így a mezőkről készült kép megfelelően kivehető lesz. Ez azt jelenti, hogy 10*50, azaz 500 pixel szélesnek és magasnak kéne lennie a képnek legalább. Ezek alapján egy HD (1280*740 pixel) webkamerát választottam. 
 
 \begin{figure}[h]
@@ -45,8 +38,12 @@ A webkamerát a programon belül OpenCV-s függvények kezelik. A szükséges me
 	\item \underline{closeCamera:} ha már a kamera nincs használatban, ezzel a függvénnyel lehet inaktívvá tenni.
 \end{itemize}
 
-
-
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.35]{flowchart-takeimage}
+	\caption{Képkészítés helye a folyamatban}
+	\label{fig:camera}
+\end{figure}
 
 
 
