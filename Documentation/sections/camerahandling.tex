@@ -5,10 +5,10 @@
 \subsection{Kameraválasztási szempontok, választott kamera}
 A sakkbábuk pozíciójának felismerése képfeldolgozási eljáráson alapul. A képek készítéséhez használt kamera kiválasztásánál többféle szempont is szerepet játszott:
 \begin{itemize}
-	\item \underline{fekete-fehér/színes kép:} a zöld szín alapú bábukeresési eljáráshoz elengedhetetlen a színes képet szolgáltató kamera használata. QR-kód alapú felismeréshez megfelelő fekete-fehér kép is.
-	\item \underline{felbontás:} ezt a legkisebb megkülönböztetni kívánt 2 fizikai pont távolsága, illetve a pontok kamerától vett távolsága egyaránt befolyásolja (később kerül részletes tárgyalásra).
-	\item \underline{látószög:} ha a sakktábla kitölti a teljes képet, akkor a látószög azt határozza meg, hogy milyen távol lesz a kamera a tárgyaktól (a nem kifejezetten szűkített látóterű kamerák megfelelnek a célra).
-	\item \underline{az illesztőszoftver (driver) kompatibilitása}: a projekthez valamilyen webkamera típus kiválasztása jó ötlet lehet a könnyű kezelhetőség, kedvező ár-érték arány és a viszonylag széles szoftveres támogatottság miatt. A robotvezérlőn Windows Embedded Standard 7 operációs rendszer fut, emiatt windows 7 kompatibilis webkamerát választottam.
+	\item \textit{fekete-fehér/színes kép:} a zöld szín alapú bábukeresési eljáráshoz elengedhetetlen a színes képet szolgáltató kamera használata. QR-kód alapú felismeréshez megfelelő fekete-fehér kép is.
+	\item \textit{felbontás:} ezt a legkisebb megkülönböztetni kívánt 2 fizikai pont távolsága, illetve a pontok kamerától vett távolsága egyaránt befolyásolja (később kerül részletes tárgyalásra).
+	\item \textit{látószög:} ha a sakktábla kitölti a teljes képet, akkor a látószög azt határozza meg, hogy milyen távol lesz a kamera a tárgyaktól (a nem kifejezetten szűkített látóterű kamerák megfelelnek a célra).
+	\item \textit{az illesztőszoftver (driver) kompatibilitása}: a projekthez valamilyen webkamera típus kiválasztása jó ötlet lehet a könnyű kezelhetőség, kedvező ár-érték arány és a viszonylag széles szoftveres támogatottság miatt. A robotvezérlőn Windows Embedded Standard 7 operációs rendszer fut, emiatt windows 7 kompatibilis webkamerát választottam.
 \end{itemize} 
 
 A sakktábla egy mezőjének mérete 40x40 mm, így az egész tábla 320x320 mm-es. A kalibráló kép ennél nagyobb, mivel az 10x9 cellából áll, ez így 400x360 mm. Egy sakkmezőt vízszintes és függőleges irányban is érdemes legalább 50 részre osztani (50x50=2500 pixelre), így a mezőkről készült kép megfelelően kivehető lesz. Ez azt jelenti, hogy 10*50, azaz 500 pixel szélesnek és magasnak kéne lennie a képnek legalább. Ezek alapján egy HD (1280*740 pixel) webkamerát választottam. 
@@ -25,8 +25,8 @@ Az első körben választott webkamera típusa: Microsoft LifeCam HD-3000. Az il
 
 A második választás a Logitech C270 HD webkamerára esett. Az illesztőszoftver alapvetően Windows 7-hez készült. Az illesztőprogram telepítője \angol{offline} működik. További előny, hogy az illesztőprogrammal együtt a gyártó saját alkalmazását is telepíti hozzá, amivel a kamera képét \angol{stream}-ként lehet nézni. Erre alkalmas lenne a Windows verziókban általában elérhető kamera alkamazás is, de ez WES7 esetén nem alapfunkció. A saját alkalmazással így a kamerát a robotvezérlőhöz kötve is elvégezhetjük a megfelelő kamerapozíció beállítását, nincs szükség külön laptopra.
 
-\footnotetext{A Microsoft kamera képének linkje: https://www.microsoft.com/accessories/hu-hu/products/webcams/lifecam-hd-3000/t3h-00004\\
-A Logitech kamerájé: https://www.logitech.com/hu-hu/product/hd-webcam-c270}
+\footnotetext{A Microsoft kamera képének linkje: \url{https://www.microsoft.com/accessories/hu-hu/products/webcams/lifecam-hd-3000/t3h-00004}, 2018.12.03.\\
+A Logitech kamerájé: \url{https://www.logitech.com/hu-hu/product/hd-webcam-c270}, 2018.12.03.}
 
 
 \subsection{Képkészítés OpenCV-vel}

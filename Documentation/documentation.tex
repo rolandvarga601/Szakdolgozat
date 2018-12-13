@@ -67,11 +67,17 @@ Konzulens: & Témavezető: \\
 
 %--Tartalomjegyzék----------------------------------------
 \newpage\null\thispagestyle{empty}
-\newpage\thispagestyle{plain}
+\newpage\pagestyle{empty}
+\addtocontents{toc}{\protect\thispagestyle{empty}}
 \tableofcontents
 
+\pagenumbering{arabic}
+
 %--Előszó-------------------------------------------------
-%\include{sections/prolog}
+\newpage
+\thispagestyle{plain}
+\setcounter{page}{1}
+\subfile{sections/prolog}
 %--Jelölések jegyzéke-------------------------------------
 %\newpage\null\thispagestyle{empty}
 %\newpage\thispagestyle{plain}
@@ -80,12 +86,17 @@ Konzulens: & Témavezető: \\
 %A táblázatban a többször előforduló jelölések magyar és angol nyelvű elnevezése, valamint a fizikai mennyiségek esetén annak mértékegysége található. Az egyes mennyiségek jelölése – ahol lehetséges – %megegyezik hazai és a nemzetközi szak-irodalomban elfogadott jelölésekkel. A ritkán alkalmazott jelölések magyarázata első előfordulási helyüknél található.
 %--Footer-------------------------------------------------
 %\newpage\null\thispagestyle{empty}
-\newpage\thispagestyle{fancy}
+
 %\include{boschfoot}
 
-\pagenumbering{arabic}
+%--Köszönetnyílvánítás----------------------------------------------
+\cleardoublepage
+\thispagestyle{plain}
+\subfile{sections/acknowledgement}
 
 %--Bevezetés----------------------------------------------
+\newpage
+\pagestyle{fancy}
 \subfile{sections/preamble}
 
 %--Irodalomkutatás----------------------------------------
@@ -100,7 +111,7 @@ Konzulens: & Témavezető: \\
 	%--A kamera kezelésével kapcsolatos csomag leírása
 	\clearpage
 	\subfile{sections/camerahandling}
-	%--Alkalmazáshoz szükséges műszaki feltételek elemzése
+	%--A bábuk kialakítása és a képfeldolgozási rész
 	\clearpage
 	\subfile{sections/imageprocessing}
 	%--Sakkalgoritmus beágyazása
@@ -112,7 +123,7 @@ Konzulens: & Témavezető: \\
 	%--Robotkar mozgásának definiálása és programozása
 	\clearpage
 	\subfile{sections/motions}
-	%--Robotkar mozgásának definiálása és programozása
+	%--A megfogó vezérlése
 	\clearpage
 	\subfile{sections/grippercontrol}
 	%--Eredmények értékelése
@@ -125,17 +136,18 @@ Konzulens: & Témavezető: \\
 \subfile{sections/summary-hu}
 %---------------------------------------------------------
 
+%--Angol összefoglalás------------------------------------
+\clearpage \thispagestyle{empty}
+\addcontentsline{toc}{section}{Abstract}
+\subfile{sections/summary-en}
+%---------------------------------------------------------
+
 %--Források-----------------------------------------------
-%\addcontentsline{toc}{section}{Hivatkozások}
 \newpage
+\addcontentsline{toc}{section}{Hivatkozások}
 \bibliographystyle{unsrt}
 %\bibliographystyle{acm}
 \bibliography{references}
-%---------------------------------------------------------
-
-%--Angol összefoglalás------------------------------------
-\clearpage
-\subfile{sections/summary-en}
 %---------------------------------------------------------
 
 %--Rövidítések jegyzéke----------------------------
@@ -151,8 +163,8 @@ Konzulens: & Témavezető: \\
 %-------------------------------------------------------
 
 %--Függelékek--------------------------------------
-%\newpage
+\clearpage
 %\appendix
-%\subfile{sections/appendix}
+\subfile{sections/appendix}
 
 \end{document}

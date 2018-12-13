@@ -1,11 +1,11 @@
 \documentclass[../documentation.tex]{subfiles}
  
 \begin{document}
-\section{Eredmények, továbbfejlesztési irányok}
-A projekt főként 4 modulból áll (képkészítés, képfeldolgozás, sakkprogram és robotvezérlés), ezeket kellett összekötni ahhoz, hogy sakkozásra képessé lehessen tenni a robotkart \aref{sec:projectdescription} fejezetben bemutatott konstrukcióval. A projekt összesített értékelését FEJEZET HIVATKOZÁS!!!!!! fejezet tartalmazza. Ebben a fejezetben az egyes modulok korlátai, kiforrottsága, megbízhatósága és továbbfejleszthetősége kerül taglalásra.
+\section{Eredmények, továbbfejlesztési irányok} \label{sec:results}
+A projekt 4 főbb modulból áll (képkészítés, képfeldolgozás, sakkprogram és robotvezérlés), ezeket kellett összekötni ahhoz, hogy sakkozásra képessé lehessen tenni a robotkart \aref{sec:projectdescription} fejezetben bemutatott konstrukcióval. A projekt összesített értékelését \aref{sec:osszefoglalas}. fejezet tartalmazza. Ebben a fejezetben az egyes modulok korlátai, kiforrottsága, megbízhatósága és továbbfejleszthetősége kerül taglalásra.
 
 \subsection{Képkészítés értékelése}
-A robotvezérlő (KRC4) (és a rajta futó szoftver) kompatibilis a választott Logitech C270 HD webkamerával. A kamerát egyszerűen a robotvezérlőn található USB bemenetek valamelyikére lehet kötni. A robotkar és a robotvezérlő több méteres távolsága miatt USB hosszabító kábelre van szükség, 2 méteres passzív toldókábellel megfelelő képet szolgáltat a kamera.
+A robotvezérlő (KRC4) (és a rajta futó szoftver) kompatibilis a választott Logitech C270 HD webkamerával. A kamerát egyszerűen a robotvezérlőn található USB bemenetek valamelyikére lehet kötni. A robotkar és a robotvezérlő több méteres távolsága miatt USB hosszabító kábelre van szükség, 2 méteres passzív toldókábellel kommunikációs hiba nélkül üzemel a kamera.
 
 A kamera kezelő osztály (CameraHandler.java) HD képes webkamera kezelésére lett kialakítva. Minden bizonnyal egyéb képkészítésre alkalmas eszközt is tudna kezelni, de ez további teszteket igényelne. A kamera megnyitási ideje erősen változó lehet a tipus függvényében: a Logitech kamera esetén ez pár másodperc, míg a Microsoft kameránál fél vagy 1 perc is lehetett. A Windows alapfunkciójaként elérhető kamera alkalmazás mindkettő kamerát 1-2 másodperc alatt megnyitotta, szóval az OpenCV kamerakezelésében lehet különbség.
 
@@ -19,14 +19,14 @@ Továbbfejleszthető ez a modul:
 \subsection{Képfeldolgozás megbízhatósága}
 A képfeldolgozás alapvetően 2 elemből áll: a mezőkalibrációból és a fehér bábuk kereséséből.
 
-A mezőkalibráció főként a kalibrációs sakktáblamintán található sarokpontok kereséséből áll. Ezek alapján történik a mezőkről (pontosabban a bábuk tetejéről) készült képek kivágása. Az OpenCV 2.4.13.6-os verziónál a 3.4.4 megbízhatóbban működik, ugyanazon a képen megtalál olyan sarokpontokat, amiket a régebbi verzó nem. A sarokpontok megtalálása nem csak a kalibrációs tábláról alkotott képrészlet minőségétól függ, hanem a képen található egyéb mintázatoktól is, főként ha annak vonalai kontrasztosak. A kalibrációs képet utólagosan lehet módosítani, hogy a sakktáblán kívüli részt adott színnel ki legyen töltve. Ezt manuálisan kell megtenni, ami a jelen konstrukcióban elfogadható, de a továbbfejlesztési irányok (FEJEZET HIVATKOZÁS!!!) fejezetben ennél egyszerűbb alkalmazást biztosító módszerről is található leírás.
+A mezőkalibráció főként a kalibrációs sakktáblamintán található sarokpontok kereséséből áll. Ezek alapján történik a mezőkről (pontosabban a bábuk tetejéről) készült képek kivágása. Az OpenCV 2.4.13.6-os verziónál a 3.4.4 megbízhatóbban működik, ugyanazon a képen megtalál olyan sarokpontokat, amiket a régebbi verzó nem. A sarokpontok megtalálása nem csak a kalibrációs tábláról alkotott képrészlet minőségétól függ, hanem a képen található egyéb mintázatoktól is, főként ha annak vonalai kontrasztosak. A kalibrációs képet utólagosan lehet módosítani, hogy a sakktáblán kívüli részt adott színnel ki legyen töltve. Ezt manuálisan kell megtenni.
 
 A fehér bábuk keresése a mezőkről kapott képeken belüli színszűrésen alapszik. A módszer RGB színskálát használ a zöld színű részek megtalálására, ami átlagosnak mondható fényviszonyok között kifejezetten jól működik. Rosszabb fényviszonyok között nem lett tesztelve a módszer, de ilyen esetben a HSV színskála használata (az RGB helyett) előnyösebb lehet. A tesztelt fényviszonyokkal a képek körülbelül 50\%-át tölti ki zöld szín, ha ott fehér bábu található (a tetejükre zöld lap van ragasztva). Ez alapján a bábuk pozíciójának kiértékelése egyszerű.
 
 Továbbfejleszthetési irányok:
 \begin{itemize}
 	\item A projekt kidolgozásának idején az OpenCV egy újabb verzióját is kiadták, érdemes lehet azt beépíteni a programba.
-	\item A kamerapozíciónálás során a megtalált sarokpontok szinekkel megjelölése (kvázi valós időben) elősegítené a megfelelő pozíció megtalálását.
+	\item A kamerapozíciónálás során a megtalált sarokpontok szinekkel megjelölése (kvázi valós időben) elősegítené a megfelelő pozíció megtalálását, illetve a megfelelő pozíció megtalálását automatizálni is lehetne.
 	\item Az \ref{qrsection} fejezetben ismertetett QR kód alapú eljárás kidolgozása további funkciókat tenne elérhetővé.
 \end{itemize}
 
@@ -43,7 +43,7 @@ Ezzel a modullal kapcsolatos legjelentősebb fejlesztési irány a smartPAD-re k
 
 \subsection{A robotvezérlés értékelése}
 \subsubsection{A megfogó irányítása}
-A robotvezérlő EtherCAT kommunikációt használó, digitális és analóg I/O modulok segítségével tudja vezérelni a megfogót. A jelenleg implementált funkciókhoz elég csak a digitális modulok használata, de az analóg modulokra is szükség van az összes gripperfunkció kihasználáshoz (pl.: megfogó szorítóerejének beállítása, pozícióvisszacsatolás stb.).
+A robotvezérlő EtherCAT kommunikációt használó, digitális és analóg I/O modulok segítségével tudja vezérelni a megfogót. A jelenleg implementált funkciókhoz elég csak a digitális modulok használata, de az analóg modulokra is szükség van az összes gripperfunkció kihasználáshoz.
 
 A pozícióvisszacsatolás segítene eldönteni, hogy a megfogónak ténylegesen sikerült-e megfognia a bábut. A szorítóerő beállítása jelenleg hardveresen történik, de ezt a programból is lehetne vezérelni.
 
@@ -52,7 +52,7 @@ A robotkar kalibrálása a sakktáblához gyorsan kivitelezhető. A robot képes
 
 Továbbfejleszthető elemek:
 \begin{itemize}
-	\item Ha a robotkar ütközés hatására megáll, akkor jelenleg csak manuálisan lehet visszatéríteni az eredeti program folytatásához. Ezt a visszavezetést a programból is meg lehetne oldani, ez egy fejlesztési lehetőség.
+	\item Ha a robotkar ütközés hatására megáll, akkor jelenleg csak manuálisan lehet visszatéríteni az eredeti program folytatásához. Ezt a visszavezetést a programból is meg lehetne oldani.
 	\item A robotkar jelenleg a robot bázis koordinátarendszerben mozog, de praktikusabb lenne a sakktáblához rendelt bázist használni. Ekkor a folyamatok a sakktábla különböző irányú dőléseire sokkal kevésbé lennének érzékenyek.
 	\item A sakktábla bázispontjának felvétele ``handguiding'' (kézi vezetés) használatával gyorsabb és kényelmesebb lenne.
 \end{itemize}

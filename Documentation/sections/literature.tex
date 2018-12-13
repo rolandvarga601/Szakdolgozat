@@ -30,7 +30,14 @@ A rendelkezésre álló, áttanulmányozott irodalom négy fő dizájn elvet eme
 
 Összességében a két különböző típus szövegelemzése nem mutat lényeges eltérést, mindkettő típus külön-külön történő elemzése ugyanazokat a kialakítási alapelveket eredményezi. Azonban szembetűnő, hogy egyes dizájnelemeket gyakrabban tárgyalnak az ipari publikációkban. Az ember-robot kollaboráció, az adat- és információbiztonság, illetve a decentralizált döntéshozatal gyakrabban fordul elő ipari kiadványokban. Az első kettővel kapcsolatos értekezések magas száma rávilágít az Ipar 4.0 eredményes implemetálásának legnagyobb kihívásaira, amivel az iparban dolgozók szembesülnek. Mindeközben a decentralizált döntéshozatalt tekintik az Ipar 4.0 legproblémásabb elemének, és ezért ez rendkívül részletes és átfogó tárgyalásra kerül.
 
-\begin{figure}
+\subsubsection{Összekapcsolás}
+Gépek, eszközök, szenzorok és emberek kapcsolatba lépnek IoT-n (\foreignlanguage{british}{Internet of Things} - Dolgok internete) és IoP-n (\foreignlanguage{british}{Internet of People} - Emberek internete\cite{iop}) keresztül és így formálnak egy IoE-t (\foreignlanguage{british}{Internet of Everything} - Minden internete\cite{ioe}). A vezetéknélküli technológiák kiemelkedő szerepet játszanak az interakciók során, mivel lehetővé teszik az internetes hozzáférést mindenfelé. Az IoE-n keresztül összekötött emberek és eszközök képesek egymással információt megosztani, ami a kollaboráció alapját jelenti a közös célok elérése érdekében. 3 különböző típust különböztethetünk meg az IoE kapcsán: ember-ember együttműködés, \textbf{ember-robot kollaboráció} és robot-robot kollaboráció.\cite{collabtypes}
+
+A különböző gépek, eszközök, érzékelők és emberek egymás közötti interakciója során elengedhetetlen szerepe van a széles körben elfogadott kommunikációs szabványoknak. Ezek teszik lehetővé a különböző gyártóktól érkező moduláris eszközök rugalmas kombinálását. Ez a modularizáció az alapfeltétel, hogy az Ipar 4.0 `okos' gyárai alkalmazkodni tudjanak a folyamatosan változó piaci igényekhez vagy a személyreszabott rendelésekhez.
+
+Ahogy nő az IoE-ben résztvevők száma, a monetáris\footnote{pénzhez vagy valutához kötődő} és politikai érdekek meg fogják növelni az ilyen létesítmények elleni káros támadások számát, így az igény is nőni fog a magasabb fokú informatikai biztonság iránt.
+
+\begin{figure}[h]
 \centering
 \begin{tikzpicture}
 [node distance = 1cm, auto,font=\footnotesize,
@@ -72,13 +79,6 @@ Fizikai asszisztens};
 \label{fig:designprinciples}
 \end{figure}
 
-\subsubsection{Összekapcsolás}
-Gépek, eszközök, szenzorok és emberek kapcsolatba lépnek IoT-n (\foreignlanguage{british}{Internet of Things} - Dolgok internete) és IoP-n (\foreignlanguage{british}{Internet of People} - Emberek internete\cite{iop}) keresztül és így formálnak egy IoE-t (\foreignlanguage{british}{Internet of Everything} - Minden internete\cite{ioe}). A vezetéknélküli technológiák kiemelkedő szerepet játszanak az interakciók során, mivel lehetővé teszik az internetes hozzáférést mindenfelé. Az IoE-n keresztül összekötött emberek és eszközök képesek egymással információt megosztani, ami a kollaboráció alapját jelenti a közös célok elérése érdekében. 3 különböző típust különböztethetünk meg az IoE kapcsán: ember-ember együttműködés, \textbf{ember-robot kollaboráció} és robot-robot kollaboráció.\cite{collabtypes}
-
-A különböző gépek, eszközök, érzékelők és emberek egymás közötti interakciója során elengedhetetlen szerepe van a széles körben elfogadott kommunikációs szabványoknak. Ezek teszik lehetővé a különböző gyártóktól érkező moduláris eszközök rugalmas kombinálását. Ez a modularizáció az alapfeltétel, hogy az Ipar 4.0 `okos' gyárai alkalmazkodni tudjanak a folyamatosan változó piaci igényekhez vagy a személyreszabott rendelésekhez.
-
-Ahogy nő az IoE-ben résztvevők száma, a monetáris\footnote{pénzhez vagy valutához kötődő} és politikai érdekek meg fogják növelni az ilyen létesítmények elleni káros támadások számát, így az igény is nőni fog a magasabb fokú informatikai biztonság iránt.
-
 \subsubsection{Információs átláthatóság}
 Az összekapcsolt objektumok és emberek növekvő számának köszönhetően, a fizikai és a virtuális világ egybeolvadása lehetővé tesz egy újfajta információs modellt\cite{newinformation}. Az érzékelők összekapcsolása révén képezhetünk egy digitális, virtuális leképezést a világunkról.
 
@@ -87,7 +87,9 @@ Az összefüggés-tudatos információk az IoE résztvevői számára elengedhet
 \subsubsection{Decentralizált döntéshozatal}
 A decentralizált döntések meghozatalának két alappillére az ojektumok és az emberek összekapcsolása, illetve a termelő létesítményen belülről és kívülről érkező információk átláthatósága. Az összekapcsolt és decentralizált döntéshozó egységek lehetővé teszik a lokális információk globálissal együtti felhasználását egyazon időben, így elősegítve az átgondoltabb döntéshozatalt és így növelve összességében a termelékenységet. Az egyes IoE elemek a feladataikat annyira önállóan látják el, amennyire csak lehet. A feladatok csak kivételek, zavarok vagy ellentmondásos célok esetén kerülnek továbbításra magasabb szintre.
 
-Gyakorlati szempontból a decentralizált döntéshozatalt a kiber-fizikai rendszerek teszik lehetővé. Ezen rendszerek beágyazott számítóegységeinek, szenzorainak és aktuátorainak felhasználásával történik a fizikai világ autonóm nyomon követése és irányítása. \footnotetext{A kép forrása: http://www.criticalmanufacturing.com/en/newsroom/blog/posts/blog/ manufacturing-software-for-industry-4-0\#.XBA9lmhKiUk, 2018.12.05.}
+\urldef\myurl\url{http://www.criticalmanufacturing.com/en/newsroom/blog/posts/blog/manufacturing-software-for-industry-4-0#.XBA9lmhKiUk}
+
+Gyakorlati szempontból a decentralizált döntéshozatalt a kiber-fizikai rendszerek teszik lehetővé. Ezen rendszerek beágyazott számítóegységeinek, szenzorainak és aktuátorainak felhasználásával történik a fizikai világ autonóm nyomon követése és irányítása. \footnotetext{A kép forrása: \myurl, 2018.12.05.}
 
 \begin{figure}[h]
 \centering
@@ -108,17 +110,17 @@ Jelenleg az embereket főként az okostelefonjaik és táblagépeik kötik össz
 \label{fig:technical-assistant}
 \end{figure}
 
-Az emberek robotok általi fizikai kisegítése -- a robotika területen elért fejlesztésekkel -- szintén a technikai asszisztens szerep részét képezi. A robotok számos feladatot képesek elvégezni, amelyek az ember számára kellemetlenek, túl fárasztóak vagy veszélyesek más munkásokra nézve\cite{hri}. Az emberek fizikai feladatokban hatékony, sikeres és biztonságos segítésének érdekében szükséges, hogy a robotok az emberrel zökkenőmentesen és intuitívan működjenek együtt\cite{hri}. Ezen felül elengedhetetlen, hogy az emberek megfelelő képzésben részesüljenek az adott ember-robot kollaborációhoz\cite{m-learning}.\footnotetext{A kép forrása: https://www.electrive.com/2018/08/06/kuka-to-deliver-electric-car-making-robots-to-china/, 2018.12.05.}
+Az emberek robotok általi fizikai kisegítése -- a robotika területen elért fejlesztésekkel -- szintén a technikai asszisztens szerep részét képezi. A robotok számos feladatot képesek elvégezni, amelyek az ember számára kellemetlenek, túl fárasztóak vagy veszélyesek más munkásokra nézve\cite{hri}. Az emberek fizikai feladatokban hatékony, sikeres és biztonságos segítésének érdekében szükséges, hogy a robotok az emberrel zökkenőmentesen és intuitívan működjenek együtt\cite{hri}. Ezen felül elengedhetetlen, hogy az emberek megfelelő képzésben részesüljenek az adott ember-robot kollaborációhoz\cite{m-learning}.\footnotetext{A kép forrása:\\ \url{https://www.electrive.com/2018/08/06/kuka-to-deliver-electric-car-making-robots-to-china/}, 2018.12.05.}
 
 \subsection{Ember-robot kollaboráció}
 \subsubsection{Fogalmak tisztázása}
-Az ember és a robot közösen végzett feladataikat különböző interakciós szinteken valósíthatják meg, ezeket érdemes egymástól elhatárolni\footnote{Forrás: https://hohmannchris.wordpress.com/2017/02/08/cobots-more-cooperation-than-collaboration/} (\ref{fig:coex-coop-collab}. ábra):
+Az ember és a robot közösen végzett feladataikat különböző interakciós szinteken valósíthatják meg, ezeket érdemes egymástól elhatárolni\footnote{Forrás:\\ \url{https://hohmannchris.wordpress.com/2017/02/08/cobots-more-cooperation-than-collaboration/}, 2018.11.12.} (\ref{fig:coex-coop-collab}. ábra):
 \begin{enumerate}
-	\item \underline{Robot cella (\angol{Robotic cell}):} a robot önállóan végzi a feladatát az embertől kerítéssel elválasztva. Ez esetben nem beszélhetünk ember-robot együttműködésről.
-	\item \underline{Együttes jelenlét (\angol{Coexistence}):} a robot és az ember közel helyezkedik el egymáshoz védőkerítés nélkül, de nincs közös munkaterük. A robotnak van saját meghatározott tere.
-	\item \underline{Szinkronizált munkavégzés (\angol{Synchronized work}):} olyan elrendezés, melyben az ember és a robot osztozik egy közös munkateren, de egyszerre csak egyikük aktív. A munkamenet az ember és a robot jól definiált `koreográfiája'.
-	\item \underline{Kooperáció (\angol{Cooperation}):} a két ``partner'' mindegyike a saját feladatával foglalkozik. A munkaterük lehet közös, de nem dolgozhatnak sem ugyanazon a terméken, sem ugyanazon a munkadarabon.
-	\item \underline{Kollaboráció (\angol{Collaboration}):} olyan elrendezés, amely esetén az ember és a robot közösen és szimultán dolgozik egyazon terméken vagy munkadarabon. Tipikusan a robot megfogja, átnyújtja és tartja a munkadarabot amíg a munkás dolgozik rajta.
+	\item \textit{Robot cella (\angol{Robotic cell}):} a robot önállóan végzi a feladatát az embertől kerítéssel elválasztva. Ez esetben nem beszélhetünk ember-robot együttműködésről.
+	\item \textit{Együttes jelenlét (\angol{Coexistence}):} a robot és az ember közel helyezkedik el egymáshoz védőkerítés nélkül, de nincs közös munkaterük. A robotnak van saját meghatározott tere.
+	\item \textit{Szinkronizált munkavégzés (\angol{Synchronized work}):} olyan elrendezés, melyben az ember és a robot osztozik egy közös munkateren, de egyszerre csak egyikük aktív. A munkamenet az ember és a robot jól definiált `koreográfiája'.
+	\item \textit{Kooperáció (\angol{Cooperation}):} a két ``partner'' mindegyike a saját feladatával foglalkozik. A munkaterük lehet közös, de nem dolgozhatnak sem ugyanazon a terméken, sem ugyanazon a munkadarabon.
+	\item \textit{Kollaboráció (\angol{Collaboration}):} olyan elrendezés, amely esetén az ember és a robot közösen és szimultán dolgozik egyazon terméken vagy munkadarabon. Tipikusan a robot megfogja, átnyújtja és tartja a munkadarabot amíg a munkás dolgozik rajta.
 \end{enumerate}
 
 \begin{figure}[h]
@@ -130,7 +132,7 @@ Az ember és a robot közösen végzett feladataikat különböző interakciós 
 	\label{fig:coex-coop-collab}
 \end{figure}
 
-\footnotetext{Képek forrása: https://www.safetysolutions.net.au/content/machine/article/safety-solutions-for-intelligent-human-robot-collaboration-990038334}
+\footnotetext{Képek forrása: \url{https://www.safetysolutions.net.au/content/machine/article/safety-solutions-for-intelligent-human-robot-collaboration-990038334}, 2018.11.12.}
 
 \subsubsection{Biztonsági szempontok ember-robot kollaboráció esetén} \label{safetypoints}
 A biztonságos ember-robot együttműködés érdekében az elmúlt években különböző stratégiák lettek kifejlesztve. Ezek a módszerek különböző biztonságtípusra építenek, többek közt\cite{safehrc}:
@@ -231,7 +233,7 @@ A biztonsági funkciókat két csoportra lehet osztani:
 		\item EN ISO 13849-1 (\ref{tab:eniso13849}. táblázat) szabvány 3-as kategóriája (\angol{Category 3}), illetve a d teljesítményszint besorolás (\angol{Performance Level d})
 		\item EN 62061 (\ref{tab:eniso13849}. táblázat) SIL 2 követelménye
 		Ezek a követelmények azonban csak a következő feltétel fennállásakor teljesülnek:\\
-		Az ipari robot minden biztonsági szempontból releváns mechanikus, illetve elektromechanikus komponense a biztonságos működés szempontjából le lett tesztelve a beüzemeléskor és legalább egyszer minden évben, hacsak nem a kockázatelemzők másképp határoztak. Ilyen eszközök:
+		Az ipari robot minden biztonsági szempontból releváns mechanikus, illetve elektromechanikus komponense a biztonságos működés szempontjából le lett tesztelve a beüzemeléskor és legalább egyszer minden évben, hacsak a kockázatelemzők másképp nem határoztak. Ilyen eszközök:
 		\begin{itemize}
 			\item Vészstop eszköz (\angol{Emergency stop device}) a smartPAD-en
 			\item Engedélyező kapcsoló a smartPAD-en

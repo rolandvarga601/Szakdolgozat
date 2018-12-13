@@ -37,8 +37,8 @@ Ahhoz hogy egy test pozícióját és orientációját definiálni tudjuk a tér
 \rowfont{\bfseries\large} Koordinátarendszer (KR) & Leírás \\ \hline
 Világ KR & A világ KR egy állandó, Descartes-i (Cartesian) koordinátarendszer. Ez minden más KR gyökere, mint például a bázis KR-é vagy a robot bázis KR-é. Alapértelmezetten a világ KR a robot bázispontjában található. \\ \hline
 Robot bázis KR & A robot bázis KR-e olyan Descartes-i KR, amely a robotkar bázispontjában található. Ez definiálja a robotkar relatív helyzetét a világ KR-hez képest. Alapértelmezetten a robot bázis KR megegyezik a világ KR-rel. Meg lehet adni egy elforgatási vektort a Sunrise.Workbench-ben, amely definiálja a robot relatív forgatását a világ KR-hez képest. Alapbeállítésként a padlóra rögzített robot felszerelési orientációja: (A=0°, B=0°, C=0°).\\ \hline
-Bázis KR & Ahhoz hogy a Descartes-i térben mozgásokat definiálhassunk szükség van referencia KR (bázis) felvételére. Sztenderd módon a világ KR a mozgás bázis KR-e. További bázis KR-eket lehet definiálni a világ KR-hez képest. Ezt mutatja be a FEJEZET HIVATKOZÁS!!!!. \\ \hline
-\angol{Flange} KR & A flange KR írja le a robot \angol{flange} középpontjának a pozícióját és orientációját. Ennek az elhelyezkedése nem fix, a robottal együtt mozog. A \angol{flange} KR használható a rá fogatott szerszámokhoz kötődő KR-ek origójaként. Például a szakdolgozat keretében a gripper egy jól definiált pontjára illesztett KR a robot \angol{flange} KR-éhez kepést relatív lett megadva (\ref{fig:tcp-calibration}). \\ \hline
+Bázis KR & Ahhoz hogy a Descartes-i térben mozgásokat definiálhassunk szükség van referencia KR (bázis) felvételére. Sztenderd módon a világ KR a mozgás bázis KR-e. További bázis KR-eket lehet definiálni a világ KR-hez képest. Ezt mutatja be \aref{sec:basecalibration}. fejezet. \\ \hline
+\angol{Flange} KR & A flange KR írja le a robot \angol{flange} középpontjának a pozícióját és orientációját. Ennek az elhelyezkedése nem fix, a robottal együtt mozog. A \angol{flange} KR használható a rá fogatott szerszámokhoz kötődő KR-ek origójaként. Például a szakdolgozat keretében a gripper egy jól definiált pontjára illesztett KR a robot \angol{flange} KR-éhez kepést relatív lett megadva (\ref{fig:tcp-calibration} ábra). \\ \hline
 Szerszám KR & A szerszám KR az a Descartes-i KR, amely a felszerelt szerszám munkapontjára illeszkedik. Ezt hívják szerszám középpontnak (\angol{Tool Center Point} - \textbf{TCP}). Bármennyi frame-et lehet definiálni egy szerszámhoz és ezek mindegyike kiválasztható TCP-nek. A szerszám KR rendszerint a \angol{flange} KR-ből származtatott. \\ \hline
 \end{tabu}
 \caption{A főbb koordinátarendszerek}
@@ -77,7 +77,7 @@ A minimális távolságok és a maximális számítási hiba a \angol{Sunrise Wo
 	\label{fig:tcp-examples}
 \end{figure}
 
-\subsection{Báziskalibráció - 3 pont metódus}
+\subsection{Báziskalibráció - 3 pont metódus} \label{sec:basecalibration}
 A báziskalibráció során a felhasználó egy Descartes-i koordinátarendszert (bázis koordinátarendszert) rendel a bázisnak választott frame-hez. A bázis KR-nek a felhasználó által választott, tetszőleges helyen lehet az origója.
 
 A bázis kalibráció előnyei:

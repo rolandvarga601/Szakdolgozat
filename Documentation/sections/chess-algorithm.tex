@@ -25,7 +25,7 @@ A programban az alábbi sakkalgoritmusok lettek implementálva:
 	\item Kvázi véletlenszerűen választott szabályos lépés (RandomGen.java)
 \end{itemize}
 
-A sakkprogram alapbeállításként az Alfa-béta vágást használja. Az Alfa-béta vágás egy olyan kereső algoritmus, amely igyekszik csökkenteni a minimax algoritmus keresési fájában lévő kiértékelt elemek számát. Ezt a módszert gyakran alkalmazzák kétszemélyes játékok (pl.: amőba, sakk, go, stb.) esetén gépi játékos programozására. Egy adott lépés kiértékelését akkor szakítja meg teljesen, ha legalább egy válaszlépés bebizonyítja, hogy a lépés rosszabb, mint a korábban vizsgált lépés. Az ilyen lépések további vizsgálata felesleges. Ha egy hagyományos minimax fára alkalmazzák, akkor ugyanazt a lépést adja majd vissza, mint amit a minimax algoritmus adna, de kimetszi azokat az ágakat a fában, amik a kimenetet nem befolyásolják.\footnote{Szöveg forrása angol nyelven: https://en.wikipedia.org/wiki/Alpha\%E2\%80\%93beta\_pruning}
+A sakkprogram alapbeállításként az Alfa-béta vágást használja. Az Alfa-béta vágás egy olyan kereső algoritmus, amely igyekszik csökkenteni a minimax algoritmus keresési fájában lévő kiértékelt elemek számát. Ezt a módszert gyakran alkalmazzák kétszemélyes játékok (pl.: amőba, sakk, go, stb.) esetén gépi játékos programozására. Egy adott lépés kiértékelését akkor szakítja meg teljesen, ha legalább egy válaszlépés bebizonyítja, hogy a lépés rosszabb, mint a korábban vizsgált lépés. Az ilyen lépések további vizsgálata felesleges. Ha egy hagyományos minimax fára alkalmazzák, akkor ugyanazt a lépést adja majd vissza, mint amit a minimax algoritmus adna, de kimetszi azokat az ágakat a fában, amik a kimenetet nem befolyásolják.\footnote{Szöveg forrása angol nyelven: \url{https://en.wikipedia.org/wiki/Alpha\%E2\%80\%93beta\_pruning}, 2018.11.15.}
 
 \begin{figure}[h]
 \centering
@@ -33,7 +33,7 @@ A sakkprogram alapbeállításként az Alfa-béta vágást használja. Az Alfa-b
 \caption{Az alfa-béta vágás szemléltetése. A kiszürkített részfák vizsgálata felesleges (a lépések jobbról balra történő kiértékelésekor). A max és min szintek reprezentálják a játékos, illetve az ellenfelének a lépéseit. \protect\footnotemark}
 \label{fig:alphabeta}
 \end{figure}
-\footnotetext{A kép forrása: https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/\\AB\_pruning.svg/600px-AB\_pruning.svg.png}
+\footnotetext{A kép forrása: \url{https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/AB\_pruning.svg/600px-AB\_pruning.svg.png}, 2018.11.15.}
 
 Az algoritmus két változót értékel ki minden lépésben, alfát és bétát. Az alfa érték reprezentálja azt a minimum pontszámot, amely az u.n. `maximalizáló' játékos számára már biztosítva van, illetve a béta érték az a maximum pontszám, ami az u.n. `minimalizáló' játékos számára biztosított. Kezdetben alfa értéke negatív végtelen, béta pozitív végtelen, azaz mindkét játékos a saját legrosszabb lépésével indít. A fa rekurzív vizsgálata során folyamatosan változik az értékük a játékosok által garantáltan elérhető értékekre. Amint a béta érték az alfa alá csökken az azt jelenti, hogy ez az állás (ha mindkét játékos részéről a legjobb lépéseket tételezzük fel) nem állhat elő, így további vizsgálatuk felesleges.
 
@@ -59,7 +59,7 @@ A chess.core csomag definiálja az algoritmusok működtetéséhez nem szorosan 
 \caption{Hagyományos játékokhoz használt sakkóra - a piros zászló leesése jelzi, ha a játékos ideje elfogyott \protect\footnotemark}
 \label{fig:chessclock}
 \end{figure}
-\footnotetext{A kép forrása: https://www.polishchess.com/garde-analog-chess-clock-classic-p-161.html}
+\footnotetext{A kép forrása: \url{https://www.polishchess.com/images/Foto\%20szachow/CHCLK16\%20GARDE\%20CLASSIC/1.jpg}, 2018.11.25.}
 	\item A tábla és az alap felállás inicializálása a Board osztály példányosításával történik. Ez az osztály tartja számon, hogy melyik mezőn milyen bábu található, emellett praktikus okokból a két király jelenlegi helyzetét külön változókban tárolja.
 \end{enumerate}
 

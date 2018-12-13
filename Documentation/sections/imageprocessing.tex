@@ -28,7 +28,7 @@ Ahhoz hogy a megfogó fel tudja emelni a bábukat könnyebség, ha a bábuk egyf
 \includegraphics[height=4cm]{chess-images/toppart}
 \includegraphics[height=4cm]{chess-images/pawnassembly}
 \includegraphics[height=4cm]{chess-images/knightassembly}
-\caption{A sakkbábúk 3D-s terve}
+\caption{A sakkbábúk 3D-s terve (Inventorban készült)}
 \label{fig:chesspieces}
 \end{figure}
 
@@ -48,7 +48,7 @@ Ahhoz hogy a megfogó fel tudja emelni a bábukat könnyebség, ha a bábuk egyf
 \label{fig:flowchart-imgprocess}
 \end{figure}
 
-A bábuk pozíciójának azonosításához szükség van valamilyen kalibrációs eljárásra, hogy a képek egyes részeihez a sakktábla mezőit tudjuk rendelni. A mezők definiálásához kötődő módszer alapjait OpenCV-s függvények jelentik. A kidolgozott eljárás lényege, hogy a kalibrációs képen egy sakktáblaminta belső sarokpontjait (azon sarokpontok, amelyek 4 mezőnek együttes sarokpontjai) határozza meg a képen. A képkoordináták alapján történik az egyes mezők felosztása az élek mentén szomszédos pontok képzeletbeli összekötésével. Mivel a perspektivikus hatások elhanyagolhatók a tábla mezőre nézve, így 2 szemközti pontra illesztett téglalap jó közelítés az egyes képek kivágásához. Fontos elem, hogy a kalibrációs sakkminta mezőszámai vízszintes és függőleges irányban különbözzenek, mert így fogja a sarokpontkereső függvény mindig ugyanabban a sorrendben visszaadni a pontok koordinátáját. A sorszámozás a minta \underline{bal felső} részénél lévő, \underline{fekete} mező sarkától indul és soronként halad (a hosszabb élek mentén) \aref{fig:chessboardcorners} ábrán látható módon\footnote{http://stadatum.blogspot.com/2016/05/corner-identification-in-computer.html}. Az algoritmus az elmosódásokra, nagyobb szögekre (30-40°) és a papír gyűrődéseire nem érzékeny.
+A bábuk pozíciójának azonosításához szükség van valamilyen kalibrációs eljárásra, hogy a képek egyes részeihez a sakktábla mezőit tudjuk rendelni. A mezők definiálásához kötődő módszer alapjait OpenCV-s függvények jelentik. A kidolgozott eljárás lényege, hogy a kalibrációs képen egy sakktáblaminta belső sarokpontjait (azon sarokpontok, amelyek 4 mezőnek együttes sarokpontjai) határozza meg a képen. A képkoordináták alapján történik az egyes mezők felosztása az élek mentén szomszédos pontok képzeletbeli összekötésével. Mivel a perspektivikus hatások elhanyagolhatók a tábla mezőre nézve, így 2 szemközti pontra illesztett téglalap jó közelítés az egyes képek kivágásához. Fontos elem, hogy a kalibrációs sakkminta mezőszámai vízszintes és függőleges irányban különbözzenek, mert így fogja a sarokpontkereső függvény mindig ugyanabban a sorrendben visszaadni a pontok koordinátáját. A sorszámozás a minta \underline{bal felső} részénél lévő, \underline{fekete} mező sarkától indul és soronként halad (a hosszabb élek mentén) \aref{fig:chessboardcorners} ábrán látható módon. Az algoritmus az elmosódásokra, nagyobb szögekre (30-40°) és a papír gyűrődéseire nem érzékeny.
 
 Fontos elem ezeken túl, hogy a kalibrációs lap abban a síkban helyezkedjen el, ahol a bábukon a zöld minta, így biztos megfelelő helyen keressük a bábukat. Ha az alsó tábla szintjére helyeznénk a kalibrációs lapot, akkor az egyes mezőkre helyezett bábukon lévő minták átlóghatnának a szomszédos mezőkre. Ezt mutatja be \aref{fig:chessboardcalibration} ábra.
 Ezek alapján a kalibrációs eljárás lépései:
@@ -73,13 +73,13 @@ Ezek alapján a kalibrációs eljárás lépései:
 \includegraphics[scale=0.35]{chessboardcorners}
 \includegraphics[scale=0.96]{chessboardcorners1}
 \includegraphics[scale=0.96]{chessboardcorners2}
-\caption{A sakktáblaminta feltérképezett pontjai}
+\caption{A sakktáblaminta feltérképezett pontjai\protect\footnotemark}
 \label{fig:chessboardcorners}
 \end{figure}
 
 A képfeldolgozáshoz szükséges osztályokat az `imgprocess' csomag tartalmazza (az OpenCV-s és a QR-kódhoz tartozó .jar fájlokat a \angol{Build path}-hoz hozzá kell még adni). A sakkbábuk pozíciójának felismerését végző metódusok a ScanPiecesPosition osztályban vannak implementálva. Az osztályt példányosítani a BufferedImage tipusú kalibrációs képpel lehet, megadva még a horizontális és vertikális sarokpontok számát függvényparaméterként. A példányosítás hatására lefut a sarokpontkereső függvény. A ScanPosition függvényt erre a példányra meghívva visszakapjuk a fehér bábuk helyét egy boolean mátrix formájában, ahol a mátrix egyes elemei a tábla egyes mezői. A kép mezőkre darabolását a CropImages privát függvény végzi, amely a kalibráció során meghatározott sarokpontok alapján darabolja fel a képet: a kapott képek a mezők bal felső és jobb alsó pontjai által meghatározott téglalapon belüli részek.
 
-A kapott képekről a FindGreen függvény dönti el, hogy található-e rajtuk jelentősebb kiterjedésű zöld szín. A zöld színre szűrést RGB színtartományban vizsgálja a program (HSV színskálába transzformálással a szűrés még finomítható és kevésbé lesz érzékeny a különböző fényviszonyokra is). Az egyes képek minden pixele esetén kiszámol a program egy értéket a következő képlet alapján:
+A kapott képekről a FindGreen függvény dönti el, hogy található-e rajtuk jelentősebb kiterjedésű zöld szín. A zöld színre szűrést RGB színtartományban vizsgálja a program (HSV színskálába transzformálással a szűrés még finomítható és kevésbé lesz érzékeny a különböző fényviszonyokra is). Az egyes képek minden pixele esetén kiszámol a program egy értéket a következő képlet alapján:\footnotetext{A felső kép forrása:\\ \url{http://stadatum.blogspot.com/2016/05/corner-identification-in-computer.html}, 2018.11.05.}
 \[value = greenComponent - \dfrac{redComponent}{2}  - \dfrac{blueComponent}{2}\]
 Ha ez a `\angol{value}' érték egy megadott határértéknél nagyobb (jelenleg 40 egy 0-tól 255-ig terjedő skálán), akkor a pixel színét a szűrő algoritmus fehérre állítja, ellenkező esetben feketére. Utolsó lépésként a szűrő algoritmus minden mezőre külön-külön kiszámítja a fehér és a fekete pixelek számának az arányát. Ha ez az érték 10\%-nál nagyobb egy mező esetén, akkor ott található bábu, azaz a hozzá tartozó boolean mátrix elem \angol{true} értékű lesz. A visszaadott mátrixot a sakkprogram kapja majd meg, ami ez alapján és az előző állás alapján dönti el, hogy mi volt a lépés.
 
@@ -93,10 +93,10 @@ Ha ez a `\angol{value}' érték egy megadott határértéknél nagyobb (jelenleg
 
 
 \subsection{QR-kód alapú képfeldolgozás - továbbfejlesztési irány} \label{qrsection}
-Ahhoz, hogy sakkjátékot tetszőleges állapotból lehessen kezdeni, illetve folytatni szükség van a bábuk helyének felismerésén túl azok típusának egyértelmű felismerésére. Erre alkamas megoldás lehet a bábuk tetejére helyzett QR-kód, amelyben kódolva van a bábu típusa. A QR-kódok kezelésére jó választás a nyílt forráskódú ZXing (``\angol{Zebra Crossing}'') program\footnote{További információk és forráskód: https://github.com/zxing/zxing}. Ez a Java könyvtár (\angol{library}) alkamas különböző formátumú, egy- és kétdimenziós vonalkódokkal kapcsolatos képfeldolgozásra, amelynek csak egyik eleme a QR-kód olvasás és generálás.
+Ahhoz, hogy sakkjátékot tetszőleges állapotból lehessen kezdeni, illetve folytatni szükség van a bábuk helyének felismerésén túl azok típusának egyértelmű felismerésére. Erre alkamas megoldás lehet a bábuk tetejére helyzett QR-kód, amelyben kódolva van a bábu típusa. A QR-kódok kezelésére jó választás a nyílt forráskódú ZXing (``\angol{Zebra Crossing}'') program\footnote{További információk és forráskód: \url{https://github.com/zxing/zxing}, 2018.10.02.}. Ez a Java könyvtár (\angol{library}) alkamas különböző formátumú, egy- és kétdimenziós vonalkódokkal kapcsolatos képfeldolgozásra, amelynek csak egyik eleme a QR-kód olvasás és generálás.
 
 \subsubsection{A forráskód build-je}
-A könyvtár egyszerű használatához célszerű .jar fájlokat generálni a forráskódból. Az első lépés a Github-on elérhető forráskód letöltése vagy klónozása a saját számítógépre. A programkód számos mappába és almappába van rendszerezve az egyes moduloknak megfelelően (pl.: core/ és javase/). \textbf{Fontos:} a mapparendszert olyan helyre tegyük a számítógépen, melynek elérési útjában nem található szóköz karakter (ékezetes karakter is probléma lehet)! Minden Java alapú modul esetén található egy pom.xml fájl, amit Apache Maven\footnote{Az Apache Maven program ingyenesen letölthető: https://maven.apache.org/} segítségével lehet használni.
+A könyvtár egyszerű használatához célszerű .jar fájlokat generálni a forráskódból. Az első lépés a Github-on elérhető forráskód letöltése vagy klónozása a saját számítógépre. A programkód számos mappába és almappába van rendszerezve az egyes moduloknak megfelelően (pl.: core/ és javase/). \textbf{Fontos:} a mapparendszert olyan helyre tegyük a számítógépen, melynek elérési útjában nem található szóköz karakter (ékezetes karakter is probléma lehet)! Minden Java alapú modul esetén található egy pom.xml fájl, amit Apache Maven\footnote{Az Apache Maven program ingyenesen letölthető: \url{https://maven.apache.org/}, 2018.10.02.} segítségével lehet használni.
 
 Szükségünk van megfelelő java verzió telepítésére. A JRE (\angol{Java Runtime Environment}) helyett a JDK (\angol{Java Developement Kit}) valamelyik verzióját (a projekt jdk 10.0.2 verziót használ) érdemes telepíteni, ha fejlesztői funkciókat is igénybe szeretnénk venni (a JRE csomagot ez már tartalmazza). Az Apache Maven telepítése után szükségünk van az ehhez és a JDK-hoz tartozó környezeti változók beállítására. Ezt a Vezérlőpult->Rendszer->Speciális rendszerbeállítások->Környezeti változók...->Rendszerváltozók címszó alatt tehetjük meg. Szükségünk van egy `JAVA\_HOME' és egy `M2\_HOME' változóra (\ref{fig:envvar}. ábra).
 
@@ -119,7 +119,7 @@ Parancssorban navigáljunk a ZXing projekt gyökeréhez és futtassuk a `mvn ins
 A lefordított .jar fájlokat ezt követően az egyes modulokon belül találjuk. Például a lefordított \textit{core/} kód helye a \textit{core/target/core-x.y.z.jar}. Ezeket lehet beimportálni a képfeldolgozást megvalósító projektbe.
 
 \subsubsection{ZXing könyvtár beimportálása és használata}
-Az iiwa robotkart programozni Sunrise Workbench használatával a legegyszerűbb, ami egy JAVA Eclipse platformú szoftver. Emiatt praktikus okokból a szakdolgozat képfeldolgozási és sakkalgoritmus beágyazási része túlnyomó részt Eclipse-ben történt (verzió: 4.9.0)\footnote{Link: https://www.eclipse.org/}.
+Az iiwa robotkart programozni Sunrise Workbench használatával a legegyszerűbb, ami egy JAVA Eclipse platformú szoftver. Emiatt praktikus okokból a szakdolgozat képfeldolgozási és sakkalgoritmus beágyazási része túlnyomó részt Eclipse-ben történt (verzió: 4.9.0)\footnote{Link: \url{https://www.eclipse.org/}, 2018.09.10.}.
 
 A könyvtár beimportálásához létrehoztam egy java projektet. Erre jobb egérgombbal kattintva elnavigáltam a `\angol{Configure Build Path...}' menüponthoz (\ref{fig:zxingimport}. ábra). A `\angol{Classpath}'-t kiválasztva jobb oldalt aktivizálódik az `\angol{Add External Jars...}' gomb. Kiválasztottam a \textit{core/} és a \textit{javase/} modulok .jar fájljait. Ezeken belül lehetőség van forráskód (\angol{Source attachment}) és dokumentáció (\angol{Javadoc location}) csatolására (\ref{fig:zxingimport}. ábra). `\angol{Apply and Close}' után megjelennek a csomagok a hivatkozott könyvtárak (\angol{Referenced libraries}) pont alatt.
 
@@ -132,7 +132,7 @@ A könyvtár beimportálásához létrehoztam egy java projektet. Erre jobb egé
 \end{figure}
 
 \subsubsection{QR kód generálás és olvasás}
-A ZXing könyvtárt felhasználó, ehhez a projekthez szükséges elemek az `imgprocess' csomagban találhatóak a `QRCodeMethods.java' fájlban. A függvények leírása  \aref{tab:qrcodemethods} táblázatban találhatóak\footnote{Forráskód: https://github.com/rolandvarga601/Szakdolgozat}. 
+A ZXing könyvtárt felhasználó, ehhez a projekthez szükséges elemek az `imgprocess' csomagban találhatóak a `QRCodeMethods.java' fájlban. A függvények leírása  \aref{tab:qrcodemethods} táblázatban találhatóak\footnote{Forráskód: \url{https://github.com/rolandvarga601/Szakdolgozat}}. 
 
 \begin{table}[h]
 \centering

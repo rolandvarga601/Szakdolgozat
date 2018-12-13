@@ -1,7 +1,30 @@
 \documentclass[../documentation.tex]{subfiles}
  
 \begin{document}
-\section{Összefoglalás}
-asdfasdfas asdf asdf asdf asdf sa sdafff
+\section{Összefoglalás} \label{sec:osszefoglalas}
+A szakdolgozat keretében megvalósított projekt célja egy emberrel kollaboratív munkavégzésre képes robottal bemutató alkalmazás készítése. Ez az alkalmazás egy sakkozó program, amelyet a robotvezérlőn futtatva lehetőség nyílik a robotkar ellen egy sakkjátszma lejátszására.
+
+A projekthez egy KUKA gyártmányú LBR iiwa 7 robotkar és egy KRC4 (\angol{KUKA Robot Controller} 4) robotvezérlő került felhasználásra.
+
+A bábukat a robotkarra erősített, elektromos megfogó\cite{grippermanual} ragadja meg. A megfogót vezérlő egységet a megfogóhoz gyártották\cite{grippermanual}. Ahhoz hogy a robotkontroller tudjon utasításokat adni a megfogó vezérlőjének, szükség volt EtherCAT-en kommunikáló, digitális (a továbbfejlesztéshez analóg is) bemeneti és kimeneti modulokra.
+
+A robotprogram az ember egyes lépéseit képfeldolgozási eljárásokkal határozza meg. A képek készítéséhez egy HD felbontású webkamera lett a robotvezérlőhöz csatlakoztatva USB porton keresztül (külön illesztőszoftver \angol{offline} telepítésére szükség volt). A kamera a robotkarra, a megfogó oldalára lett rögzítve, így a robotkarral együtt mozog.
+
+A képfeldolgozási eljárás kalibrálásához szükség van a tábla cellaméreteivel rendelkező, viszont nem 8x8-as, hanem 10x9-es sakkmintás kalibrálótáblára. Az erről felvett kép alapján tudja meghatározni a program, hogy később a sakktábláról készült képeken melyik mezőt (és bábut) hol keresse. A képfeldolgozó rész és a kibővített sakkprogram együttesen vissza tudja adni a fehér bábuk (amivel az ember játszik) lépéseit.
+
+A projekthez felhasznált sakkprogram alapját egy már kész, felhasználói felülettel rendelkező program adta. Ebből kerültek a projekthez szükséges elemek kiemelésre. További kiegészítő funkciókra volt szükség ahhoz, hogy a képfeldolgozó modul által szolgáltatott információkat (fehér bábuk helyzete) fel tudja dolgozni. A megtett lépésekre különféle algoritmusok alapján képes válaszlépést meghatározni.
+
+A robotkar a sakkprogrammal generált lépéseket képes végrehajtani, viszont az olyan mozdulatokra még nincs beprogramozva, mint ellenfél egy bábujának leütése, sánc vagy en passant. Minden lépése után képfelvételi pozícióba áll, és amikor az ember visszajelzett számára, hogy lépett, akkor készít a program képet a jelenlegi állásról, majd ezt dolgozza fel.
+
+A programon futó folyamat ciklikus, lépései:
+\begin{enumerate}
+	\item kép készítése az állásról
+	\item kép feldolgozása, az ember által tett lépés meghatározása
+	\item válaszlépés generálása
+	\item a robotkarral (és a megfogóval) a válaszlépés végrehajtása
+	\item a robotkarral a képkészítési pozíció felvétele
+\end{enumerate}
+
+Mindent összevetve a robotprogram jelenlegi állásában képes arra, hogy az emberrel együttműködve néhány sakklépésre válaszlépést határozzon meg, és azokat végre is hajtsa. Kisebb továbbfejlesztéssel akár egy teljes mérkőzést is le lehet majd játszani. A főbb modulok részletes értékelései \aref{sec:results}. fejezetben találhatóak.
 
 \end{document}
