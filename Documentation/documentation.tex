@@ -36,7 +36,7 @@
 \end{center}
 %--Címoldal-----------------------------------------------
 %\newpage\null\thispagestyle{empty}
-\newpage\thispagestyle{empty}
+\newpage\thispagestyle{plain}
 \begin{titlepage} %environment for unique titlepage design
 \centering
 \resizebox{4.5cm}{!}{
@@ -69,14 +69,13 @@ Konzulens: & Témavezető: \\
 \newpage\null\thispagestyle{empty}
 \newpage\pagestyle{empty}
 \addtocontents{toc}{\protect\thispagestyle{empty}}
+\pagenumbering{arabic}
+\setcounter{page}{1}
 \tableofcontents
 
-\pagenumbering{arabic}
-
 %--Előszó-------------------------------------------------
-\newpage
-\thispagestyle{plain}
-\setcounter{page}{1}
+\clearpage
+\thispagestyle{empty}
 \subfile{sections/prolog}
 %--Jelölések jegyzéke-------------------------------------
 %\newpage\null\thispagestyle{empty}
@@ -91,7 +90,7 @@ Konzulens: & Témavezető: \\
 
 %--Köszönetnyílvánítás----------------------------------------------
 \cleardoublepage
-\thispagestyle{plain}
+\thispagestyle{empty}
 \subfile{sections/acknowledgement}
 
 %--Bevezetés----------------------------------------------
@@ -137,13 +136,14 @@ Konzulens: & Témavezető: \\
 %---------------------------------------------------------
 
 %--Angol összefoglalás------------------------------------
-\clearpage \thispagestyle{empty}
+\clearpage \pagestyle{empty}
 \addcontentsline{toc}{section}{Abstract}
 \subfile{sections/summary-en}
 %---------------------------------------------------------
 
 %--Források-----------------------------------------------
 \newpage
+\pagestyle{fancy}
 \addcontentsline{toc}{section}{Hivatkozások}
 \bibliographystyle{unsrt}
 %\bibliographystyle{acm}
