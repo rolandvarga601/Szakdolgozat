@@ -206,7 +206,7 @@
             <SoftwareItem autoSelected="true" canChangeSelection="true" displayName="Notepad++ Portable" installItem="true" installedVersion="1.5" itemPath="com.kuka/Notepad" selectedVersion="1.5" usage="Feature">
                 <Interface id="com.kuka/Notepad/Notepad" version="0.1.0"/>
             </SoftwareItem>
-            <SoftwareItem autoSelected="true" canChangeSelection="true" displayName="Office Support" installItem="false" installedVersion="NONE" itemPath="com.kuka/OfficeSupport" selectedVersion="NONE" usage="Feature"/>
+            <SoftwareItem autoSelected="false" canChangeSelection="true" displayName="Office Support" installItem="false" installedVersion="NONE" itemPath="com.kuka/OfficeSupport" selectedVersion="NONE" usage="Feature"/>
             <SoftwareItem autoSelected="true" canChangeSelection="true" displayName="PDS-Firmware Update" installItem="true" installedVersion="1" itemPath="com.kuka/PdsFirmwareUpdate" selectedVersion="1" usage="Feature">
                 <Interface id="com.kuka/PdsFirmwareUpdate/PdsFirmwareUpdate" version="0.1.0"/>
             </SoftwareItem>
@@ -328,7 +328,9 @@
             <SoftwareItem autoSelected="true" canChangeSelection="true" displayName="Sunrise-Safety" installItem="true" installedVersion="1" itemPath="com.kuka/SunriseSafety" selectedVersion="1" usage="Feature">
                 <Interface id="com.kuka/Safety/SunriseSafetyAxisAngleDeliverer" version="0.1.0"/>
             </SoftwareItem>
-            <SoftwareItem autoSelected="true" canChangeSelection="true" displayName="Sunrise SafetyMock (Office Mode)" installItem="true" installedVersion="NONE" itemPath="com.kuka/SunriseSafetyMock_Office" selectedVersion="NONE" usage="Library"/>
+            <SoftwareItem autoSelected="true" canChangeSelection="true" displayName="Sunrise SafetyMock (Office Mode)" installItem="true" installedVersion="NONE" itemPath="com.kuka/SunriseSafetyMock_Office" selectedVersion="NONE" usage="Library">
+                <Interface id="com.kuka/SunriseSafetyMock_Office/SunriseSafetyMock" version="0.1.0"/>
+            </SoftwareItem>
             <SoftwareItem autoSelected="true" canChangeSelection="true" displayName="SystemManager" installItem="true" installedVersion="1" itemPath="com.kuka/SystemManager" selectedVersion="1" usage="Library">
                 <Interface id="com.kuka/SystemManager/SystemManager" version="0.8.4"/>
             </SoftwareItem>

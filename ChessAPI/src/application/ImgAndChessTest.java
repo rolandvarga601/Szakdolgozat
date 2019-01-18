@@ -75,7 +75,8 @@ public class ImgAndChessTest extends RoboticsAPIApplication {
 	
 	private boolean[][] whitePiecesAtBefore;
 	private boolean[][] whitePiecesAtAfter;
-
+	
+	@Override
 	public void initialize() {
 		kuka_Sunrise_Cabinet_1 = getController("KUKA_Sunrise_Cabinet_1");
 //		gripper = new GripperControlIOGroup(kuka_Sunrise_Cabinet_1);
@@ -147,6 +148,7 @@ public class ImgAndChessTest extends RoboticsAPIApplication {
 			}
 		}
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+		System.out.println("Loaded OpenCV test..");
 		
 //		String libraryPath = "C:\\images\\";
 //		String fileName = "";
@@ -161,7 +163,8 @@ public class ImgAndChessTest extends RoboticsAPIApplication {
 //		FindCorners cornerFinder = new FindCorners(img, horizontalCorners, verticalCorners);
 //		double[][] pointCoordinates = cornerFinder.GetPointCoordinates();
 	}
-
+	
+	@Override
 	public void run() {		
 //		getLogger().info("Show modal dialog and wait for user to confirm");
 //        int isCancel = getApplicationUI().displayModalDialog(ApplicationDialogType.QUESTION, informationText, "OK", "Cancel");
@@ -169,6 +172,10 @@ public class ImgAndChessTest extends RoboticsAPIApplication {
 //        {
 //            return;
 //        }
+		
+		Mat mat = new Mat();
+		System.out.println("Is mat empty:: " + mat.empty());
+		
 		ChessGame cg = new ChessGame();
         gripperTCP.move(ptp(getApplicationData().getFrame("/chessbase/cameraPosition")));
 		CameraHandler cam = new CameraHandler(0);
@@ -222,6 +229,12 @@ public class ImgAndChessTest extends RoboticsAPIApplication {
 		} catch (IOException e) {
 		}
 		cam.CloseCamera();
+	}
+	
+	@Override
+	public void dispose() {
+		// This part will still run in case of error
+		
 	}
 	
 	private void TestChess() {

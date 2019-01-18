@@ -86,11 +86,11 @@ public class Move implements Constants, Serializable{
 			  if (WhitePiecesAfter[i][j] != WhitePiecesBefore[i][j]) {
 				  differences++;
 				  if (WhitePiecesBefore[i][j]) {
-					  before_x = j;
-					  before_y = i;
+					  before_x = i;
+					  before_y = j;
 				  } else {
-					  after_x = j;
-					  after_y = i;
+					  after_x = i;
+					  after_y = j;
 				  }
 			  }
 		  }

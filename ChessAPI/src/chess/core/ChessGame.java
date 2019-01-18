@@ -181,15 +181,17 @@ public class ChessGame implements Constants, Serializable {
    * @param current move
    */
   public boolean checkIfLegalMove(Move move) {
-	  Vector legalMoves = algorithm.getRealAll(new Coord(5, 1));
+	  Vector legalMoves = algorithm.getRealAll(new Coord(move.x1, move.y1));
 	  boolean legal = false;
-	  for (int i = 0; i < legalMoves.size(); i++) {
+	  int legalMovesCounter = 0;
+	  if (legalMoves != null)
+		  legalMovesCounter = legalMoves.size();
+	  for (int i = 0; i < legalMovesCounter; i++) {
 		  if (legalMoves.elementAt(i).toString().equals(move.toString())) {
 			  legal = true;
 			  break;
 		  }
 	  }
-	  System.out.println("legal: \t\t\t\t\t\t" + (legal? "na azért!":"a faszt!"));
 	  return legal;
   }
   
@@ -248,7 +250,7 @@ public class ChessGame implements Constants, Serializable {
     lastMove = m; // Save this move as the lastMove
     
     swTurn(); // Switch player turns
-    
+    this.algorithm.setBoard(board);
   }
   
   /**

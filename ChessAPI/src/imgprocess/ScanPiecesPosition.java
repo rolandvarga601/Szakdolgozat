@@ -28,7 +28,10 @@ public class ScanPiecesPosition {
 	
 	
 	public ScanPiecesPosition(BufferedImage calibrationImage, int horizontalCorners, int verticalCorners) {
+		// Loading the OpenCV library
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+		System.out.println("Loaded OpenCV dll");
+		
 		this.HorizontalCorners = horizontalCorners;
 		this.VerticalCorners = verticalCorners;
 		FindCorners cornerFinder = new FindCorners(calibrationImage, horizontalCorners, verticalCorners);
@@ -73,7 +76,7 @@ public class ScanPiecesPosition {
 		boolean[][] greenMap = new boolean[8][8];
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
-				BufferedImage img = images[i][j];
+				BufferedImage img = images[j][7-i];
 				int black = 0;
 				int white = 0;
 				for (int k = 0; k < img.getHeight(); k++) {
@@ -98,7 +101,7 @@ public class ScanPiecesPosition {
 				} else {
 					greenMap[i][j] = false;
 				}
-				writeFile(img, i, j);
+				writeFile(img, j, 7-i);
 			}
 		}
 		return greenMap;
@@ -132,7 +135,7 @@ public class ScanPiecesPosition {
 						cornersCoords[i*HorizontalCorners+j][0]);
 				h = (int) Math.ceil(cornersCoords[(i+1)*HorizontalCorners+j+1][1] - 
 						cornersCoords[i*HorizontalCorners+j][1]);
-				System.out.println(i + "." + j + ". coordinates: " + x + "x" + y + "\t" + w + ", " + h);
+//				System.out.println(i + "." + j + ". coordinates: " + x + "x" + y + "\t" + w + ", " + h);
 				returnPics[i][j] = img2crop.getSubimage(x, y, w, h);
 				// System.out.println(returnPics[i][j].getHeight() + "\t" + returnPics[i][j].getWidth());
 				writeFile(returnPics[i][j], i, j);

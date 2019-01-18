@@ -63,7 +63,7 @@ public class FindCorners {
 		{
 			pointCoords[i][0] = imageCorners.get(i, 0)[0];
 			pointCoords[i][1] = imageCorners.get(i, 0)[1];
-			System.out.println("Point" + i + ": " + pointCoords[i][0] + "x" + pointCoords[i][1]);
+//			System.out.println("Point" + i + ": " + pointCoords[i][0] + "x" + pointCoords[i][1]);
 		}
 		return pointCoords;
 	}
