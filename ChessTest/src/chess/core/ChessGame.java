@@ -181,9 +181,10 @@ public class ChessGame implements Constants, Serializable {
    * @param current move
    */
   public boolean checkIfLegalMove(Move move) {
-	  var legalMoves = algorithm.getRealAll(new Coord(5, 1));
+	  var legalMoves = algorithm.getRealAll(new Coord(move.x1, move.y1));
 	  boolean legal = false;
 	  for (int i = 0; i < legalMoves.size(); i++) {
+		  System.out.println(legalMoves.elementAt(i).toString());
 		  if (legalMoves.elementAt(i).toString().equals(move.toString())) {
 			  legal = true;
 			  break;
